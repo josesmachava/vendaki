@@ -25,7 +25,7 @@ SECRET_KEY = 'o8s*r3ikgpg5!_0hhn(3&mmxd1_o_htb+2%+u@&c-4-l9n#0c6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -54,7 +54,7 @@ ROOT_URLCONF = 'price.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["price/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

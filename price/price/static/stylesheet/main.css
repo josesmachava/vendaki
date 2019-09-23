@@ -1,0 +1,28 @@
+body{
+    background-color: whitesmoke;
+}
+
+
+.header{
+    height: 50px;
+    background-color: white;
+}
+.logo{
+    background-color: whitesmoke;
+    height: 200px;
+    width: 190px;
+    border: 1px solid white;
+
+}
+.logo img{
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: gray;
+    filter: grayscale(100%);
+}
+ul{
+    list-style: none;
+}
+ul li{
+    display: inline;
+    list-style: none;
+}

@@ -1,5 +1,5 @@
 body{
-    background-color: whitesmoke;
+    background-color:#fafafb;
 }
 
 
@@ -9,8 +9,10 @@ body{
 }
 .header ul{
     list-style: none;
+    margin-top: 20px;
 }
 .header ul li{
+    margin: 10px;
     display: inline;
     list-style: none;
 }
@@ -36,4 +38,24 @@ nav ul{
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: gray;
     filter: grayscale(100%);
+}
+.sigin{
+    background-color: white;
+    width: 500px;
+    height: auto;
+    padding: 29px;
+
+}
+.sigin h1{
+    text-align: center;
+}
+.sigin a{
+    display: block;
+    text-align: center;
+
+}
+.sigin button{
+    display: block;
+    margin: auto;
+    width: 185px;
 }

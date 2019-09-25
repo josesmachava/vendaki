@@ -1,0 +1,75 @@
+{% extends "price/layout/base.html" %}
+{% load staticfiles %}
+
+{% comment %}
+
+{% endcomment %}
+{% load staticfiles %}
+
+{# overide the tile of the page #}
+{% block title %}
+<title>Price</title>
+{% endblock %}
+
+{% block styles %}
+{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+<meta charset="utf-8">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible", content="IE=edge">
+<meta name="viewport", content="width=device-width, initial-scale=1">
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+{% endblock %}
+
+
+{% block scripts %}
+{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+{% endblock %}
+
+
+{% block content %}
+
+<main>
+
+
+
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+
+
+                <div class="sigin">
+                <form>
+                    <h1 class="">Logo</h1>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+
+                <a href="#">Esqueceu a senha?</a>
+                <button type="submit" class="btn btn-primary">Entar</button>
+                <a href="#">ou criar conta</a>
+
+                </form>
+                </div>
+
+        </div>
+
+    </div>
+    <form>
+
+   </main>
+
+
+{% endblock %}
+
+
+
+
+

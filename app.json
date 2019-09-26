@@ -1,0 +1,28 @@
+{
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "test mpesa"
+      }
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "env": {
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "name": "xindiri",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}

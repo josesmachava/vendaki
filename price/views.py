@@ -9,6 +9,6 @@ def index(request):
 
 
 def dashboard(request):
-    return render(request, 'index.html')
+    return render(request, 'dashboard.html')
 
 

@@ -1,1 +1,1 @@
-web: gunicorn xpay.wsgi --log-file -
+web: gunicorn price.wsgi --log-file -

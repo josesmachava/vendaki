@@ -16,3 +16,11 @@ def painel( request):
 
 def productos( request):
     return render(request, "dashboard/productos.html")
+
+
+def empresas( request):
+    return render(request, "dashboard/empresas.html")
+
+def editar_empresas( request):
+    return render(request, "dashboard/editar_empresa.html")
+

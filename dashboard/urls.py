@@ -19,7 +19,9 @@ from . import views
 
 urlpatterns = [
    path("", views.index, name="index"),
-   path("painel/", views.painel, name="painel"),
+   path("painel/", views.painel, name="painel"), 
    path("productos/", views.productos, name="productos"),
+   path("empresas/", views.empresas, name="empresas"),
+   path("editar_empresas/", views.editar_empresas, name="editar_empresas"),
    
 ]

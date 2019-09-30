@@ -1,4 +1,4 @@
-{% extends "price/layout/base.html" %}
+{% extends "dashboard/mainDashboard.html" %}
 {% load staticfiles %}
 
 {% comment %}
@@ -14,15 +14,6 @@
 {% block styles %}
 {#    only include css  files needed for thi page bootstap and other libs are add in base template #}
 
-<meta charset="utf-8">
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible", content="IE=edge">
-<meta name="viewport", content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="{% static 'stylesheet/main.css' %}">
-
-
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 {% endblock %}
 
 
@@ -32,28 +23,9 @@
 {% endblock %}
 
 
-{% block content %}
+{% block contentdashboard %}
 
-<main>
-    <div class="container-fluid">
-        <div class="row">
-           <div class="col-md-4">
-               <aside>
-
-               </aside>
-           </div> 
-           <div class="col-md-8">
-                
-
-
-           </div>
-
-        </div>
-
-    </div>>   
-</main>
-{% include "price/layout/footer.html" %}
-
+hhhhhh
 
 {% endblock %}
 

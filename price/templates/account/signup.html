@@ -43,27 +43,13 @@
             <div class="sigin">
                 <form>
                     <h1 class="">Logo</h1>
-                    <div class="form-group">
-                        <label for="name">Nome comercial</label>
-                        <input type="text" class="form-control" id="name" aria-describedby="namelHelp" placeholder="Nome">
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="phone">Numero de telefone</label>
-                        <input type="text" class="form-control" id="phone" aria-describedby="namelHelp" placeholder="Numero de telefone">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
-                    </div>
-                    <div class="form-group">
-                        <label for="address">Endereço</label>
-                        <input type="text" class="form-control" id="address" placeholder="Endereço">
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Registar Empresa</button>
-
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ next }}">
+                     {{ form }}
+            
+                    
+                     <button type="submit" class="btn btn-primary">Criar conta</button>
+                    <a href="#">ou iniciar sessao</a>
 
                 </form>
             </div>

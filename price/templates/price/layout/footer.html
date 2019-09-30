@@ -8,10 +8,8 @@
                 <ul>
                    
                     <li><a href=" {% url 'signin' %}" title="" >Entrar</a></li>
-
-                    <li><a href=" {% url 'signup_user' %}" title="" >Criar conta</a></li>
-
-                    <li><a href=" {% url 'signup_company' %}" title="" >Registar empresa</a></li>
+                    <li><a href=" {% url 'signup' %}" title="" >Criar conta</a></li>
+                    <li><a href=" {% url 'company' %}" title="" >Registar empresa</a></li>
                    
                 </ul>
 
@@ -19,9 +17,10 @@
 
             <div class="col-md-4">
                 <ul>
-                    <li>Segurança</li>
-                    <li>    Políticas e privacidade</li>
-                        <li>Termos e condições</li>
+                    <li><a href=" {% url 'security' %}" title="" >Segurança</a></li>
+                    <li><a href=" {% url 'policies' %}" title="" >Políticas e privacidade</a></li>
+                    <li><a href=" {% url 'terms' %}" title="" >Termos e condições</a></li>
+            
                 </ul>
 
             </div>

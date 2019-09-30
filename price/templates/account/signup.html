@@ -5,6 +5,8 @@
 
 {% endcomment %}
 {% load staticfiles %}
+{% load crispy_forms_tags %}
+
 
 {# overide the tile of the page #}
 {% block title %}
@@ -45,10 +47,23 @@
                     <h1 class="">Logo</h1>
                     {% csrf_token %}
                     <input type="hidden" name="next" value="{{ next }}">
-                     {{ form }}
+                
+                    {{ form.name|as_crispy_field }}
+                    {{ form.phone_number|as_crispy_field }}    
+                    {{ form.email|as_crispy_field }} 
+                    <div class="row">
+                            <div class="col-6">
+                              {{ form.password1|as_crispy_field }}
+                            </div>
+                            <div class="col-6">
+                              {{ form.password2|as_crispy_field }}
+                            </div>
+                          </div>
+                          
             
                     
                      <button type="submit" class="btn btn-primary">Criar conta</button>
+
                     <a href="#">ou iniciar sessao</a>
 
                 </form>

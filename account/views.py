@@ -28,7 +28,7 @@ def signin(request):
 
 def signup(request):
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
+        form = ProfileForm(request.POST)
         if form.is_valid():
             form.save()
             email = form.cleaned_data.get('email')
@@ -39,7 +39,7 @@ def signup(request):
                 return redirect('index')
 
     else:
-        form = SignUpForm()
+        form = ProfileForm()
     return render(request, 'account/signup.html', {'form': form})
 
 

@@ -1,5 +1,7 @@
 body{
     background-color:#fafafb;
+
+    font-size:15px!important;
 }
 
 
@@ -95,3 +97,25 @@ footer ul{
 footer p{
     text-align: center;
 }
+
+
+
+/* DashBoard */
+.fa-twitter{
+color: #1DA1F2;
+}
+.fa-facebook-f{
+ color:#3C5A99;
+}
+.fa-instagram{
+ color:#833AB4;
+}
+.link-side{   
+    color: #007bff!important;
+}
+
+.link-side > i{
+    padding-right: 10px;
+    color: #3C5A99!important;
+}
+

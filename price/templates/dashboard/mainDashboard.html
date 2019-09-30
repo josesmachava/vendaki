@@ -24,6 +24,7 @@
 
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
 {% endblock %}
 
 
@@ -45,7 +46,7 @@
             <div class="col-md-4">
                 <ul>
                     <i class="far fa-envelope"></i> <li>info@preco.co.mz</li>
-                    <i class="fas fa-phone-alt"></i> <li>+258849395994</li>
+                    <i class="fas fa-mobile-alt"></i><li>+258849395994</li>
                 </ul>
 
             </div>
@@ -65,25 +66,25 @@
 
 {% include "price/layout/navegation.html" %}
 
-
+<div>
     <div class="container">
         <div class="row">
         
 
             
 
-                <div class="col-md-4">
+                <div class="col-md-3">
                     
                       <div class="wrapper-menu">
                         
 
                             <ul class="nav flex-column flex-nowrap">
-                                <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-laptop icon-menu"></i>Computer</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-couch icon-menu"></i>Furniture</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-shopping-basket icon-menu"></i>Grocery & Gourmet</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-heartbeat icon-menu"></i>Health & Beauty</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-tachometer-alt icon-menu"></i>Home Improvement</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-gem icon-menu"></i>Jewerly & Watches</a></li>
+                                <li class="nav-item"><a class="nav-link link-side" href="#"><i class="fas fa-laptop icon-menu"></i>Computer</a></li>
+                                <li class="nav-item"><a class="nav-link link-side" href="#"><i class="fas fa-couch icon-menu"></i>Furniture</a></li>
+                                <li class="nav-item"><a class="nav-link link-side" href="#"><i class="fas fa-shopping-basket icon-menu"></i>Grocery & Gourmet</a></li>
+                                <li class="nav-item"><a class="nav-link link-side" href="#"><i class="fas fa-heartbeat icon-menu"></i>Health & Beauty</a></li>
+                                <li class="nav-item"><a class="nav-link link-side" href="#"><i class="fas fa-tachometer-alt icon-menu"></i>Home Improvement</a></li>
+                                <li class="nav-item"><a class="nav-link link-side" href="#"><i class="fas fa-gem icon-menu"></i>Jewerly & Watches</a></li>
                                    
                             </ul>
 
@@ -92,7 +93,7 @@
                       </div>
 
 
-                      <div class="col-md-8">
+                      <div class="col-md-9">
                           
                             {% block  contentdashboard %}
 
@@ -100,11 +101,11 @@
                           </div>
         </div>
 
-
+    </div>
     </div>
 </main>
 
-
+{% include "price/layout/footer.html" %}
 {% endblock %}
 
 

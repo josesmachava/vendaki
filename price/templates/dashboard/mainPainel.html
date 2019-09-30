@@ -66,25 +66,23 @@
 
 {% include "price/layout/navegation.html" %}
 
-<div>
-    <div class="container">
+
+<div class="container">
         <div class="row">
         
 
             
 
-                <div class="col-md-3">
+                <div class="col-md-2">
                     
                       <div class="wrapper-menu">
                         
 
                             <ul class="nav flex-column flex-nowrap">
-                                <li class="nav-item"><a class="nav-link link-side" href="#"><i class="fas fa-laptop icon-menu"></i>Computer</a></li>
-                                <li class="nav-item"><a class="nav-link link-side" href="#"><i class="fas fa-couch icon-menu"></i>Furniture</a></li>
-                                <li class="nav-item"><a class="nav-link link-side" href="#"><i class="fas fa-shopping-basket icon-menu"></i>Grocery & Gourmet</a></li>
-                                <li class="nav-item"><a class="nav-link link-side" href="#"><i class="fas fa-heartbeat icon-menu"></i>Health & Beauty</a></li>
-                                <li class="nav-item"><a class="nav-link link-side" href="#"><i class="fas fa-tachometer-alt icon-menu"></i>Home Improvement</a></li>
-                                <li class="nav-item"><a class="nav-link link-side" href="#"><i class="fas fa-gem icon-menu"></i>Jewerly & Watches</a></li>
+                                <li class="nav-item"><a class="nav-link link-side" href="#">Painel</a></li>
+                                <li class="nav-item"><a class="nav-link link-side" href="#">Products</a></li>
+                                <li class="nav-item"><a class="nav-link link-side" href="#">Companies</a></li>
+                                <li class="nav-item"><a class="nav-link link-side" href="#">Settings</a></li>
                                    
                             </ul>
 
@@ -93,15 +91,14 @@
                       </div>
 
 
-                      <div class="col-md-9">
+                      <div class="col-md-10">
                           
-                            {% block  contentdashboard %}
+                            {% block  contentpainel %}
 
-                       {%  endblock%}
+                             {%  endblock%}
                           </div>
         </div>
 
-    </div>
     </div>
 </main>
 <!-- 

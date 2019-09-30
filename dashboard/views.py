@@ -6,3 +6,9 @@ from django.shortcuts import render, redirect, HttpResponse
 
 def index( request):
     return render(request, "dashboard/index.html")
+
+
+
+
+def painel( request):
+    return render(request, "dashboard/painel.html")

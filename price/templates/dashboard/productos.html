@@ -1,0 +1,101 @@
+{% extends "dashboard/mainPainel.html" %}
+{% load staticfiles %}
+
+{% comment %}
+
+{% endcomment %}
+{% load staticfiles %}
+
+{# overide the tile of the page #}
+{% block title %}
+<title>Price</title>
+{% endblock %}
+
+{% block styles %}
+{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+{% endblock %}
+
+
+{% block scripts %}
+{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+{% endblock %}
+
+
+{% block contentpainel %}
+<div class="container">
+    <div class="row">
+       <div class="col-12">
+           <h5>Criar Productos</h5>
+       </div>
+    </div>
+
+    <div class="row">
+             <div class="col-12">
+        <form>
+            <div class="form-group">
+              <label for="nome">Nome</label>
+              <input type="text" class="form-control" id="nome">
+            </div>
+            
+            <div class="form-group">
+                <label for="nome">Descrição</label>
+                <textarea style="width: 100%; height: 100px;">
+
+                </textarea>
+              </div>
+
+
+              <div  class="row form-group">
+                <div class="col-6">
+                    <select class="custom-select" required>
+                        <option value="">Categoria</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                </div>
+
+                <div class="col-6">
+                    <select class="custom-select" required>
+                        <option value="">Empresa</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="preco">Preço</label>
+                <input type="text" class="form-control" id="preco"  style="width: 50%;">
+              </div>
+
+
+
+              <div class="form-group">
+                <select class="custom-select" required style="width: 50%;">
+                    <option value="">Tipo de desconto</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+              </div>
+
+              <div class="form-group">
+                <input type="file" class="form-control" value="Upload Image"  style="width: 50%;">
+              </div>
+
+
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </form>
+     </div>
+    </div>
+    
+</div>
+{% endblock %}
+
+
+
+
+

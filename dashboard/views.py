@@ -12,3 +12,7 @@ def index( request):
 
 def painel( request):
     return render(request, "dashboard/painel.html")
+
+
+def productos( request):
+    return render(request, "dashboard/productos.html")

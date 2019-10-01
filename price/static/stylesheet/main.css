@@ -1,6 +1,8 @@
+
+@import url('https://fonts.googleapis.com/css?family=Mada:400,500,600,700&display=swap');
 body{
     background-color:#fafafb;
-
+    color:#4b4f54!important;
     font-size:15px!important;
 }
 
@@ -133,12 +135,15 @@ color: #1DA1F2;
  color:#833AB4;
 }
 .link-side{   
-    color: #007bff!important;
+   color: #4b4f54!important;
 }
 
+.dash-link:hover{   
+    color: #3949ab!important;
+ }
 .link-side > i{
     padding-right: 10px;
-    color: #3C5A99!important;
+    color: #4b4f54!important;
 }
 
 
@@ -148,8 +153,13 @@ color: #1DA1F2;
 
 
 .box-statistic{
-    border: 2px solid #3b3e40;
     padding: 40px;
     text-align: center;
-    color: #0a0a0a;
+    color: #3949ab;
+    border-radius: 0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    margin-bottom: 0.5rem;
+}
+.painel-link:hover{ color: #3949ab!important;
+
 }

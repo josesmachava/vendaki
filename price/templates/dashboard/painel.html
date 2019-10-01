@@ -13,11 +13,50 @@
 
 {% block styles %}
 {#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+<style>
+.painels-link{
+    color: #fff!important;
+    background-color: #2962ff;
+
+}
+g>rect{
+    display: none;
+}
+</style>
 {% endblock %}
 
 
 {% block scripts %}
 {#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+<script type="text/javascript">
+    // Load google charts
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    
+    // Draw the chart and set the chart values
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+      ['Computer', 'Hours per Day'],
+      ['Furniture', 8],
+      ['Beauty', 2],
+      ['Gourmet', 4],
+    ]);
+    
+      // Optional; add a title and set the width and height of the chart
+      var options = { 'width':450, 'height':300};
+    
+      // Display the chart inside the <div> element with id="piechart"
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+      chart.draw(data, options);
+    }
+    </script>
+    
 
 {% endblock %}
 
@@ -50,7 +89,25 @@
                 </div>
             <p>Numero de Pedidos</p>
             </div>
-     </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-4">
+                <div id="piechart" style="margin-left: -100px;"></div>
+
+                <p>Numero de Vendas Por Producto</p>
+
+         </div>
+        <div class="col-sm-12 col-md-4">
+           ;l
+        </div>
+        
+        <div class="col-sm-12 col-md-4">
+            hhh
+           
+        </div>
+</div>
+
     
 </div>
 {% endblock %}

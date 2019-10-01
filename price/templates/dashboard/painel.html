@@ -13,13 +13,15 @@
 
 {% block styles %}
 {#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+<link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
 <style>
 .painels-link{
     color: #fff!important;
     background-color: #2962ff;
 
 }
-g>rect{
+.canvasjs-chart-credit{
     display: none;
 }
 </style>
@@ -31,6 +33,7 @@ g>rect{
 
 
 
+<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 
@@ -43,7 +46,7 @@ g>rect{
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
       ['Computer', 'Hours per Day'],
-      ['Furniture', 8],
+      ['Furniture', 8,],
       ['Beauty', 2],
       ['Gourmet', 4],
     ]);
@@ -57,6 +60,81 @@ g>rect{
     }
     </script>
     
+
+    <script>
+            window.onload = function () {
+            
+            var options = {
+                animationEnabled: true,
+                title: {
+                    text: ""
+                },
+                axisY: {
+                    title: "",
+                    suffix: "%",
+                    includeZero: false
+                },
+                axisX: {
+                    title: ""
+                },
+                data: [{
+                    type: "column",
+                    yValueFormatString: "#,##0.0#"%"",
+                    dataPoints: [
+                        { label: "Iraq", y: 10.09 },	
+                        { label: "Turks & Caicos Islands", y: 9.40 },	
+                        { label: "Nauru", y: 8.50 },
+                        { label: "Ethiopia", y: 7.96 },	
+                        { label: "Uzbekistan", y: 7.80 },
+                        { label: "Nepal", y: 7.56 },
+                        { label: "Iceland", y: 7.20 },
+                        { label: "India", y: 7.1 }
+                        
+                    ]
+                }]
+            };
+            $("#chartContainer").CanvasJSChart(options);
+            
+            }
+
+
+            
+
+            </script>
+
+
+<script>
+var chartData = {
+  labels: ["S", "M", "T", "W", "T", "F", "S"],
+  datasets: [{
+    data: [589, 445, 483, 503, 689, 692, 634],
+  },
+  {
+    data: [639, 465, 493, 478, 589, 632, 674],
+  }]
+};
+
+var chLine = document.getElementById("chLine");
+if (chLine) {
+  new Chart(chLine, {
+  type: 'line',
+  data: chartData,
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: false
+        }
+      }]
+    },
+    legend: {
+      display: false
+    }
+  }
+  });
+}
+
+</script>
 
 {% endblock %}
 
@@ -93,22 +171,33 @@ g>rect{
 
     <div class="row">
         <div class="col-sm-12 col-md-4">
-                <div id="piechart" style="margin-left: -100px;"></div>
+            <div id="piechart" style="margin-left: -100px;"></div>
 
-                <p>Numero de Vendas Por Producto</p>
+            <p>Numero de Vendas Por Producto</p>
 
          </div>
         <div class="col-sm-12 col-md-4">
-           ;l
+                        
+        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+        <p>Numero de Vendas Por Empresas</p>
         </div>
         
         <div class="col-sm-12 col-md-4">
-            hhh
            
+                            <canvas id="chLine"  style="height: 300px; width: 100%;"></canvas>
+
+                            <p>Numero de descontos Vendidos</p>
+                       
         </div>
 </div>
 
-    
+
+
+<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+   
+<script src="https://www.chartjs.org/dist/2.8.0/Chart.min.js"></script>
+
 </div>
 {% endblock %}
 

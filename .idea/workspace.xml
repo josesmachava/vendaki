@@ -3,10 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8eb40555-1f44-4ce1-953e-2dcf8c3d2a0f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/price/static/stylesheet/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/price/static/stylesheet/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/price/templates/dashboard/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/price/templates/dashboard/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/price/templates/dashboard/mainDashboard.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/price/templates/dashboard/mainPainel.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/price/templates/dashboard/product/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/price/templates/dashboard/product/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/price/templates/dashboard/product/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/price/templates/dashboard/product/list.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,8 +34,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -130,7 +132,7 @@
       <workItem from="1569946541555" duration="2299000" />
       <workItem from="1570433197813" duration="8645000" />
       <workItem from="1570465786112" duration="5162000" />
-      <workItem from="1570489514356" duration="1368000" />
+      <workItem from="1570489514356" duration="3240000" />
     </task>
     <servers />
   </component>

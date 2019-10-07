@@ -23,6 +23,8 @@
 
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'stylesheet/dashboard.css' %}">
+
 {% endblock %}
 
 
@@ -38,36 +40,30 @@
     <div class="container-fluid">
         <div class="row">
 
-            <div class="col-md-3">
-                <aside>
-                    <ul>
-                        <li>Painel</li>
-                        <li>Productos</li>
-                        <li>Encomendas</li>
-                        <li>Empresas</li>
-                        <li>Defenicoes</li>
-                    </ul>
-                </aside>
-            </div>
+                <div class="col-md-2 aside">
+                    {% include "dashboard/aside.html" %}
+
+                </div>
 
             <div class="col-md-8">
                 <section>
                     <table class="table table-borderless">
                         <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Preco</th>
+                            <th scope="col">Empresa</th>
+                            <th scope="col">Categoria</th>
                         </tr>
                         </thead>
                         <tbody>
 
                         {% for product in products %}
                         <tr>
-                            <th scope="row">{{ product.id }}</th>
-                            <td colspan="2">{{ product.name }}</td>
+                            <td colspan="1">{{ product.name }}</td>
                             <td>{{ product.price }}</td>
+                            <td>{{ product.company }}</td>
+                            <td>{{ product.category }}</td>
                         </tr>
                         {% endfor %}
                         </tbody>

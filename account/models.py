@@ -58,7 +58,7 @@ class User(AbstractUser):
 
 class Company(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    comercial_name = models.CharField(max_length=30, blank=True)
+    commercial_name = models.CharField(max_length=30, blank=True)
     phone_number = models.CharField(max_length=30, blank=True)
     address = models.TextField(max_length=30, blank=True)
     

@@ -7,11 +7,7 @@ body{
 }
 
 .menuBar{
-    height: 60px;
-   
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-   
-    color: #fff;
+
 }
 
 .header{
@@ -149,17 +145,3 @@ color: #1DA1F2;
 
 
 
-/* Painel */
-
-
-.box-statistic{
-    padding: 40px;
-    text-align: center;
-    color: #3949ab;
-    border-radius: 0;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
-    margin-bottom: 0.5rem;
-}
-.painel-link:hover{ color: #3949ab!important;
-
-}

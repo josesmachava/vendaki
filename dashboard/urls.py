@@ -20,8 +20,11 @@ from . import views
 urlpatterns = [
    path("", views.index, name="index"),
    path("painel/", views.painel, name="painel"), 
-   path("productos/", views.productos, name="productos"),
-   path("empresas/", views.empresas, name="empresas"),
+   path("companies/", views.companies, name="companies"),
+   path('product/create', views.ProductCreateView.as_view(),
+        name='product-create'),
+   path('product/list', views.ProductListView.as_view(),
+        name='product-list'),
    path("editar_empresas/", views.editar_empresas, name="editar_empresas"),
    
 ]

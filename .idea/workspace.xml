@@ -2,17 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8eb40555-1f44-4ce1-953e-2dcf8c3d2a0f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/price/templates/dashboard/product/create.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/price/static/stylesheet/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/price/static/stylesheet/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/price/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/price/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/price/templates/account/company.html" beforeDir="false" afterPath="$PROJECT_DIR$/price/templates/account/company.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/price/templates/dashboard/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/price/templates/dashboard/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/price/templates/dashboard/painel.html" beforeDir="false" afterPath="$PROJECT_DIR$/price/templates/dashboard/painel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/price/templates/price/layout/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/price/templates/price/layout/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/price/templates/price/layout/navegation.html" beforeDir="false" afterPath="$PROJECT_DIR$/price/templates/price/layout/navegation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/price/templates/dashboard/empresas.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/price/templates/dashboard/productos.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/django/contrib/gis/measure.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/django/contrib/gis/measure.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pycparser/ply/lex.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pycparser/ply/lex.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pycparser/ply/yacc.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.6/site-packages/pycparser/ply/yacc.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,8 +43,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -66,6 +72,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/price/templates/dashboard/products" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -127,7 +138,8 @@
       <workItem from="1569885493464" duration="6000" />
       <workItem from="1569937550339" duration="14000" />
       <workItem from="1569946541555" duration="2299000" />
-      <workItem from="1570433197813" duration="3601000" />
+      <workItem from="1570433197813" duration="8645000" />
+      <workItem from="1570465786112" duration="4468000" />
     </task>
     <servers />
   </component>
@@ -139,7 +151,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

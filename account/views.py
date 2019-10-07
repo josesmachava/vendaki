@@ -7,9 +7,8 @@ from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.views.generic import CreateView, UpdateView, DeleteView
-from .forms import *
-from price.views import index
-from .models import *
+from .forms import CompanyForm
+
 
 def signin(request):
     if request.method == 'POST':
@@ -26,28 +25,13 @@ def signin(request):
     return render(request, 'account/signin.html')
 
 
-def signup(request):
-    if request.method == 'POST':
-        form = ProfileForm(request.POST)
-        if form.is_valid():
-            form.save()
-            email = form.cleaned_data.get('email')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=email, password=raw_password)
-            if user is not None:
-                login(request, user)
-                return redirect('index')
-
-    else:
-        form = ProfileForm()
-    return render(request, 'account/signup.html', {'form': form})
-
-
 def company(request):
     if request.method == 'POST':
         form = CompanyForm(request.POST)
         if form.is_valid():
+            print("saved")
             form.save()
+            print("saved")
             email = form.cleaned_data.get('email')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=email, password=raw_password)
@@ -57,15 +41,10 @@ def company(request):
 
     else:
         form = CompanyForm()
-    return render(request, 'account/company.html', {'form': form})
-
-
-
-
-
+    return render(request, 'account/companies.html', {'form': form})
 
 
 @login_required()
 def logout_view(request):
     logout(request)
-    # Redirect to a succe    
+    # Redirect to a succe

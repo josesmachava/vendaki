@@ -13,8 +13,8 @@ class Products(models.Model):
     name = models.CharField(max_length=30, blank=True)
     category = models.CharField(max_length=30, blank=True)
     price = models.CharField(max_length=30, blank=True)
-    description = models.CharField(max_length=30, blank=True)
+    description = models.TextField(max_length=30, blank=True)
     company = models.CharField(max_length=30, blank=True)
-    descont = models.CharField(max_length=30, blank=True)
+    discount = models.CharField(max_length=30, blank=True)
 
 

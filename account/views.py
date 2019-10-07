@@ -25,6 +25,20 @@ def signin(request):
     return render(request, 'account/signin.html')
 
 
+def signup(request):
+    if request.method == 'POST':
+        email = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(username=email, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('index')
+        else:
+            messages.error(request, "E-mail e senha não correspodem.")
+    return render(request, 'account/signin.html')
+
 def company(request):
     if request.method == 'POST':
         form = CompanyForm(request.POST)

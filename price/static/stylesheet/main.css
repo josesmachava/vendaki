@@ -120,27 +120,6 @@ footer p{
 
 
 
-/* DashBoard */
-.fa-twitter{
-color: #1DA1F2;
-}
-.fa-facebook-f{
- color:#3C5A99;
-}
-.fa-instagram{
- color:#833AB4;
-}
-.link-side{   
-   color: #4b4f54!important;
-}
-
-.dash-link:hover{   
-    color: #3949ab!important;
- }
-.link-side > i{
-    padding-right: 10px;
-    color: #4b4f54!important;
-}
 
 
 

@@ -8,6 +8,11 @@ def index(request):
     return render(request, 'index.html', {'social_media': social_media})
 
 
+def products(request):
+    return render(request, 'products.html')
+
+
+
 
 def dashboard(request):
     return render(request, 'dashboard.html')

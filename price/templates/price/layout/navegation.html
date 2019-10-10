@@ -7,8 +7,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light" >
     <div class="container">
-        <a class="navbar-brand" href="{% url 'index'%}"><img src="http://dreamguys.co.in/demo/ventura/assets/img/logo.png" style="    max-height: 40px;
-            width: auto;">
+        <a href=""><h1>Preco</h1></a>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -21,8 +20,8 @@
         </div>
         <ul class="navbar-nav">
 
-            <button  class="btn btn-light" style="color: #3949ab;">Entrar</button>
-            <button  class="btn btn-primary">Criar conta</button>
+            <button  class="btn btn-light" style="color: #3949ab;"><a href=" {% url 'signin' %}" title="" >Entrar</a></button>
+            <button  class="btn btn-primary"><a href=" {% url 'signup' %}" title="" class="create-account" >Criar conta</a></button>
 
 
         </ul>

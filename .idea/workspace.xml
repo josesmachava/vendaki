@@ -4,8 +4,7 @@
     <list default="true" id="8eb40555-1f44-4ce1-953e-2dcf8c3d2a0f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/price/static/stylesheet/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/price/static/stylesheet/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/price/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/price/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/price/templates/price/layout/navegation.html" beforeDir="false" afterPath="$PROJECT_DIR$/price/templates/price/layout/navegation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/price/templates/products.html" beforeDir="false" afterPath="$PROJECT_DIR$/price/templates/products.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

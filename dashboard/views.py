@@ -17,6 +17,15 @@ def painel(request):
     return render(request, "dashboard/painel.html")
 
 
+def user(request):
+    return render(request, "dashboard/user.html")
+
+
+
+def order(request):
+    return render(request, "dashboard/order.html")
+
+
 class ProductListView(ListView):
     model = Products
     template_name = 'dashboard/product/list.html'

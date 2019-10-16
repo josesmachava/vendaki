@@ -1,7 +1,7 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect, HttpResponse
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 
 from .models import Products
 
@@ -47,7 +47,7 @@ class ProductListView(ListView):
 
 class UserListView(ListView):
     model = User
-    template_name = 'dashboard/user.html'
+    template_name = 'dashboard/user/list.html'
     context_object_name = 'users'
     paginate_by = 20
 
@@ -63,6 +63,46 @@ class UserListView(ListView):
         except EmptyPage:
             products = paginator.page(paginator.num_pages)
         context['users'] = users
+        return context
+
+
+class UserUpdateView(UpdateView):
+
+    model = User
+    template_name = 'dashboard/user/update.html'
+    context_object_name = 'user'
+    fields = "__all__"
+
+    def get_success_url(self):
+        return reverse_lazy('user-list', kwargs={'pk': self.object.id})
+
+
+
+class UserDeleteView(DeleteView):
+    model = User
+    template_name = 'dashboard/user/delete.html'
+    success_url = reverse_lazy('user-list')
+
+
+
+class CompanyListView(ListView):
+    model = Company
+    template_name = 'dashboard/companies.html'
+    context_object_name = 'companies'
+    paginate_by = 20
+
+    def get_context_data(self, **kwargs):
+        context = super(CompanyListView, self).get_context_data(**kwargs)
+        companies = self.get_queryset()
+        page = self.request.GET.get('page')
+        paginator = Paginator(companies, self.paginate_by)
+        try:
+            users = paginator.page(page)
+        except PageNotAnInteger:
+            users = paginator.page(1)
+        except EmptyPage:
+            products = paginator.page(paginator.num_pages)
+        context['companies'] = companies
         return context
 
 

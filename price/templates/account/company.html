@@ -34,20 +34,15 @@
 
 
         <div class="sigin">
-        <form class="alignElementCenter"   method="post">
+            <form action="company" method="post">
 
             {% csrf_token %}
             {{ form.commercial_name|as_crispy_field }}
             {{ form.phone_number|as_crispy_field }}
             {{ form.email|as_crispy_field }}
-            <div class="row">
-                <div class="col-6">
-                    {{ form.password1|as_crispy_field }}
-                </div>
-                <div class="col-6">
-                    {{ form.password2|as_crispy_field }}
-                </div>
-            </div>
+            {{ form.address|as_crispy_field }}
+
+
 
             {% for message in messages %}
             <p> {{ message }}</p>

@@ -40,23 +40,24 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'account/signup.html', {'form': form})
+
+
 def company(request):
     if request.method == 'POST':
         form = CompanyForm(request.POST)
-        if form.is_valid():
-            print("saved")
+        if form.is_valid() :
             form.save()
-            print("saved")
-            email = form.cleaned_data.get('email')
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=email, password=raw_password)
-            if user is not None:
-                login(request, user)
-                return redirect('index')
+            return redirect('index')
+
 
     else:
         form = CompanyForm()
-    return render(request, 'account/companies.html', {'form': form})
+    return render(request, 'account/company.html', {'form': form})
+
+
+
+def active_comapny(request):
+    return render()
 
 
 @login_required()

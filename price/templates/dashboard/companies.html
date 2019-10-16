@@ -66,7 +66,10 @@
                         {% for company in companies %}
                         <tr>
                             <th scope="row">{{ company.id }}</th>
-                            <td colspan="2">{{ company.phone_number }}</td>
+                            <td colspan="2">{{ company.address }}</td>
+                            <td colspan="2">{{ user.email }}</td>
+                            <td colspan="2">{{ company.user.phone_number }}</td>
+
                             <td>@twitter</td>
                         </tr>
                         {% endfor %}

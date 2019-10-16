@@ -62,7 +62,7 @@ class User(AbstractUser):
 
 class Company(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    commercial_name = models.CharField(max_length=30, blank=True)
+    commercial_name = models.CharField(max_length=30, blank=False, unique=True)
     address = models.CharField(max_length=30, blank=True)
 
     created_date = models.DateTimeField(default=timezone.now)

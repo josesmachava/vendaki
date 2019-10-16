@@ -2,20 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8eb40555-1f44-4ce1-953e-2dcf8c3d2a0f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/account/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/account/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/migrations/0002_auto_20191014_1421.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dashboard/migrations/0003_auto_20191014_1433.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/price/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/price/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/price/templates/account/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/price/templates/account/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/price/templates/dashboard/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/price/templates/dashboard/user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/price/templates/account/company.html" beforeDir="false" afterPath="$PROJECT_DIR$/price/templates/account/company.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/price/templates/dashboard/aside.html" beforeDir="false" afterPath="$PROJECT_DIR$/price/templates/dashboard/aside.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/price/templates/dashboard/companies.html" beforeDir="false" afterPath="$PROJECT_DIR$/price/templates/dashboard/companies.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/price/templates/dashboard/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/price/templates/dashboard/user/list.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,6 +49,7 @@
   </component>
   <component name="ProjectId" id="1RrlecOI2qaVlFbbbyoYq4Um1MQ" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -62,6 +61,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/price/templates/dashboard/user" />
       <recent name="$PROJECT_DIR$/price/templates/dashboard/products" />
     </key>
   </component>
@@ -131,6 +131,7 @@
       <workItem from="1570710967880" duration="2440000" />
       <workItem from="1570735093817" duration="687000" />
       <workItem from="1571060663545" duration="566000" />
+      <workItem from="1571220010117" duration="2483000" />
     </task>
     <servers />
   </component>

@@ -9,7 +9,7 @@ class Categories(models.Model):
     name = models.CharField(max_length=30, blank=True)
 
 
-class Products(models.Model):
+class Product(models.Model):
     name = models.CharField(max_length=30, blank=True)
     category = models.CharField(max_length=30, blank=True)
     price = models.CharField(max_length=30, blank=True)

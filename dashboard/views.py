@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 
-from .models import Products
+from .models import Product
 
 # Create your views here.
 from account.models import Company, User
@@ -24,8 +24,17 @@ def order(request):
     return render(request, "dashboard/order.html")
 
 
+
+# @method_decorator(login_required, name='dispatch')
+class ProductCreateView(CreateView):
+    model = Product
+    template_name = 'dashboard/product/create.html'
+    fields = ('name', 'description', 'price', 'discount', 'category', 'company')
+    success_url = reverse_lazy('product-list')
+
+
 class ProductListView(ListView):
-    model = Products
+    model = Product
     template_name = 'dashboard/product/list.html'
     context_object_name = 'products'
     paginate_by = 5
@@ -43,6 +52,28 @@ class ProductListView(ListView):
             products = paginator.page(paginator.num_pages)
         context['product'] = products
         return context
+
+
+class ProductUpdateView(UpdateView):
+
+    model = Product
+    template_name = 'dashboard/product/update.html'
+    context_object_name = 'product'
+    fields = ('name', 'description', 'price', 'discount', 'category', 'company')
+
+
+    def get_success_url(self):
+            return reverse_lazy('product-list', kwargs={'pk': self.object.id})
+
+
+
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    template_name = 'dashboard/product/delete.html'
+    success_url = reverse_lazy('product-list')
+
+
 
 
 class UserListView(ListView):
@@ -105,13 +136,6 @@ class CompanyListView(ListView):
         context['companies'] = companies
         return context
 
-
-# @method_decorator(login_required, name='dispatch')
-class ProductCreateView(CreateView):
-    model = Products
-    template_name = 'dashboard/product/create.html'
-    fields = ('name', 'description', 'price', 'discount', 'category', 'company')
-    success_url = reverse_lazy('product-list')
 
 
 def companies(request):

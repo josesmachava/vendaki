@@ -64,6 +64,9 @@
                             <td>{{ product.price }}</td>
                             <td>{{ product.company }}</td>
                             <td>{{ product.category }}</td>
+                            <td><a href="{% url 'product-delete' product.id   %}"><i class="far fa-trash-alt"></i></a></td>
+                            <td><a href="{% url 'product-update' product.id   %}"> <i class="fas fa-edit"></i></i></a></td>
+
                         </tr>
                         {% endfor %}
                         </tbody>

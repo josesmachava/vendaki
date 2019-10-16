@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8eb40555-1f44-4ce1-953e-2dcf8c3d2a0f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/account/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/migrations/0002_auto_20191014_1421.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/migrations/0003_auto_20191014_1433.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dashboard/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/price/templates/account/company.html" beforeDir="false" afterPath="$PROJECT_DIR$/price/templates/account/company.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/price/templates/dashboard/aside.html" beforeDir="false" afterPath="$PROJECT_DIR$/price/templates/dashboard/aside.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/price/templates/dashboard/companies.html" beforeDir="false" afterPath="$PROJECT_DIR$/price/templates/dashboard/companies.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/price/templates/dashboard/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/price/templates/dashboard/user/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/price/templates/dashboard/product/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/price/templates/dashboard/product/list.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,13 +49,16 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/price/templates/dashboard/product" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/price/templates/dashboard/product" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/price/templates/dashboard/user" />
       <recent name="$PROJECT_DIR$/price/templates/dashboard/products" />
@@ -131,7 +130,7 @@
       <workItem from="1570710967880" duration="2440000" />
       <workItem from="1570735093817" duration="687000" />
       <workItem from="1571060663545" duration="566000" />
-      <workItem from="1571220010117" duration="2483000" />
+      <workItem from="1571220010117" duration="4388000" />
     </task>
     <servers />
   </component>

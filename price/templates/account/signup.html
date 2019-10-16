@@ -43,12 +43,19 @@
 
 
             <div class="sigin">
-                <form>
+                <form action="signup" method="post">
                     <h1 class="">Logo</h1>
                     {% csrf_token %}
                     <input type="hidden" name="next" value="{{ next }}">
-                
-                    {{ form.name|as_crispy_field }}
+                    <div class="row">
+                        <div class="col-6">
+                            {{ form.first_name|as_crispy_field }}
+                        </div>
+                        <div class="col-6">
+                            {{ form.last_name|as_crispy_field }}
+                        </div>
+                    </div>
+
                     {{ form.phone_number|as_crispy_field }}    
                     {{ form.email|as_crispy_field }} 
                     <div class="row">

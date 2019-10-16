@@ -21,7 +21,7 @@ urlpatterns = [
    path("", views.index, name="index"),
    path("painel/", views.painel, name="painel"), 
    path("companies/", views.companies, name="companies"),
-   path("user/", views.user, name="user"),
+   path("user/", views.UserListView.as_view(), name="user"),
    path("order/", views.order, name="order"),
    path('product/create', views.ProductCreateView.as_view(),
         name='product-create'),

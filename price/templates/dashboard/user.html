@@ -60,19 +60,24 @@
                         </tr>
                         </thead>
                         <tbody>
+
+                        {% for user in users %}
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Jose</td>
-                            <td>Machava</td>
-                            <td>jose.s.machava@gmail.com</td>
-                            <td>20</td>
-                            <td>12</td>
+                            <td colspan="1">{{ user.id }}</td>
+                            <td>{{ user.first_name }}</td>
+                            <td>{{ user.last_name }}</td>
+                            <td>{{ user.email }}</td>
                         </tr>
+                        {% endfor %}
 
                         </tbody>
                     </table>
 
                 </div>
+                {% if is_paginated %}
+                {% include "price/layout/pagination.html" %}
+                {% endif %}
+
             </div>
         </div>
     </div>

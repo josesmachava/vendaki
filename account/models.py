@@ -1,8 +1,10 @@
 from django.contrib.auth.models import AbstractUser, BaseUserManager
+from django.core.validators import RegexValidator
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils import timezone
+from phonenumber_field.modelfields import PhoneNumberField
 from django.utils.translation import ugettext_lazy as _
 import secrets
 
@@ -48,8 +50,9 @@ class User(AbstractUser):
 
     username = None
     email = models.EmailField(_('email address'), unique=True)
-    phone_number = models.CharField(max_length=30, blank=False, unique=True)
-    is_business = models.BooleanField(default=False)
+    phone_regex = RegexValidator(regex=r'^\+?258?\d{9,13}$', message="O número de telefone deve ser digitado no formato: '+258849293949'. São permitidos até 13 dígitos.")
+    phone_number = models.CharField(validators=[phone_regex], max_length=13, blank=True) # validators should be a list
+
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

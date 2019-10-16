@@ -6,7 +6,7 @@ from django.views.generic import CreateView, ListView
 from .models import Products
 
 # Create your views here.
-from account.models import Company
+from account.models import Company, User
 
 
 def index(request):
@@ -17,8 +17,6 @@ def painel(request):
     return render(request, "dashboard/painel.html")
 
 
-def user(request):
-    return render(request, "dashboard/user.html")
 
 
 
@@ -44,6 +42,27 @@ class ProductListView(ListView):
         except EmptyPage:
             products = paginator.page(paginator.num_pages)
         context['product'] = products
+        return context
+
+
+class UserListView(ListView):
+    model = User
+    template_name = 'dashboard/user.html'
+    context_object_name = 'users'
+    paginate_by = 20
+
+    def get_context_data(self, **kwargs):
+        context = super(UserListView, self).get_context_data(**kwargs)
+        users = self.get_queryset()
+        page = self.request.GET.get('page')
+        paginator = Paginator(users, self.paginate_by)
+        try:
+            users = paginator.page(page)
+        except PageNotAnInteger:
+            users = paginator.page(1)
+        except EmptyPage:
+            products = paginator.page(paginator.num_pages)
+        context['users'] = users
         return context
 
 

@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Company
+from .models import Company, User
+
+
 # Register your models here.
 
 class ProfileAdmin(admin.ModelAdmin):
@@ -10,4 +12,12 @@ class ProfileAdmin(admin.ModelAdmin):
 class CompanyAdmin(admin.ModelAdmin):
     list_display = ['commercial_name']
 
+
+
+class UserAdmin(admin.ModelAdmin):
+    list_display = ['phone_number']
+
+
+
 admin.site.register(Company, CompanyAdmin)
+admin.site.register(User, UserAdmin)

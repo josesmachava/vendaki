@@ -1,0 +1,50 @@
+{% extends "price/layout/base.html" %}
+{% load staticfiles %}
+
+{% comment %}
+
+{% endcomment %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{# overide the tile of the page #}
+{% block title %}
+<title>kutiva</title>
+{% endblock %}
+
+{% block styles %}
+{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+
+
+<link rel="stylesheet"  href="{% static 'stylesheet/kutiva/library/malangatana.css' %}">
+<link rel="stylesheet" href="{% static 'stylesheet/account/signin.css' %}">
+
+{% endblock %}
+
+
+
+
+
+{% block content %}
+<main>
+
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+
+            <div class="sigin">
+                <h2 class="text-center">Conta criada com sucesso</h2>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur commodi eligendi exercitationem facilis ipsa molestiae non quae repellat repudiandae voluptate. Ad aspernatur molestiae neque nulla quas quis reiciendis, sit suscipit.</p>
+                <button type="submit" class="btn btn-primary">Voltar </button>
+
+            </div>
+
+
+
+        </div>
+    </div>
+    </div>
+</main>
+{% endblock %}
+

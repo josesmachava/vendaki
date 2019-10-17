@@ -138,5 +138,12 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'price', 'static'),
 )
 
+EMAIL_HOST = 'mail.preco.co.mz'
+EMAIL_PORT = 26
+EMAIL_HOST_USER = 'conta@preco.co.mz'
+EMAIL_HOST_PASSWORD = '849394995Jose'
+EMAIL_USE_TLS = True
+
+
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

@@ -36,5 +36,6 @@ urlpatterns = [
    path('product/list', views.ProductListView.as_view(),
         name='product-list'),
    path("editar_empresas/", views.editar_empresas, name="editar_empresas"),
+
    
 ]

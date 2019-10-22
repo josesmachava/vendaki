@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Producto</th>
+      <th scope="col">Preco</th>
+      <th scope="col">Quatidade</th>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for order_product in object.product.all %}
+    <tr>
+      <th scope="row"></th>
+      <td>{{ order_product.product.name }}</td>
+      <td>{{ order_product.product.price }}</td>
+      <td>{{ order_product.quantity }}</td>
+      <td>{{ order_product.get_total_product_price  }}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <th scope="row"></th>
+      <td>{{ object.get_total }}</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

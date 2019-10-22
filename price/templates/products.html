@@ -90,45 +90,26 @@
 
             <div class="col-md-8">
                 <div class="row">
+                    {% for product in products %}
                     <div class="col-md-3">
                         <div class="products">
                             <img src="https://marketmz-static.s3.amazonaws.com/site_media/media/companies/logos/Ideario.png" alt="">
 
-                            <h2>Detergente</h2>
-                            <h3>90MT</h3>
-                            <button type="button" class="btn btn-primary add">Adicionar ao carinho</button>
+                            <h2>{{ product.name }}</h2>
+                            <h3>{{ product.price }}</h3>
+                            <a href="{% url 'add_to_cart' product.id   %}">
+                                <button type="button" class="btn btn-primary add">Adicionar ao carinho</button>
+
+                            </a>
+                             <a href="{% url 'remove_from_cart' product.id   %}">
+                                <button type="button" class="btn btn-primary add">Remove from cart</button>
+
+                            </a>
 
                         </div>
                     </div>
+                    {% endfor %}
 
-                    <div class="col-md-3">
-                        <div class="products">
-                            <img src="https://marketmz-static.s3.amazonaws.com/site_media/media/companies/logos/Champier.png" alt="">
-                            <h2>Bolacha</h2>
-                            <h3>90MT</h3>
-                            <button type="button" class="btn btn-primary add">Adicionar ao carinho</button>
-
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="products">
-                            <img src="https://marketmz-static.s3.amazonaws.com/site_media/media/companies/logos/BSA-1.png" alt="">
-                            <h2>Tomate</h2>
-                            <h3>90MT</h3>
-                            <button type="button" class="btn btn-primary add">Adicionar ao carinho</button>
-
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="products">
-                            <img src="https://marketmz-static.s3.amazonaws.com/site_media/media/companies/logos/Centavo.png" alt="">
-                            <h2>Cerveja</h2>
-                            <h3>90MT</h3>
-                            <button type="button" class="btn btn-primary add">Adicionar ao carinho</button>
-
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

@@ -9,10 +9,12 @@ body{
 .menuBar{
 
 }
-
+.navbar{
+    background-color: white !important;
+}
 .header{
     height: 40px;
-    background-color: white;
+    background-color: #fafafb;
     text-align: right;
     padding-right: 8%;
 }
@@ -144,6 +146,12 @@ footer {
 footer ul{
     margin-top: 20px;
     list-style: none;
+}
+.summary{
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 8px;
+
 }
 footer p{
     text-align: center;

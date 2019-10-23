@@ -19,7 +19,7 @@
             <input type="search" placeholder="pesquisar" style="color: #fff">
         </div>
         <ul class="navbar-nav">
-
+            <li ><i class="fas fa-shopping-cart"></i><span class="cart-number-order" >{{ order.product.all.count }}</span></li>
             <button  class="btn btn-light" style="color: #3949ab;"><a href=" {% url 'signin' %}" title="" >Entrar</a></button>
             <button  class="btn btn-primary"><a href=" {% url 'signup' %}" title="" class="create-account" >Criar conta</a></button>
 

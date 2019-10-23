@@ -119,6 +119,18 @@ input[type="search"] {
     width: 500px;
     background-color: rgba(0, 0, 0, 0.15)
 }
+.cart-number-order{
+      min-width: 25px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: #e62e04;
+    color: #fff;
+    font-size: 12px;
+    display: inline-block;
+
+}
 .navbar button{
     margin: 0 10px;
 }

@@ -13,7 +13,8 @@ from dashboard.models import *
 
 def index(request):
     social_media = SocialMedia.objects.all()
-    return render(request, 'index.html', {'social_media': social_media})
+    order = Order.objects.get(user=request.user, ordered=False)
+    return render(request, 'index.html', {'social_media': social_media, 'order': order})
 
 
 def products(request):
@@ -23,6 +24,7 @@ def products(request):
 
 def dashboard(request):
     return render(request, 'dashboard.html')
+
 
 
 def add_to_cart(request, id):

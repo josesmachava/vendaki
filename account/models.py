@@ -69,10 +69,10 @@ class Category(models.Model):
 
 class Company(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    commercial_name = models.CharField(max_length=30, blank=False, unique=True)
+    commercial_name = models.CharField(max_length=30, blank=False, unique=False)
     company_logo = models.ImageField(upload_to='company_logo/', default='company_logo/default.png')
     address = models.CharField(max_length=30, blank=True)
-    categories = models.ForeignKey(Category, on_delete=models.CASCADE)
+    categories = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True,unique=False, default=1)
 
     created_date = models.DateTimeField(default=timezone.now)
     uploaded_at = models.DateTimeField(blank=True, null=True)

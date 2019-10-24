@@ -19,7 +19,21 @@
 
 <link rel="stylesheet"  href="{% static 'stylesheet/kutiva/library/malangatana.css' %}">
 <link rel="stylesheet" href="{% static 'stylesheet/account/signin.css' %}">
-
+<style>
+    h2{
+            font-weight: 300;
+    }
+    h3{
+        font-weight: 300;
+        text-align: center;
+    }
+    a{
+        color:white;
+    }
+    a:hover{
+        color:white;
+    }
+</style>
 {% endblock %}
 
 
@@ -35,8 +49,13 @@
             <div class="sigin">
                 <h2 class="text-center">Conta criada com sucesso</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur commodi eligendi exercitationem facilis ipsa molestiae non quae repellat repudiandae voluptate. Ad aspernatur molestiae neque nulla quas quis reiciendis, sit suscipit.</p>
-                <button type="submit" class="btn btn-primary">Voltar </button>
+                <h3>Obrigado pelo registo
+                </h3>
+                <p class="text-center">
+                    Enviamos os seus dados de acesso para o <strong>{{ request.user.email }}</strong>, nossa equipa está a trabalhar na configuração da sua conta.
+                    Em breve entraremos em contacto.
+                </p>
+                <button type="submit" class="btn btn-primary"><a href="{% url 'index' %}">Voltar </a></button>
 
             </div>
 

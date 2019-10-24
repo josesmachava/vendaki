@@ -47,7 +47,10 @@ def signup(request):
 def company(request):
     if request.method == 'POST':
         form = CompanyForm(request.POST)
-        if form.is_valid() :
+        if form.is_valid():
+            commercial_name = form.cleaned_data.get('commercial_name')
+
+
             form.save()
             commercial_name = form.cleaned_data.get('commercial_name')
             email = form.cleaned_data.get('email')
@@ -60,26 +63,28 @@ def company(request):
             number_id = "Preco"
             send_mail(
                 f'''Preço''',
-                f'''Encontre aqui os dados para activacao da tua conta'
-                   Nome: {commercial_name}
-                   Email: {email}
-                    
+                f'''Mais uma vez obrigado pelo registo.
+                    Esperamos lhe trazer mais vendas com esta parceria.
+                    Os seus dados de acesso ao preco.co.mz são
+	                Utilizador – {commercial_name}@preco.co.mz
+	                Senha – preco2019 )
+'             
                 ''',
                 'conta@preco.co.mz',
                 [email],
                 fail_silently=False,
             )
-            message = client.messages.create(
-                body=f'''A empresa 
-                        {commercial_name} foi regista no preço com os seguintes detalhes
-                        Name :{commercial_name}
-                        Email : {email}
-                        Numero de telefone {phone_number}
-                        Address {address}
-                ''',
-                from_=number_id,
-                to=phone_number
-            )
+           # message = client.messages.create(
+            #    body=f'''A empresa
+             #           {commercial_name} foi regista no preço com os seguintes detalhes
+              #          Name :{commercial_name}
+               #         Email : {commercial_name}@preco.co.mz
+                #        Numero de telefone {phone_number}
+                 #       Address {address}
+                #''',
+                #from_=number_id,
+                #to=phone_number
+            #)
             return redirect('confirm')
 
 

@@ -102,6 +102,9 @@ nav ul{
     text-align: center;
 
 }
+.header{
+    display: none;
+}
  nav {
     margin-bottom: 50px;
 

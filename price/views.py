@@ -12,7 +12,7 @@ from dashboard.models import *
 
 def index(request):
     social_media = SocialMedia.objects.all()
-    categories = Category.objects.all()
+    categories = Category.objects.filter(type="empresa")
     try:
         order = Order.objects.get(user=request.user, ordered=False)
         return render(request, 'index.html', {'social_media': social_media, 'order': order, 'categories': categories})
@@ -22,8 +22,9 @@ def index(request):
 
 
 def products(request):
+    categories = Category.objects.filter(type="produto")
     products = Product.objects.all()
-    return render(request, 'products.html', {'products': products})
+    return render(request, 'products.html', {'products': products, 'categories': categories})
 
 
 def dashboard(request):

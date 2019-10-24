@@ -73,7 +73,7 @@
                         <h1 class="category">Categoria</h1>
                         <ul>
                             {% for category in categories %}
-                                 <li>{{ category.name }}</li>
+                                 <li>{{ category.name|capfirst  }}</li>
                             {% endfor  %}
 
                         </ul>

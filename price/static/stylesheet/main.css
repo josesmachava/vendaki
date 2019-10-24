@@ -14,7 +14,14 @@ body{
   display:flex;
   flex-direction:column;
 }
-
+.user{
+font-size: 25px;
+    padding-left: 40px;
+}
+.shop-cart{
+        font-size: 22px;
+    margin-top: 4px;
+}
 
 
 .menuBar{

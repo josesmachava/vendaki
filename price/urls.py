@@ -28,6 +28,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.index, name="index"),
     path("products/<int:id>", views.products, name="products"),
+    path("product/", views.product, name="product"),
+
     path("dashboard/", include("dashboard.urls")),
     path('add_to_cart/<int:id>', views.add_to_cart, name="add_to_cart"),
 

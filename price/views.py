@@ -14,9 +14,17 @@ def index(request):
     social_media = SocialMedia.objects.all()
     categories = Category.objects.filter(type="empresa")
     companies =  Company.objects.all()
+    if not request.user.is_authenticated:
+        return render(request, 'index.html',
+                      {'social_media': social_media, 'categories': categories, 'companies': companies})
+
     try:
-        order = Order.objects.get(user=request.user, ordered=False)
-        return render(request, 'index.html', {'social_media': social_media, 'order': order, 'categories': categories, 'companies': companies})
+
+
+         order = Order.objects.get(user=request.user, ordered=False)
+
+
+         return render(request, 'index.html', {'social_media': social_media, 'order': order, 'categories': categories, 'companies': companies})
     except Order.DoesNotExist:
 
         return render(request, 'index.html', {'social_media': social_media, 'categories': categories, 'companies': companies})
@@ -34,6 +42,13 @@ def products(request, id):
     categories = Category.objects.filter(type="produto")
     products = Product.objects.filter(company_id=id)
     return render(request, 'products.html', {'products': products, 'categories': categories})
+
+
+def product(request):
+    categories = Category.objects.filter(type="produto")
+    products = Product.objects.all()
+    return render(request, 'products.html', {'products': products, 'categories': categories})
+
 
 
 
@@ -59,7 +74,7 @@ def add_to_cart(request, id):
         order = Order.objects.create(user=request.user)
         order.product.add(order_product)
         messages.info(request, "Produto addicionado no carinho")
-    return redirect('products')
+    return redirect('product')
 
 
 class OrderSummary(View):
@@ -73,7 +88,7 @@ class OrderSummary(View):
 
         except ObjectDoesNotExist:
             messages.error(self.request, "You do not hava an active order")
-            return redirect('products')
+            return redirect('product')
 
 
 def remove_from_cart(request, id):
@@ -88,11 +103,11 @@ def remove_from_cart(request, id):
 
         else:
             messages.info(request, "este producto nao esta no seu carinho")
-            return redirect('products')
+            return redirect('product')
     else:
         messages.info(request, "o usuario nao tem uma encomenda")
-        return redirect('products')
-    return redirect('products')
+        return redirect('product')
+    return redirect('product')
 
 
 def handler404(request, exception):

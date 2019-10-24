@@ -48,9 +48,6 @@ def company(request):
     if request.method == 'POST':
         form = CompanyForm(request.POST)
         if form.is_valid():
-            commercial_name = form.cleaned_data.get('commercial_name')
-
-
             form.save()
             commercial_name = form.cleaned_data.get('commercial_name')
             email = form.cleaned_data.get('email')
@@ -63,35 +60,40 @@ def company(request):
             number_id = "Preco"
             send_mail(
                 f'''Preço''',
-                f'''Mais uma vez obrigado pelo registo.
+                f'''E-mail de registo
+                    Mais uma vez obrigado pelo registo.
                     Esperamos lhe trazer mais vendas com esta parceria.
                     Os seus dados de acesso ao preco.co.mz são
-	                Utilizador – {commercial_name}@preco.co.mz
-	                Senha – preco2019 )
-'             
+                    Utilizador –{commercial_name}@preco.co.mz
+                    Senha – preco2019 
+                    
+             
+                 
+
                 ''',
                 'conta@preco.co.mz',
                 [email],
                 fail_silently=False,
             )
-           # message = client.messages.create(
-            #    body=f'''A empresa
-             #           {commercial_name} foi regista no preço com os seguintes detalhes
-              #          Name :{commercial_name}
-               #         Email : {commercial_name}@preco.co.mz
-                #        Numero de telefone {phone_number}
-                 #       Address {address}
-                #''',
-                #from_=number_id,
-                #to=phone_number
+        #    message = client.messages.create(
+         #       body=f'''A empresa
+          #              {commercial_name} foi regista no preço com os seguintes detalhes
+           #             Name :{commercial_name}
+            #            Email : {commercial_name}@preco.co.z
+            #            Numero de telefone {phone_number}
+            #            Address {address}
+            #    ''',
+            #    from_=number_id,
+            #    to=phone_number
             #)
+            user = authenticate(username=email, password="price2019")
+
             return redirect('confirm')
 
 
     else:
         form = CompanyForm()
     return render(request, 'account/company.html', {'form': form})
-
 
 
 def confirm(request):

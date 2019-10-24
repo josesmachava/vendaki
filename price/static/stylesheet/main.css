@@ -5,6 +5,17 @@ body{
     color:#4b4f54!important;
     font-size:15px!important;
 }
+html, body{
+    height:100%;
+    margin:0;
+
+}
+body{
+  display:flex;
+  flex-direction:column;
+}
+
+
 
 .menuBar{
 
@@ -137,8 +148,8 @@ input[type="search"] {
     margin: 0 10px;
 }
 footer {
-    position: absolute;
-    bottom: 0;
+     margin-top:auto;
+
     width: 100%;
     background-color: white;
     color:#333;

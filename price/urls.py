@@ -13,8 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+
+from price import settings
 from . import views
 from django.conf.urls import handler404, handler500
 
@@ -24,12 +27,13 @@ urlpatterns = [
     path('about/', include("about.urls")),
     path('admin/', admin.site.urls),
     path("", views.index, name="index"),
-    path("products", views.products, name="products"),
+    path("products/<int:id>", views.products, name="products"),
     path("dashboard/", include("dashboard.urls")),
     path('add_to_cart/<int:id>', views.add_to_cart, name="add_to_cart"),
+
     path('remove_from_cart/<int:id>', views.remove_from_cart, name="remove_from_cart"),
     path('order_summary', views.OrderSummary.as_view(),
          name='order-summary'),
-]
+] +  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 handler404 = "price.views.handler404"
 handler500 = "price.views.handler500"

@@ -85,42 +85,24 @@
 
             <div class="col-md-8">
                     <div class="row">
-                        <div class="col-md-3">
-                            <a href=" {% url 'products' %}" title="" >
+                {% for company in companies %}
+                    <div class="col-md-3">
+                        <a href="{% url 'products' company.id   %}">
+                        <div class="company">
+                            <img src="../../media/company_logo/default.jpg" alt="">
+                            <!--<img src="localhost:8000{{ company.company_logo.url }}" alt="{{ company.commercial_name }} logo ">
 
-                            <div class="logo">
-                                <img src="https://marketmz-static.s3.amazonaws.com/site_media/media/companies/logos/Ideario.png" alt="">
-                            </div>
-                            </a>
+                                -->
+                            <h2 class="commercial-name">{{ company.commercial_name }}</h2>
+                           <!-- <h3>{{ company.address }} MT</h3>-->
+
                         </div>
-
-                        <div class="col-md-3">
-                            <a href=" {% url 'products' %}" title="" >
-
-                            <div class="logo">
-                                <img src="https://marketmz-static.s3.amazonaws.com/site_media/media/companies/logos/Champier.png" alt="">
-
-                            </div>
                             </a>
-                        </div>
+                    </div>
+                    {% endfor %}
 
-                        <div class="col-md-3">
-                            <a href=" {% url 'products' %}" title="" >
 
-                            <div class="logo">
-                                <img src="https://marketmz-static.s3.amazonaws.com/site_media/media/companies/logos/BSA-1.png" alt="">
-                            </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href=" {% url 'products' %}" title="" >
 
-                            <div class="logo">
-                                <img src="https://marketmz-static.s3.amazonaws.com/site_media/media/companies/logos/Centavo.png" alt="">
-
-                            </div>
-                            </a>
-                        </div>
                     </div>
             </div>
         </div>

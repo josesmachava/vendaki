@@ -70,6 +70,7 @@ class Category(models.Model):
 class Company(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     commercial_name = models.CharField(max_length=30, blank=False, unique=True)
+    company_logo = models.ImageField(upload_to='company_logo/', default='company_logo/default.png')
     address = models.CharField(max_length=30, blank=True)
     categories = models.ForeignKey(Category, on_delete=models.CASCADE)
 

@@ -13,18 +13,28 @@ from dashboard.models import *
 def index(request):
     social_media = SocialMedia.objects.all()
     categories = Category.objects.filter(type="empresa")
+    companies =  Company.objects.all()
     try:
         order = Order.objects.get(user=request.user, ordered=False)
-        return render(request, 'index.html', {'social_media': social_media, 'order': order, 'categories': categories})
+        return render(request, 'index.html', {'social_media': social_media, 'order': order, 'categories': categories, 'companies': companies})
     except Order.DoesNotExist:
 
-        return render(request, 'index.html', {'social_media': social_media, 'categories': categories})
+        return render(request, 'index.html', {'social_media': social_media, 'categories': categories, 'companies': companies})
 
 
 def products(request):
     categories = Category.objects.filter(type="produto")
     products = Product.objects.all()
     return render(request, 'products.html', {'products': products, 'categories': categories})
+
+
+
+
+def products(request, id):
+    categories = Category.objects.filter(type="produto")
+    products = Product.objects.filter(company_id=id)
+    return render(request, 'products.html', {'products': products, 'categories': categories})
+
 
 
 def dashboard(request):

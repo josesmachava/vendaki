@@ -3,7 +3,6 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import DetailView, View
 
-
 from dashboard.models import *
 from dashboard.models import *
 
@@ -13,8 +12,13 @@ from dashboard.models import *
 
 def index(request):
     social_media = SocialMedia.objects.all()
-    order = Order.objects.get(user=request.user, ordered=False)
-    return render(request, 'index.html', {'social_media': social_media, 'order': order})
+    categories = Category.objects.all()
+    try:
+        order = Order.objects.get(user=request.user, ordered=False)
+        return render(request, 'index.html', {'social_media': social_media, 'order': order, 'categories': categories})
+    except Order.DoesNotExist:
+
+        return render(request, 'index.html', {'social_media': social_media, 'categories': categories})
 
 
 def products(request):
@@ -24,7 +28,6 @@ def products(request):
 
 def dashboard(request):
     return render(request, 'dashboard.html')
-
 
 
 def add_to_cart(request, id):
@@ -62,7 +65,6 @@ class OrderSummary(View):
             return redirect('products')
 
 
-
 def remove_from_cart(request, id):
     product = get_object_or_404(Product, id=id)
     order_qs = Order.objects.filter(user=request.user, ordered=False)
@@ -80,3 +82,11 @@ def remove_from_cart(request, id):
         messages.info(request, "o usuario nao tem uma encomenda")
         return redirect('products')
     return redirect('products')
+
+
+def handler404(request, exception):
+    return render(request, 'error404.html', status=404)
+
+
+def handler500(request):
+    return render(request, 'error500.html', status=500)

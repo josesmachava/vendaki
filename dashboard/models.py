@@ -1,20 +1,11 @@
 from django.db import models
-from account.models import User, Company
+from account.models import User, Company, Category
 
 
 # Create your models here.
 class SocialMedia(models.Model):
     name = models.CharField(max_length=30, blank=True)
     url = models.URLField()
-
-
-class Category(models.Model):
-    name = models.CharField(max_length=30, blank=True)
-
-    def __str__(self):
-        return f'{self.name}'
-
-
 
 
 class Product(models.Model):

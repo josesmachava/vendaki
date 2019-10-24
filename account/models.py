@@ -44,7 +44,6 @@ class UserManager(BaseUserManager):
 
         return self._create_user(email, password, **extra_fields)
 
-
 class User(AbstractUser):
     """User model."""
 
@@ -60,10 +59,19 @@ class User(AbstractUser):
     objects = UserManager()
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=30, blank=True)
+    type = models.CharField(max_length=30, blank=True)
+
+    def __str__(self):
+        return f'{self.name}'
+
+
 class Company(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     commercial_name = models.CharField(max_length=30, blank=False, unique=True)
     address = models.CharField(max_length=30, blank=True)
+    categories = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     created_date = models.DateTimeField(default=timezone.now)
     uploaded_at = models.DateTimeField(blank=True, null=True)

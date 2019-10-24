@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+from django.conf.urls import handler404, handler500
+
 
 urlpatterns = [
     path('account/', include("account.urls")),
@@ -29,3 +31,5 @@ urlpatterns = [
     path('order_summary', views.OrderSummary.as_view(),
          name='order-summary'),
 ]
+handler404 = "price.views.handler404"
+handler500 = "price.views.handler500"

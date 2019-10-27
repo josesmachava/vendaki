@@ -89,10 +89,9 @@
                     <div class="col-md-3">
                         <a href="{% url 'products' company.id   %}">
                         <div class="company">
-                            <img src="../../media/company_logo/default.jpg" alt="">
-                            <!--<img src="localhost:8000{{ company.company_logo.url }}" alt="{{ company.commercial_name }} logo ">
+                            <img src="{{ company.company_logo.url }}" alt="{{ company.commercial_name }} logo ">
 
-                                -->
+                                
                             <h2 class="commercial-name">{{ company.commercial_name }}</h2>
                            <!-- <h3>{{ company.address }} MT</h3>-->
 

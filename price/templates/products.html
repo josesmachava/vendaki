@@ -90,11 +90,12 @@
                     {% for product in products %}
                     <div class="col-md-3">
                         <div class="products">
-                            <img src="https://marketmz-static.s3.amazonaws.com/site_media/media/companies/logos/Ideario.png" alt="">
-
+                            <img src="{{ product.company.company_logo.url }}" alt="{{ company.commercial_name }} logo ">
+    
                             <h2>{{ product.name }}</h2>
                             <h3>{{ product.price }} MT</h3>
                             <h3>{{ product.company.commercial_name }}</h3>
+                            
                             <a href="{% url 'add_to_cart' product.id   %}">
                                 <button type="button" class="btn btn-primary add">Adicionar ao carinho</button>
 

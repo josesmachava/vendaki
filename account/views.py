@@ -100,7 +100,9 @@ def confirm(request):
     return render(request, 'account/confirm.html')
 
 
-@login_required()
+@login_required(login_url='/account/signin/')
 def logout_view(request):
     logout(request)
+    return  redirect('signin')
     # Redirect to a succe
+

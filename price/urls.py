@@ -36,6 +36,6 @@ urlpatterns = [
     path('remove_from_cart/<int:id>', views.remove_from_cart, name="remove_from_cart"),
     path('order_summary', views.OrderSummary.as_view(),
          name='order-summary'),
-] +  static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 handler404 = "price.views.handler404"
 handler500 = "price.views.handler500"

@@ -33,8 +33,14 @@
 
 
             </a></li>
-            <li class="user"><i class="fas fa-user"></i></li>
-
+            <div class="dropdown">
+  <li class=" dropdown-toggle user"id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fas fa-user"></i>
+  </li>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="{%  url 'logout' %}">Logout</a>
+      </div>
+    </div>
 
         </ul>
 

@@ -40,12 +40,12 @@ INSTALLED_APPS = [
     'crispy_forms',
     'phonenumber_field',
 
+    'django_reflinks',
 
     'about',    
     'account',
     'price',
     'dashboard',
-
 
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -61,8 +61,10 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'django_reflinks.middleware.AnonymousReferralMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django_reflinks.middleware.ReferralLinkMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 

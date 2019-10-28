@@ -29,13 +29,13 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("products/<int:id>", views.products, name="products"),
     path("product/", views.product, name="product"),
-
     path("dashboard/", include("dashboard.urls")),
     path('add_to_cart/<int:id>', views.add_to_cart, name="add_to_cart"),
 
     path('remove_from_cart/<int:id>', views.remove_from_cart, name="remove_from_cart"),
     path('order_summary', views.OrderSummary.as_view(),
          name='order-summary'),
-]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+] 
 handler404 = "price.views.handler404"
 handler500 = "price.views.handler500"

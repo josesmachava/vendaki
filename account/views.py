@@ -48,12 +48,12 @@ def company(request):
     if request.method == 'POST':
         form = CompanyForm(request.POST)
         if form.is_valid():
-            form.save()
             commercial_name = form.cleaned_data.get('commercial_name')
             email = form.cleaned_data.get('email')
             phone_number = form.cleaned_data.get('phone_number')
             address = form.cleaned_data.get('address')
-
+            form.save()
+            
             account_sid = 'AC7314ed7fc30559b0e1c8454743de686a'
             auth_token = 'c23acf7ad601d3957598561fe575eee8'
             client = Client(account_sid, auth_token)
@@ -87,8 +87,9 @@ def company(request):
             #    to=phone_number
             #)
             user = authenticate(username=email, password="price2019")
-
-            return redirect('confirm')
+            if user is not None:
+                login(request, user)
+                return redirect('confirm')
 
 
     else:

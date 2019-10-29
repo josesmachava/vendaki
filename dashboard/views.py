@@ -62,7 +62,7 @@ class ProductUpdateView(UpdateView):
     model = Product
     template_name = 'dashboard/product/update.html'
     context_object_name = 'product'
-    fields = ('name', 'description', 'price', 'discount', 'category', 'company')
+    fields = ('name', 'description', 'price', 'discount', 'categories', 'company')
 
 
     def get_success_url(self):

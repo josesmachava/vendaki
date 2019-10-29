@@ -45,9 +45,11 @@
 
                 </div>
 
-            <div class="col-md-8">
+            <div class="col-md-10">
+                            {% include "dashboard/menu.html" %}
+
                 <section>
-                    <table class="table table-borderless">
+                    <table class="">
                         <thead>
                         <tr>
                             <th scope="col">Nome</th>
@@ -62,10 +64,10 @@
                         <tr>
                             <td colspan="1">{{ product.name }}</td>
                             <td>{{ product.price }}</td>
-                            <td>{{ product.company }}</td>
-                            <td>{{ product.category }}</td>
+                            <td>{{ product.company.commercial_name }}</td>
+                            <td>{{ product.categories.name }}</td>
                             <td><a href="{% url 'product-delete' product.id   %}"><i class="far fa-trash-alt"></i></a></td>
-                            <td><a href="{% url 'product-update' product.id   %}"> <i class="fas fa-edit"></i></i></a></td>
+                            <td><a href="{% url 'product-update' product.id   %}"> <i class="fas fa-edit"></i></a></td>
 
                         </tr>
                         {% endfor %}

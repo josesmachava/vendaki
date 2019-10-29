@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+body{
+    font-family: 'Lato', sans-serif;
+
+}
 .aside{
     background-color:#0052CC;
     height: 100vh;
@@ -28,6 +33,37 @@ nav{
     margin-right: -15px;
 
 
+
+}
+table{
+    border-spacing: 1;
+    border-collapse: collapse;
+    background: white;
+    font-family: 'Lato', sans-serif;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+
+}
+table thead tr {
+    height: 60px;
+    background: #36304a;
+}
+table tbody tr {
+    height: 50px;
+}
+tbody tr:nth-child(odd) {
+  background-color: #f5f5f5;
+
+}
+tbody tr {
+    font-family: OpenSans-Regular;
+    font-size: 15px;
+    color: #808080;
+    line-height: 1.2;
+    font-weight: unset;
 
 }
 nav ul li{

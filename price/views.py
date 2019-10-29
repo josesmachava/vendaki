@@ -1,7 +1,12 @@
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 from django.views.generic import DetailView, View
+import string
+import random
+
+from pinax.referrals.models import Referral
 
 from dashboard.models import *
 from dashboard.models import *
@@ -13,29 +18,27 @@ from dashboard.models import *
 def index(request):
     social_media = SocialMedia.objects.all()
     categories = Category.objects.filter(type="empresa")
-    companies =  Company.objects.all()
+    companies = Company.objects.all()
     if not request.user.is_authenticated:
         return render(request, 'index.html',
                       {'social_media': social_media, 'categories': categories, 'companies': companies})
 
     try:
 
+        order = Order.objects.get(user=request.user, ordered=False)
 
-         order = Order.objects.get(user=request.user, ordered=False)
-
-
-         return render(request, 'index.html', {'social_media': social_media, 'order': order, 'categories': categories, 'companies': companies})
+        return render(request, 'index.html',
+                      {'social_media': social_media, 'order': order, 'categories': categories, 'companies': companies})
     except Order.DoesNotExist:
 
-        return render(request, 'index.html', {'social_media': social_media, 'categories': categories, 'companies': companies})
+        return render(request, 'index.html',
+                      {'social_media': social_media, 'categories': categories, 'companies': companies})
 
 
 def products(request):
     categories = Category.objects.filter(type="produto")
     products = Product.objects.all()
     return render(request, 'products.html', {'products': products, 'categories': categories})
-
-
 
 
 def products(request, id):
@@ -48,8 +51,6 @@ def product(request):
     categories = Category.objects.filter(type="produto")
     products = Product.objects.all()
     return render(request, 'products.html', {'products': products, 'categories': categories})
-
-
 
 
 def dashboard(request):
@@ -108,6 +109,19 @@ def remove_from_cart(request, id):
         messages.info(request, "o usuario nao tem uma encomenda")
         return redirect('product')
     return redirect('product')
+
+
+def create_referral(request):
+    referral = Referral.create(
+        user=request.user,
+        redirect_to=reverse("index")
+    )
+    product.referral = referral
+    product.save()
+
+
+def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
+    return ''.join(random.choice(chars) for _ in range(size))
 
 
 def handler404(request, exception):

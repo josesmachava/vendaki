@@ -19,8 +19,7 @@ from django.urls import path, include
 
 from price import settings
 from . import views
-from django.conf.urls import handler404, handler500
-
+from django.conf.urls import handler404, handler500, url
 
 urlpatterns = [
     path('account/', include("account.urls")),
@@ -31,11 +30,14 @@ urlpatterns = [
     path("product/", views.product, name="product"),
     path("dashboard/", include("dashboard.urls")),
     path('add_to_cart/<int:id>', views.add_to_cart, name="add_to_cart"),
+    path('create_referral', views.create_referral, name="create_referral"),
+    url(r"^referrals/", include("pinax.referrals.urls", namespace="pinax_referrals")),
 
     path('remove_from_cart/<int:id>', views.remove_from_cart, name="remove_from_cart"),
     path('order_summary', views.OrderSummary.as_view(),
          name='order-summary'),
 
-] 
+
+]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 handler404 = "price.views.handler404"
 handler500 = "price.views.handler500"

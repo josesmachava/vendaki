@@ -28,11 +28,24 @@ DEBUG = True
 ALLOWED_HOSTS = ["*", 'localhost']
 
 
+ROOT_URLCONF = 'price.urls'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'mail.preco.co.mz'
+EMAIL_PORT = 26
+EMAIL_HOST_USER = 'conta@preco.co.mz'
+EMAIL_HOST_PASSWORD = '849394995Jose'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'conta@preco.co.mz'
+
+
+
 # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
+
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -40,14 +53,16 @@ INSTALLED_APPS = [
     'crispy_forms',
     'phonenumber_field',
 
-    'django_reflinks',
+    "pinax.referrals",
 
-    'about',    
+    'about',
     'account',
     'price',
     'dashboard',
 
 ]
+SITE_ID = 1
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
@@ -61,11 +76,15 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django_reflinks.middleware.AnonymousReferralMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django_reflinks.middleware.ReferralLinkMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "pinax.referrals.middleware.SessionJumpingMiddleware",
+
+
+
+
 ]
 
 ROOT_URLCONF = 'price.urls'

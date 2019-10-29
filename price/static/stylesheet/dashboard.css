@@ -23,6 +23,13 @@ aside ul li{
     padding: 5px;
     list-style: none;
 }
+nav{
+        margin-left: -15px;
+    margin-right: -15px;
+
+
+
+}
 .card {
     height: 200px;
     border:none;

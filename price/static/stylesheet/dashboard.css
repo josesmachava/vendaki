@@ -30,6 +30,10 @@ nav{
 
 
 }
+nav ul li{
+    margin: 0 20px;
+    font-size: 20px;
+}
 .card {
     height: 200px;
     border:none;

@@ -18,7 +18,17 @@
             <ul class="nav navbar-nav ml-auto">
 
                <li><i class="fas fa-bell"></i></li>
-                <li><i class="fas fa-user"></i></li>
+                <div class="dropdown">
+  <li class=" dropdown-toggle "id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fas fa-user"></i>
+  </li>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="{%  url 'logout' %}">Logout</a>
+          <a class="dropdown-item" href="">Definições</a>
+      </div>
+    </div>
+
+
 
             </ul>
         </div>

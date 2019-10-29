@@ -3,14 +3,17 @@ from django.shortcuts import render, redirect, HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 
-from .models import Product
+from .models import Product, Order
 
 # Create your views here.
 from account.models import Company, User
 
 
 def index(request):
-    return render(request, "dashboard/index.html")
+    company = Company.objects.all().count()
+    product = Product.objects.all().count()
+    order   = Order.objects.all().count()
+    return render(request, "dashboard/index.html", {'product':product, 'company':company, 'order':order})
 
 
 def painel(request):

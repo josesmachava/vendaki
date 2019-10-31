@@ -31,7 +31,15 @@
 
 {% block scripts %}
 {#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+    <script>
+        $('#div_id_number').hide()
+         $(document).ready(function(){
+          $("select").change(function(){
+                          $('#div_id_number').show();
 
+          });
+        });
+    </script>
 {% endblock %}
 
 
@@ -70,8 +78,12 @@
                                 {{ form.price|as_crispy_field }}
                             </div>
                             <div class="col-6">
-                                {{ form.discount|as_crispy_field }}
+                                {{ form.type|as_crispy_field }}
                             </div>
+                            <div class="col-6">
+                                {{ form.number|as_crispy_field }}
+                            </div>
+
                         </div>
 
                         {% for message in messages %}

@@ -1,14 +1,14 @@
+import random
+import string
+
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
+
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
-from django.views.generic import DetailView, View
-import string
-import random
-
+from django.views.generic import View
 from pinax.referrals.models import Referral
 
-from dashboard.models import *
 from dashboard.models import *
 
 
@@ -113,13 +113,16 @@ def remove_from_cart(request, id):
 
 def create_referral(request):
     referral = Referral.create(
-        user=request.user,
-        redirect_to=reverse("index")
+        user=Order.user,
+        redirect_to=reverse("home")
+
     )
-    product.referral = referral
-    product.save()
+    Order.referral = referral
+    Order.save()
 
-
+def show_links(request):
+    referal = Referral.objects.all()
+    return  render(request, 'referral.html', {'referal':referal})
 def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 

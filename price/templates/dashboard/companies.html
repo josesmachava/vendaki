@@ -23,6 +23,8 @@
 
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'stylesheet/dashboard.css' %}">
+
 {% endblock %}
 
 
@@ -38,44 +40,53 @@
     <div class="container-fluid">
         <div class="row">
 
-            <div class="col-md-3">
-                <aside>
-                    <ul>
-                        <li>Painel</li>
-                        <li>Productos</li>
-                        <li>Encomendas</li>
-                        <li>Empresas</li>
-                        <li>Defenicoes</li>
-                    </ul>
-                </aside>
+            <div class="col-md-2 aside">
+                {% include "dashboard/aside.html" %}
+
             </div>
 
-            <div class="col-md-8">
-                <section>
+            <div class="col-md-10">
+                {% include "dashboard/menu.html" %}
+                <div class="row">
                     <table class="table table-borderless">
                         <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col" colspan="3">Endereco</th>
+                            <th scope="col" colspan="2">Email</th>
+                            <th scope="col" colspan="2">Numerod de telefone</th>
+
+                            <th scope="col">Edit</th>
+
+                            <th scope="col">Delete</th>
                         </tr>
                         </thead>
                         <tbody>
-
-                        {% for company in companies %}
+    {% for company in companies %}
                         <tr>
                             <th scope="row">{{ company.id }}</th>
-                            <td colspan="2">{{ company.address }}</td>
+                            <td colspan="1">{{ company.commercial_name }}</td>
+                            <td colspan="3">{{ company.address }}</td>
                             <td colspan="2">{{ user.email }}</td>
                             <td colspan="2">{{ company.user.phone_number }}</td>
 
-                            <td>@twitter</td>
+
+                            <td><a href="{% url 'user-delete' user.id   %}"><i class="far fa-trash-alt"></i></a></td>
+                            <td><a href="{% url 'user-update' user.id   %}"> <i class="fas fa-edit"></i></i></a></td>
+
+
                         </tr>
                         {% endfor %}
+
                         </tbody>
                     </table>
-                </section>
+
+                </div>
+                {% if is_paginated %}
+                {% include "price/layout/pagination.html" %}
+                {% endif %}
+
             </div>
         </div>
     </div>

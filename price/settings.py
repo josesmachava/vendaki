@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'phonenumber_field',
-
     "pinax.referrals",
 
     'about',
@@ -80,10 +79,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
     "pinax.referrals.middleware.SessionJumpingMiddleware",
-
-
-
 
 ]
 

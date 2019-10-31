@@ -32,7 +32,7 @@ def order(request):
 class ProductCreateView(CreateView):
     model = Product
     template_name = 'dashboard/product/create.html'
-    fields = ('name', 'description', 'price', 'discount', 'categories', 'company')
+    fields = ('name', 'description', 'price', 'discount', 'categories', 'company', 'type', "number")
     success_url = reverse_lazy('product-list')
 
 

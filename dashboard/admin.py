@@ -9,6 +9,8 @@ admin.site.register(SocialMedia, SocialMediaAdmin)
 
 admin.site.register(Product)
 
+admin.site.register(TypeDiscount)
+
 admin.site.register(OrderProduct)
 
 admin.site.register(Order)

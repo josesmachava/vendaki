@@ -28,6 +28,7 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("products/<int:id>", views.products, name="products"),
     path("product/", views.product, name="product"),
+    path("showlinks/", views.show_links, name="showlinks"),
     path("dashboard/", include("dashboard.urls")),
     path('add_to_cart/<int:id>', views.add_to_cart, name="add_to_cart"),
     path('create_referral', views.create_referral, name="create_referral"),

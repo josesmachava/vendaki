@@ -8,6 +8,14 @@ class SocialMedia(models.Model):
     url = models.URLField()
 
 
+class TypeDiscount(models.Model):
+    name = models.CharField(max_length=30, blank=True)
+    percent = models.CharField(max_length=30, blank=True)
+
+    def __str__(self):
+        return f'{self.name}'
+
+
 class Product(models.Model):
     name = models.CharField(max_length=30, blank=True)
     categories = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -16,6 +24,9 @@ class Product(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     discount = models.CharField(max_length=30, blank=True)
     referral = models.CharField(max_length=30, blank=True)
+    type = models.ForeignKey(TypeDiscount, on_delete=models.CASCADE)
+    total_number = models.IntegerField(blank=True)
+    number = models.IntegerField(blank=True)
 
     def __str__(self):
         return f'{self.name}'

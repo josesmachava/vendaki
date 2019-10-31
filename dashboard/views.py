@@ -23,8 +23,7 @@ def painel(request):
 
 
 
-def order(request):
-    return render(request, "dashboard/order.html")
+
 
 
 
@@ -77,6 +76,25 @@ class ProductDeleteView(DeleteView):
     success_url = reverse_lazy('product-list')
 
 
+class OrdertListView(ListView):
+    model = Order
+    template_name = 'dashboard/product/order.html'
+    context_object_name = 'orders'
+    paginate_by = 5
+
+    def get_context_data(self, **kwargs):
+        context = super(OrdertListView, self).get_context_data(**kwargs)
+        orders = self.get_queryset()
+        page = self.request.GET.get('page')
+        paginator = Paginator(orders, self.paginate_by)
+        try:
+            orders = paginator.page(page)
+        except PageNotAnInteger:
+            orders = paginator.page(1)
+        except EmptyPage:
+            orders = paginator.page(paginator.num_pages)
+        context['order'] = orders
+        return context
 
 
 class UserListView(ListView):

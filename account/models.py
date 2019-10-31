@@ -44,14 +44,15 @@ class UserManager(BaseUserManager):
 
         return self._create_user(email, password, **extra_fields)
 
+
 class User(AbstractUser):
     """User model."""
 
     username = None
     email = models.EmailField(_('email address'), unique=True)
-    phone_regex = RegexValidator(regex=r'^\+?258?\d{9,13}$', message="O número de telefone deve ser digitado no formato: '+258849293949'. São permitidos até 13 dígitos.")
-    phone_number = models.CharField(validators=[phone_regex], max_length=13, blank=True) # validators should be a list
-
+    phone_regex = RegexValidator(regex=r'^\+?258?\d{9,13}$',
+                                 message="O número de telefone deve ser digitado no formato: '+258849293949'. São permitidos até 13 dígitos.")
+    phone_number = models.CharField(validators=[phone_regex], max_length=13, blank=True)  # validators should be a list
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
@@ -59,9 +60,13 @@ class User(AbstractUser):
     objects = UserManager()
 
 
+class Type(models.Model):
+    name = models.CharField(max_length=30, blank=True)
+
+
 class Category(models.Model):
     name = models.CharField(max_length=30, blank=True)
-    type = models.CharField(max_length=30, blank=True)
+    type = models.ForeignKey(Type, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.name}'
@@ -72,10 +77,9 @@ class Company(models.Model):
     commercial_name = models.CharField(max_length=30, blank=False, unique=False)
     company_logo = models.ImageField(upload_to='company_logo/', default='company_logo/default.jpg')
     address = models.CharField(max_length=30, blank=True)
-    categories = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True,unique=False, default=1)
-
+    categories = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, unique=False, default=1)
     created_date = models.DateTimeField(default=timezone.now)
     uploaded_at = models.DateTimeField(blank=True, null=True)
+
     def __str__(self):
         return str(self.user)
-

@@ -17,7 +17,7 @@ from dashboard.models import *
 
 def index(request):
     social_media = SocialMedia.objects.all()
-    categories = Category.objects.filter(type="empresa")
+    categories = Category.objects.filter(type_id=1)
     companies = Company.objects.all()
     if not request.user.is_authenticated:
         return render(request, 'index.html',
@@ -114,17 +114,18 @@ def remove_from_cart(request, id):
 def create_referral(request):
     referral = Referral.create(
         user=Order.user,
-        redirect_to=reverse("home")
+        redirect_to=reverse("index")
 
     )
     Order.referral = referral
     Order.save()
 
+
 def show_links(request):
-    referal = Referral.objects.all()
-    return  render(request, 'referral.html', {'referal':referal})
-def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
-    return ''.join(random.choice(chars) for _ in range(size))
+    order = Order.objects.get(user=request.user, ordered=False)
+    order.ordered = True
+    order.save()
+    return render(request, 'referral.html')
 
 
 def handler404(request, exception):

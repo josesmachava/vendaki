@@ -31,7 +31,7 @@ urlpatterns = [
     path("showlinks/", views.show_links, name="showlinks"),
     path("dashboard/", include("dashboard.urls")),
     path('add_to_cart/<int:id>', views.add_to_cart, name="add_to_cart"),
-    path('create_referral', views.create_referral, name="create_referral"),
+    path('create_referral', views.show_links, name="create_referral"),
     url(r"^referrals/", include("pinax.referrals.urls", namespace="pinax_referrals")),
 
     path('remove_from_cart/<int:id>', views.remove_from_cart, name="remove_from_cart"),

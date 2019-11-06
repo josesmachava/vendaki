@@ -36,19 +36,19 @@ def index(request):
 
 
 def products(request):
-    categories = Category.objects.filter(type="produto")
+    categories = Category.objects.filter(type_id=2)
     products = Product.objects.all()
     return render(request, 'products.html', {'products': products, 'categories': categories})
 
 
 def products(request, id):
-    categories = Category.objects.filter(type="produto")
+    categories = Category.objects.filter(type_id=1)
     products = Product.objects.filter(company_id=id)
     return render(request, 'products.html', {'products': products, 'categories': categories})
 
 
 def product(request):
-    categories = Category.objects.filter(type="produto")
+    categories = Category.objects.filter(type_id=2)
     products = Product.objects.all()
     return render(request, 'products.html', {'products': products, 'categories': categories})
 

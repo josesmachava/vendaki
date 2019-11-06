@@ -74,17 +74,17 @@ def company(request):
                 [email],
                 fail_silently=False,
             )
-            message = client.messages.create(
-                body=f'''A empresa
-                          {commercial_name} foi regista no preço com os seguintes detalhes
-                         Name :{commercial_name}
-                        Email : {commercial_name}@preco.co.z
-                        Numero de telefone {phone_number}
-                        Address {address}
-                ''',
-                from_=number_id,
-                to=phone_number
-            )
+            #message = client.messages.create(
+            #body=f'''A empresa
+            #       {commercial_name} foi regista no preço com os seguintes detalhes
+            #      Name :{commercial_name}
+            #      Email : {commercial_name}@preco.co.z
+            #       Numero de telefone {phone_number}
+            #        Address {address}
+            # ''',
+            #  from_=number_id,
+            #   to=phone_number
+            #)
             user = authenticate(username=email, password="price2019")
             if user is not None:
                 login(request, user)

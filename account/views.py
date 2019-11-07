@@ -51,8 +51,10 @@ def company(request):
             email = form.cleaned_data.get('email')
             phone_number = form.cleaned_data.get('phone_number')
             address = form.cleaned_data.get('address')
-            form.save()
-
+            user = form.save()
+            user.company.commercial_name = form.cleaned_data.get('commercial_name')
+            user.company.address = form.cleaned_data.get('address')
+            user.company.save()
             account_sid = 'AC7314ed7fc30559b0e1c8454743de686a'
             auth_token = 'c23acf7ad601d3957598561fe575eee8'
             client = Client(account_sid, auth_token)

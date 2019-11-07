@@ -52,8 +52,8 @@ def company(request):
             phone_number = form.cleaned_data.get('phone_number')
             address = form.cleaned_data.get('address')
             user = form.save()
-            user.company.commercial_name = form.cleaned_data.get('commercial_name')
-            user.company.address = form.cleaned_data.get('address')
+            user.company.commercial_name = commercial_name
+            user.company.address = address
             user.company.save()
             account_sid = 'AC7314ed7fc30559b0e1c8454743de686a'
             auth_token = 'c23acf7ad601d3957598561fe575eee8'

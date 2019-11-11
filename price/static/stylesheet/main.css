@@ -188,18 +188,26 @@ footer a{
 
 @media (max-width: 480px) {
     input[type="search"] {
-    margin-left: 0 !important;
-        width: 100% !important;
+        margin-left: 46px !important;
+        width: 89% !important;
+
     }
+.siginupButton{
+           margin-left: 46px !important;
+    width: 89% !important;
+}
     .container h1 {
     margin-left: -173px;
             margin-top: 15px;
 
 }
     body{
-        background-color: red;
-    }
 
+    }
+    .company{
+        width: auto;
+        margin-bottom: 20px;
+    }
 }
 
 @media (min-width: 768px) {

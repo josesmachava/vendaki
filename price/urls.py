@@ -20,6 +20,7 @@ from django.urls import path, include
 from price import settings
 from . import views
 from django.conf.urls import handler404, handler500, url
+from graphene_django.views import GraphQLView
 
 urlpatterns = [
     path('account/', include("account.urls")),
@@ -33,7 +34,7 @@ urlpatterns = [
     path('add_to_cart/<int:id>', views.add_to_cart, name="add_to_cart"),
     path('create_referral', views.show_links, name="create_referral"),
     url(r"^referrals/", include("pinax.referrals.urls", namespace="pinax_referrals")),
-
+    path('graphql', GraphQLView.as_view(graphiql=True)),
     path('remove_from_cart/<int:id>', views.remove_from_cart, name="remove_from_cart"),
     path('order_summary', views.OrderSummary.as_view(),
          name='order-summary'),

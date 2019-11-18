@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'phonenumber_field',
     "pinax.referrals",
+    "graphene_django",
+    "corsheaders",
 
     'about',
     'account',
@@ -68,6 +70,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 AUTH_USER_MODEL = 'account.User'
 
 
+
 LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
@@ -80,15 +83,21 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     'whitenoise.middleware.WhiteNoiseMiddleware',
-
+    'corsheaders.middleware.CorsMiddleware',
     "django.contrib.auth.middleware.AuthenticationMiddleware",
-
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "pinax.referrals.middleware.SessionJumpingMiddleware",
 
 ]
 
 ROOT_URLCONF = 'price.urls'
+
+
+
+GRAPHENE = {
+    'SCHEMA': 'price.schema.schema' # Where your Graphene schema lives
+}
+
 
 TEMPLATES = [
     {
@@ -137,7 +146,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/

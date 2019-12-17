@@ -1,7 +1,9 @@
+from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect, HttpResponse
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+from django.utils.decorators import method_decorator
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 
 from .models import Product, Order
 
@@ -54,6 +56,7 @@ class ProductListView(ListView):
             products = paginator.page(paginator.num_pages)
         context['product'] = products
         return context
+
 
 
 class ProductUpdateView(UpdateView):

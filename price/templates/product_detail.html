@@ -1,0 +1,131 @@
+{% extends "price/layout/base.html" %}
+{% load staticfiles %}
+
+{% comment %}
+
+{% endcomment %}
+{% load staticfiles %}
+
+{# overide the tile of the page #}
+{% block title %}
+<title>Price</title>
+{% endblock %}
+
+{% block styles %}
+{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+<meta charset="utf-8">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible", content="IE=edge">
+<meta name="viewport", content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'stylesheet/main.css' %}">
+
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+{% endblock %}
+
+
+{% block scripts %}
+{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+{% endblock %}
+
+
+{% block content %}
+
+<main>
+    <div class="container-fluid header">
+        <div class="row">
+            <div class="col-md-4">
+
+
+            </div>
+            <div class="col-md-4">
+                <ul>
+                    <i class="far fa-envelope"></i> <li>info@preco.co.mz</li>
+                    <i class="fas fa-phone-alt"></i> <li>+258849395994</li>
+                </ul>
+
+            </div>
+            <div class="col-md-4">
+
+                <div class="contact">
+                    <ul>
+                        <li><i class="fas fa-shopping-cart"></i></li>
+                        <li><i class="fab fa-twitter"></i></li>
+                        <li><i class="fab fa-facebook-f"></i></li>
+                        <li><i class="fab fa-instagram"></i></li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    {% include "price/layout/navegation.html" %}
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <aside>
+                    <nav>
+                        <h1 class="category">Categoria</h1>
+                           <ul>
+                            {% for category in categories %}
+                                 <li>{{ category.name|capfirst  }}</li>
+                            {% endfor  %}
+
+                        </ul>
+                    </nav>
+
+                </aside>
+
+            </div>
+
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="products">
+                            <img src="{{ product.company.company_logo.url }}" alt="{{ company.commercial_name }} logo ">
+
+                            <h2>{{ product.name }}</h2>
+                            <h3>{{ product.price }} MT</h3>
+                            <h3>{{ product.company.commercial_name }}</h3>
+                            {% if request.user.is_authenticated %}
+                            <a href="{% url 'add_to_cart' product.id   %}">
+                                <button type="button" class="btn btn-primary add">Adicionar ao carinho</button>
+
+                            </a>
+                            {% else %}
+
+                                            <button  class="btn btn-primary siginupButton" ><a href=" {% url 'signup' %}" title="" class="create-account" >Criar conta</a></button>
+
+                            {% endif %}
+                          <!--   <a href="{% url 'remove_from_cart' product.id   %}">
+                                <button type="button" class="btn btn-primary add">Remove from cart</button>
+
+                            </a>
+-->
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</main>
+{% include "price/layout/footer.html" %}
+
+
+{% endblock %}
+
+
+
+
+

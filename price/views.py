@@ -2,11 +2,13 @@ import random
 import string
 
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 
 from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse
-from django.views.generic import View
+from django.urls import reverse, reverse_lazy
+from django.utils.decorators import method_decorator
+from django.views.generic import View, DeleteView, DetailView
 from pinax.referrals.models import Referral
 
 from dashboard.models import *
@@ -57,6 +59,15 @@ def dashboard(request):
     return render(request, 'dashboard.html')
 
 
+
+@method_decorator(login_required, name='dispatch')
+class ProductDetailView(DetailView):
+
+    model = Product
+    template_name = 'product_detail.html'
+    context_object_name = 'product'
+
+
 def add_to_cart(request, id):
     product = get_object_or_404(Product, id=id)
     order_product, created = OrderProduct.objects.get_or_create(product=product, user=request.user, ordered=False)
@@ -86,6 +97,20 @@ class OrderSummary(View):
                 'object': order
             }
             return render(self.request, 'order_summary.html', context)
+
+        except ObjectDoesNotExist:
+            messages.error(self.request, "You do not hava an active order")
+            return redirect('product')
+
+
+class RefereLink(View):
+    def get(self, *args, **kwargs):
+        try:
+            order = Order.objects.get(user=self.request.user, ordered=False)
+            context = {
+                'object': order
+            }
+            return render(self.request, 'referral.html', context)
 
         except ObjectDoesNotExist:
             messages.error(self.request, "You do not hava an active order")

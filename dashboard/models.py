@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+
 from account.models import User, Company, Category
 
 
@@ -31,12 +33,17 @@ class Product(models.Model):
     def __str__(self):
         return f'{self.name}'
 
+    def get_absolute_url(self):
+        return 'http://localhost:8000/product/%s' % self.id
+
 
 class OrderProduct(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     ordered = models.BooleanField(default=False)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
+
+
 
     def __str__(self):
         return f"{self.quantity} of {self.product.name}"

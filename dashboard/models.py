@@ -34,7 +34,7 @@ class Product(models.Model):
         return f'{self.name}'
 
     def get_absolute_url(self):
-        return 'http://localhost:8000/product/%s' % self.id
+        return '%s' % self.id
 
 
 class OrderProduct(models.Model):

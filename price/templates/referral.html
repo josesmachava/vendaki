@@ -74,7 +74,7 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Producto</th>
-      <th scope="col"></th>
+      <th scope="col">Link</th>
     </tr>
   </thead>
   <tbody>
@@ -82,7 +82,7 @@
     <tr>
       <th scope="row"></th>
       <td>{{ order_product.product.name }}</td>
-      <td><a href="{{ order_product.product.get_absolute_url }}">{{ order_product.product.get_absolute_url }}</a></td>
+      <td><a href=" {% url 'product-detail' user.referral.referral_token  order_product.product.get_absolute_url  %}"> www.preco.co.mz/{{user.referral.referral_token }}/{{ order_product.product.get_absolute_url }}</a></td>
 
     </tr>
     {% endfor %}

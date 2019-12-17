@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+
     'phonenumber_field',
     "pinax.referrals",
     "graphene_django",
@@ -86,7 +87,6 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "pinax.referrals.middleware.SessionJumpingMiddleware",
 
 ]
 

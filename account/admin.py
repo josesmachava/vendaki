@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Company, User, Type
+from .models import Company, User, Type, Referral
 
 
 # Register your models here.
@@ -14,6 +14,9 @@ class CompanyAdmin(admin.ModelAdmin):
 
 
 
+class ReferralAdmin(admin.ModelAdmin):
+    list_display = ['referral_token']
+
 class UserAdmin(admin.ModelAdmin):
     list_display = ['phone_number']
 
@@ -22,3 +25,5 @@ admin.site.register(Type)
 
 admin.site.register(Company, CompanyAdmin)
 admin.site.register(User, UserAdmin)
+admin.site.register(Referral, ReferralAdmin)
+

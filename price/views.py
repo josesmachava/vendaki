@@ -136,14 +136,7 @@ def remove_from_cart(request, id):
     return redirect('product')
 
 
-def create_referral(request):
-    referral = Referral.create(
-        user=Order.user,
-        redirect_to=reverse("index")
 
-    )
-    Order.referral = referral
-    Order.save()
 
 
 def show_links(request):

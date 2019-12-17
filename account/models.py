@@ -6,8 +6,7 @@ from django.dispatch import receiver
 from django.utils import timezone
 from phonenumber_field.modelfields import PhoneNumberField
 from django.utils.translation import ugettext_lazy as _
-import secrets
-
+from django.utils.crypto import get_random_string
 from price import settings
 
 
@@ -83,3 +82,8 @@ class Company(models.Model):
 
     def __str__(self):
         return str(self.user)
+
+
+class Referral(models.Model):
+    referral_token = models.CharField(max_length=4, blank=False, default=get_random_string(length=32), editable=False)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

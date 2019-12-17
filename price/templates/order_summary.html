@@ -21,7 +21,17 @@
 <link rel="stylesheet" href="{% static 'stylesheet/main.css' %}">
 
 
+<style>
+    button a{
+        color: white;
 
+    }
+    button a:hover{
+        color: white;
+
+    }
+
+</style>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 {% endblock %}
 
@@ -98,7 +108,7 @@
               <div class="summary">
 
                   <h4>Total: {{ object.get_total }}</h4>
-                <button class="btn btn-danger"><a href="{%  url 'create_referral'  %}">Finalizar Compra</a> </button>
+                <button class="btn btn-danger"><a href="{%  url 'referallink'  %}">Comfirmar Compra</a> </button>
               </div>
           </div>
     </div>

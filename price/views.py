@@ -4,6 +4,7 @@ import string
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
+from django.http import Http404
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse, reverse_lazy
@@ -102,6 +103,9 @@ class OrderSummary(View):
             return redirect('product')
 
 
+
+
+
 class RefereLink(View):
     def get(self, *args, **kwargs):
         try:
@@ -142,12 +146,13 @@ def show_links(request):
     for orders in order.product.all():
         print(orders.product.id)
         referral_link, created = ReferralLink.objects.get_or_create(user=request.user,
-                                     link=f'www.preco.co.mz/product/{request.user.referral.referral_token}/{orders.product.id}',
-                                     name=orders.product.name, referral=request.user.referral.referral_token)
+                                                                    link=f'www.preco.co.mz/product/{request.user.referral.referral_token}/{orders.product.id}',
+                                                                    name=orders.product.name,
+                                                                    referral=request.user.referral.referral_token)
 
     order.ordered = True
     order.save()
-    return render(request, 'referral.html', {'referral_link':referral_links})
+    return render(request, 'referral.html', {'referral_link': referral_links})
 
 
 def handler404(request, exception):

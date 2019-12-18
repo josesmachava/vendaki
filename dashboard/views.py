@@ -83,7 +83,7 @@ class OrdertListView(ListView):
     model = Order
     template_name = 'dashboard/product/order.html'
     context_object_name = 'orders'
-    paginate_by = 5
+    paginate_by = 15
 
     def get_context_data(self, **kwargs):
         context = super(OrdertListView, self).get_context_data(**kwargs)
@@ -161,6 +161,11 @@ class CompanyListView(ListView):
         return context
 
 
+@method_decorator(login_required, name='dispatch')
+class OrderDetailView(DetailView):
+    model = Order
+    template_name = 'dashboard/order_detail.html'
+    context_object_name = 'order'
 
 def companies(request):
     companies = Company.objects.all()

@@ -35,6 +35,7 @@ urlpatterns = [
     path('graphql', GraphQLView.as_view(graphiql=True)),
     path('product/<str:referral>/<int:pk>', views.ProductDetailView.as_view(),
          name='product-detail'),
+
     path('remove_from_cart/<int:id>', views.remove_from_cart, name="remove_from_cart"),
     path('order_summary', views.OrderSummary.as_view(),
          name='order-summary'),

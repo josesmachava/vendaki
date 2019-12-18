@@ -24,9 +24,10 @@ ul li a:hover{
 }
 
 aside ul li{
-    font-size: 16px;
-    padding: 5px;
+    font-size: 20px;
+    padding: 11px;
     list-style: none;
+
 }
 nav{
         margin-left: -15px;

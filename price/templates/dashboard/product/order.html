@@ -66,12 +66,15 @@
                         {% if order.ordered  %}
                         <tr>
 
-                            <td colspan="1">{{ order.id }}</td>
+                            <td colspan="1"><a href="{%  url  'order-detail' order.id %}">{{ order.id }}</a>  </td>
 
                             <td>  {{ order.user.last_name }}</td>
                             <td>  {{ order.user.first_name }}</td>
                              <td>  {{ order.user.email }}</td>
                             <td>{{ order.product.all.count }}</td>
+                              {% for orders in order.product.all   %}
+                                  {{ orders.product }}
+                              {% endfor %}
 
                         </tr>
 

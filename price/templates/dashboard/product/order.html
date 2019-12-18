@@ -72,9 +72,7 @@
                             <td>  {{ order.user.first_name }}</td>
                              <td>  {{ order.user.email }}</td>
                             <td>{{ order.product.all.count }}</td>
-                              {% for orders in order.product.all   %}
-                                  {{ orders.product }}
-                              {% endfor %}
+
 
                         </tr>
 

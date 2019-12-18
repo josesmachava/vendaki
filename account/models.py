@@ -87,3 +87,10 @@ class Company(models.Model):
 class Referral(models.Model):
     referral_token = models.CharField(max_length=4, blank=False, default=get_random_string(length=32), editable=False)
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+
+class ReferralLink(models.Model):
+    link = models.URLField()
+    name = models.CharField(max_length=30, blank=True)
+    referral = models.CharField(max_length=30, blank=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

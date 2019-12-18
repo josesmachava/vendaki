@@ -11,6 +11,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import View, DeleteView, DetailView
 from pinax.referrals.models import Referral
 
+from account.models import ReferralLink
 from dashboard.models import *
 
 
@@ -59,10 +60,8 @@ def dashboard(request):
     return render(request, 'dashboard.html')
 
 
-
 @method_decorator(login_required, name='dispatch')
 class ProductDetailView(DetailView):
-
     model = Product
     template_name = 'product_detail.html'
     context_object_name = 'product'
@@ -136,14 +135,19 @@ def remove_from_cart(request, id):
     return redirect('product')
 
 
-
-
-
 def show_links(request):
     order = Order.objects.get(user=request.user, ordered=False)
+    referral_links = ReferralLink.objects.filter(user=request.user)
+    print(order.product.all())
+    for orders in order.product.all():
+        print(orders.product.id)
+        referral_link, created = ReferralLink.objects.get_or_create(user=request.user,
+                                     link=f'www.preco.co.mz/product/{request.user.referral.referral_token}/{orders.product.id}',
+                                     name=orders.product.name, referral=request.user.referral.referral_token)
+
     order.ordered = True
     order.save()
-    return render(request, 'referral.html')
+    return render(request, 'referral.html', {'referral_link':referral_links})
 
 
 def handler404(request, exception):

@@ -25,7 +25,6 @@ class Product(models.Model):
     description = models.TextField(max_length=30, blank=True)
     company = models.ForeignKey(Company, on_delete=models.CASCADE)
     discount = models.CharField(max_length=30, blank=True)
-    referral = models.CharField(max_length=30, blank=True)
     type = models.ForeignKey(TypeDiscount, on_delete=models.CASCADE)
     total_number = models.IntegerField(blank=True)
     number = models.IntegerField(blank=True)

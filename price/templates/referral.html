@@ -78,11 +78,11 @@
     </tr>
   </thead>
   <tbody>
-  {% for order_product in object.product.all %}
+  {% for referral_link in referral_link %}
     <tr>
       <th scope="row"></th>
-      <td>{{ order_product.product.name }}</td>
-      <td><a href=" {% url 'product-detail' user.referral.referral_token  order_product.product.get_absolute_url  %}"> www.preco.co.mz/{{user.referral.referral_token }}/{{ order_product.product.get_absolute_url }}</a></td>
+      <td>{{ referral_link.name }}</td>
+      <td><a href="{{ referral_link.link }}" target="_blank">{{   referral_link.link }}</a></td>
 
     </tr>
     {% endfor %}

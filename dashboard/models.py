@@ -1,10 +1,13 @@
 from django.db import models
 from django.urls import reverse
+from django.utils.crypto import get_random_string
 
 from account.models import User, Company, Category
 
-
 # Create your models here.
+from price import settings
+
+
 class SocialMedia(models.Model):
     name = models.CharField(max_length=30, blank=True)
     url = models.URLField()
@@ -42,8 +45,6 @@ class OrderProduct(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
 
-
-
     def __str__(self):
         return f"{self.quantity} of {self.product.name}"
 
@@ -68,3 +69,22 @@ class Order(models.Model):
         for order_product in self.product.all():
             total += order_product.get_final_product_price()
         return total
+
+
+class Referral(models.Model):
+    referral_token = models.CharField(max_length=4, blank=False, default=get_random_string(length=32), editable=False)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+
+class ReferralLink(models.Model):
+    link = models.URLField()
+    referral = models.CharField(max_length=30, blank=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+
+class ReferredLink(models.Model):
+    link = models.URLField()
+    referral = models.CharField(max_length=30, blank=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

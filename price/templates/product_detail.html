@@ -19,7 +19,20 @@
 <meta http-equiv="X-UA-Compatible", content="IE=edge">
 <meta name="viewport", content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="{% static 'stylesheet/main.css' %}">
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+<script scr="{% static 'javascript/store_links_in_cookies.js' %}"></script>
+<script>
 
+    let url = window.location.href;
+    Cookies.set("link", url, {expires: 30})
+    let link = Cookies.get("link");
+    if(link){
+         console.log(link)
+    }else {
+         Cookies.set("link", url, {expires: 30})
+         let link = Cookies.get("link");
+    }
+</script>
 
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -95,7 +108,7 @@
                             <h3>{{ product.price }} MT</h3>
                             <h3>{{ product.company.commercial_name }}</h3>
                             {% if request.user.is_authenticated %}
-                            <a href="{% url 'add_to_cart' product.id   %}">
+                            <a href="{% url 'add_to_cart_referral' product.id request.resolver_match.kwargs.referral  %}">
                                 <button type="button" class="btn btn-primary add">Adicionar ao carinho</button>
 
                             </a>

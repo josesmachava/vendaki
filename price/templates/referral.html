@@ -75,15 +75,19 @@
       <th scope="col">#</th>
       <th scope="col">Producto</th>
       <th scope="col">Link</th>
+      <th scope="col">Preco</th>
+      <th scope="col">Desconto</th>
     </tr>
   </thead>
   <tbody>
   {% for referral_link in referral_link %}
     <tr>
       <th scope="row"></th>
-      <td>{{ referral_link.name }}</td>
+      <td>{{ referral_link.product.name }}</td>
       <td><a href="{{ referral_link.link }}" target="_blank">{{   referral_link.link }}</a></td>
 
+      <td>{{ referral_link.product.price }}</td>
+      <td>0 MT</td>
     </tr>
     {% endfor %}
     <tr>

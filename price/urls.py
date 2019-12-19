@@ -32,6 +32,7 @@ urlpatterns = [
     path("showlinks/", views.show_links, name="showlinks"),
     path("dashboard/", include("dashboard.urls")),
     path('add_to_cart/<int:id>', views.add_to_cart, name="add_to_cart"),
+    path('add_to_cart/<int:id>/<str:referral>/', views.add_to_cart_referral, name="add_to_cart_referral"),
     path('graphql', GraphQLView.as_view(graphiql=True)),
     path('product/<str:referral>/<int:pk>', views.ProductDetailView.as_view(),
          name='product-detail'),

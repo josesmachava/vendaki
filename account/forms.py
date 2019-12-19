@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import User, Company, Referral
+from .models import User, Company
+from dashboard.models import  Referral
 from django.db import transaction
 
 from django.forms import ModelForm

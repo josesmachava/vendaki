@@ -12,7 +12,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import View, DeleteView, DetailView
 from pinax.referrals.models import Referral
 
-from account.models import ReferralLink
+from dashboard.models import ReferralLink
 from dashboard.models import *
 
 
@@ -81,7 +81,40 @@ def add_to_cart(request, id):
         else:
             messages.info(request, "Produto addicionado no carinho")
             order.product.add(order_product)
+            referral_link, created = ReferredLink.objects.get_or_create(user=request.user,
+                                                                        link=f'www.preco.co.mz/product/{request.user.referral.referral_token}/{id}',
+                                                                        product=product,
+                                                                        referral=request.user.referral.referral_token)
 
+
+    else:
+        order = Order.objects.create(user=request.user)
+        order.product.add(order_product)
+        messages.info(request, "Produto addicionado no carinho")
+    return redirect('product')
+
+
+def add_to_cart_referral(request, id, referral):
+    product = get_object_or_404(Product, id=id)
+    order_product, created = OrderProduct.objects.get_or_create(product=product, user=request.user, ordered=False)
+    order_qs = Order.objects.filter(user=request.user, ordered=False)
+    print("hello")
+    if order_qs.exists():
+        order = order_qs[0]
+        if order.product.filter(product_id=product.id).exists():
+            order_product.quantity += 1
+            order_product.save()
+            messages.info(request, "A quatidade do producto foi alterada")
+        else:
+            messages.info(request, "Produto addicionado no carinho")
+            order.product.add(order_product)
+        print("BEFORE")
+        referred_link, created = ReferredLink.objects.get_or_create(user=request.user,
+                                                                        link=f'www.preco.co.mz/product/{referral}/{id}',
+                                                                        product=product,
+                                                                        referral=referral)
+
+        print("AFTER")
     else:
         order = Order.objects.create(user=request.user)
         order.product.add(order_product)
@@ -147,7 +180,7 @@ def show_links(request):
         print(orders.product.id)
         referral_link, created = ReferralLink.objects.get_or_create(user=request.user,
                                                                     link=f'www.preco.co.mz/product/{request.user.referral.referral_token}/{orders.product.id}',
-                                                                    name=orders.product.name,
+                                                                    product=orders.product,
                                                                     referral=request.user.referral.referral_token)
 
     order.ordered = True

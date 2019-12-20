@@ -64,12 +64,14 @@
 
 {% include "price/layout/navegation.html" %}
 
+{% include "price/layout/mobile-navegation.html" %}
+
 
     <div class="container">
         <div class="row">
             <div class="col-md-3">
                 <aside>
-                    <nav>
+                    <nav class="category-desktop">
                         <h1 class="category">Categoria</h1>
                         <ul>
                             {% for category in categories %}

@@ -1,0 +1,42 @@
+<nav class="mobile-menu">
+
+        <div class="menu-content">
+         <h1><a href="{% url 'index' %}">Preco</a></h1>
+        {% if user.is_authenticated %}
+        <div class="mobile-shop-cart"><a href="{% url 'order-summary' %}">
+            <div>
+                    <i class="fas fa-shopping-cart"></i></a>
+
+                    {% if order.product %}
+
+                         <span class="mobile-cart-number-order" >
+                         {{ order.product.all.count }}
+                        </span>
+                    {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="mobile-menu-icon"> <i class="fas fa-bars"></i>
+
+        </div>
+        </div>
+        <ul class="mobile-menu-items">
+                <li><a href=" {% url 'signin' %}" title="entrar" >Entrar</a></li>
+                <li><a href=" {% url 'signup' %}" title="criar conta">Criar conta</a></li>
+                {% for category in categories %}
+                                 <li>{{ category.name|capfirst  }}</li>
+                {% endfor  %}
+            </ul>
+
+       <script>
+         /*  let mobile_menu_icon = document.querySelector(".mobile-menu-icon");
+           let mobile_menu_items = document.querySelector(".mobile-menu-items");
+
+           mobile_menu_icon.addEventListener('click', () =>{
+
+               mobile_menu_items.style.display = "block";
+           }) */
+       </script>
+
+</nav>

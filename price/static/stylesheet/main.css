@@ -120,6 +120,66 @@ nav ul{
     margin-bottom: 50px;
 
 }
+.mobile-menu{
+    display: none;
+
+}
+.mobile-menu{
+    background-color:white;
+
+}
+.menu-content{
+     display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 20px;
+}
+.mobile-menu-icon{
+    font-size: 24px;
+    line-height: 1;
+
+}
+
+.mobile-shop-cart{
+     display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0 20px;
+    width: 100vw;
+    font-size: 18px;
+}
+.mobile-cart-number-order{
+
+    display: inline-block;
+    position: absolute;
+    margin: -5px -10px;
+    z-index: 1;
+    background: red;
+    width: 17px;
+    border-radius: 23px;
+    height: 17px;
+    text-align: center;
+    color:
+    white;
+    font-size: 12px;
+
+    
+
+}
+.mobile-menu-items{
+    width: 80vw;
+    height: 100vh;
+    position: relative;
+    top: 0;
+    z-index: 1;
+    margin-top: -39px;
+    background:whitesmoke;
+   float: right;
+}
+.mobile-menu-items li{
+    padding: 0 20px;
+    font-size: 18px;
+}
 .sigin button{
     display: block;
     margin: auto;
@@ -187,11 +247,18 @@ footer a{
 }
 
 @media (max-width: 480px) {
+    .desktop-menu,  .category-desktop, .mobile-menu-items{
+        display: none ;
+    }
+    .mobile-menu{
+        display: block;
+    }
     input[type="search"] {
         margin-left: 46px !important;
         width: 89% !important;
 
     }
+
 .siginupButton{
            margin-left: 46px !important;
     width: 89% !important;

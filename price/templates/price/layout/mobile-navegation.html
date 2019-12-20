@@ -1,11 +1,12 @@
+{% load staticfiles %}
 <nav class="mobile-menu">
 
         <div class="menu-content">
          <h1><a href="{% url 'index' %}">Preco</a></h1>
         {% if user.is_authenticated %}
-        <div class="mobile-shop-cart"><a href="{% url 'order-summary' %}">
+            <div class="mobile-shop-cart"><a href="{% url 'order-summary' %}"></a>
             <div>
-                    <i class="fas fa-shopping-cart"></i></a>
+                <img src="{% static 'images/shopicon.svg' %}" alt="">
 
                     {% if order.product %}
 
@@ -16,7 +17,7 @@
             </div>
         </div>
         {% endif %}
-
+<!--
         <div class="mobile-menu-icon"> <i class="fas fa-bars"></i>
 
         </div>
@@ -28,7 +29,7 @@
                                  <li>{{ category.name|capfirst  }}</li>
                 {% endfor  %}
             </ul>
-
+-->
        <script>
          /*  let mobile_menu_icon = document.querySelector(".mobile-menu-icon");
            let mobile_menu_items = document.querySelector(".mobile-menu-items");

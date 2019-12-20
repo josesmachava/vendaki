@@ -276,6 +276,9 @@ footer a{
     .mobile-menu{
         display: block;
     }
+    .mobile-shop-cart img{
+        width: 20px;
+    }
     .products{
         background-color: whitesmoke;
 
@@ -302,7 +305,9 @@ footer a{
     .mobile-menu{
         display: block;
     }
-
+     .mobile-shop-cart img{
+        width: 20px;
+    }
     .products{
         background-color: whitesmoke;
 

@@ -4,8 +4,9 @@
         <div class="menu-content">
          <h1><a href="{% url 'index' %}">Preco</a></h1>
         {% if user.is_authenticated %}
-            <div class="mobile-shop-cart"><a href="{% url 'order-summary' %}"></a>
+            <div class="mobile-shop-cart">
             <div>
+            <a href="{% url 'order-summary' %}">
                 <img src="{% static 'images/shopicon.svg' %}" alt="">
 
                     {% if order.product %}
@@ -14,6 +15,7 @@
                          {{ order.product.all.count }}
                         </span>
                     {% endif %}
+            </a>
             </div>
         </div>
         {% endif %}

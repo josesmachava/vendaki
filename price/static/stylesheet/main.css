@@ -131,13 +131,20 @@ nav ul{
 .mobile-menu{
     background-color:white;
 
+
+    display: block;
+    position: fixed;
+    z-index: 1;
+
+
 }
 .menu-content{
-     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 10px 20px;
-    border-bottom: 1px solid whitesmoke;
+ display: flex;
+ justify-content: space-between;
+ align-items: baseline;
+ padding: 10px 20px;
+ border-bottom: 1px solid  whitesmoke;
+ width: 100vw;
 }
 .mobile-menu-icon{
     font-size: 24px;
@@ -147,7 +154,7 @@ nav ul{
 
 .mobile-shop-cart{
      display: flex;
-    justify-content: space-between;
+    justify-content:end;
     align-items: baseline;
     padding: 0 20px;
     width: 100vw;

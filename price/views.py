@@ -4,12 +4,13 @@ import string
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import Http404
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
-from django.views.generic import View, DeleteView, DetailView
+from django.views.generic import View, DeleteView, DetailView, ListView
 from pinax.referrals.models import Referral
 
 from dashboard.models import ReferralLink
@@ -172,7 +173,7 @@ def remove_from_cart(request, id):
     return redirect('product')
 
 
-def show_links(request):
+def create_referral(request):
     order = Order.objects.get(user=request.user, ordered=False)
     referral_links = ReferralLink.objects.filter(user=request.user)
     print(order.product.all())
@@ -186,6 +187,28 @@ def show_links(request):
     order.ordered = True
     order.save()
     return render(request, 'referral.html', {'referral_link': referral_links})
+
+
+class ReferralLinkListView(ListView):
+    model = ReferralLink
+    template_name = 'referral/list.html'
+    context_object_name = 'referrals'
+    paginate_by = 10
+
+    def get_context_data(self, **kwargs):
+        context = super(ReferralLinkListView, self).get_context_data(**kwargs)
+        referrals = self.get_queryset()
+        page = self.request.GET.get('page')
+        paginator = Paginator(referrals, self.paginate_by)
+        try:
+            products = paginator.page(page)
+        except PageNotAnInteger:
+            products = paginator.page(1)
+        except EmptyPage:
+            products = paginator.page(paginator.num_pages)
+        context['referrals'] = referrals
+        return context
+
 
 
 def handler404(request, exception):

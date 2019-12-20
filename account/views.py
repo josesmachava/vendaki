@@ -76,8 +76,8 @@ def company(request):
                 [email],
                 fail_silently=False,
             )
-            #message = client.messages.create(
-            #body=f'''A empresa
+            # message = client.messages.create(
+            # body=f'''A empresa
             #       {commercial_name} foi regista no preço com os seguintes detalhes
             #      Name :{commercial_name}
             #      Email : {commercial_name}@preco.co.z
@@ -86,7 +86,7 @@ def company(request):
             # ''',
             #  from_=number_id,
             #   to=phone_number
-            #)
+            # )
             user = authenticate(username=email, password="price2019")
             if user is not None:
                 login(request, user)
@@ -96,6 +96,10 @@ def company(request):
     else:
         form = CompanyForm()
     return render(request, 'account/company.html', {'form': form})
+
+
+def profile(request):
+    return render(request, 'account/profile.html')
 
 
 def confirm(request):

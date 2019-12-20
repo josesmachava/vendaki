@@ -1,6 +1,10 @@
 <footer>
+    {% if user.is_authenticated %}
 
-    <div class="container">
+    {% include "price/layout/mobile-bottom-menu.html" %}
+
+{% else %}
+      <div class="container">
 
         <div class="row">
 
@@ -39,6 +43,8 @@
             </div>
         </div>
     </div>
+
+{% endif %}
 
 
 </footer>

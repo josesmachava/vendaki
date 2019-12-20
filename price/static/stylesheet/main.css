@@ -250,8 +250,25 @@ footer p{
 footer a{
     color: black;
 }
+.mobile-bottom-menu{
+    position: fixed;
+    bottom: -50px;
+    width: 100vw;
+    background:white;
+    z-index: 1;
+    border-top: 1px solid whitesmoke;
+}
+.mobile-bottom-menu ul{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+    margin: 0;
+    padding: 15px;
+    font-size: 18px;
 
 
+
+}
 @media (max-width: 320px) {
     .desktop-menu,  .category-desktop, .mobile-menu-items{
         display: none ;

@@ -303,6 +303,10 @@ footer a{
         display: block;
         margin: 0 auto;
     }
+    .mobile-row{
+        margin-top: 75px;
+        margin-bottom: 75px;
+    }
 }
 
 @media (max-width: 480px ) and  (min-width: 321px){
@@ -341,6 +345,11 @@ footer a{
     .company{
         width: auto;
         margin-bottom: 20px;
+    }
+
+    .mobile-row{
+        margin-top: 50px;
+        margin-bottom: 50px;
     }
 }
 

@@ -251,25 +251,48 @@ footer a{
     color: black;
 }
 
-@media (max-width: 480px) {
+
+@media (max-width: 320px) {
     .desktop-menu,  .category-desktop, .mobile-menu-items{
         display: none ;
     }
     .mobile-menu{
         display: block;
     }
-    input[type="search"] {
-        margin-left: 46px !important;
-        width: 89% !important;
-
-    }
     .products{
         background-color: whitesmoke;
+
+        width: 130px;
         height: auto;
+        border: 1px solid whitesmoke;
+
+    }
+    .products-body{
+        width: 130px;
+        margin: 10px;
+    }
+    .products img {
+        height: 100px;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px ) and  (min-width: 321px){
+    .desktop-menu,  .category-desktop, .mobile-menu-items{
+        display: none ;
+    }
+    .mobile-menu{
+        display: block;
+    }
+
+    .products{
+        background-color: whitesmoke;
+
         width: 160px;
         height: 135px;
         border: 1px solid whitesmoke;
-            margin: 13px;
+
     }
     .products-body{
         margin: 10px;

@@ -319,6 +319,10 @@ footer a{
         text-align: center;
         font-size: 55px;
     }
+    .company .products {
+            margin: 10px auto;
+
+    }
 }
 
 @media (max-width: 480px ) and  (min-width: 321px){
@@ -363,6 +367,7 @@ footer a{
         margin-top: 75px;
         margin-bottom: 75px;
     }
+
      .user-profile-picture{
             border-radius: 100px;
             height: 100px;
@@ -376,8 +381,40 @@ footer a{
         font-size: 55px;
 
      }
+ .company, .products {
+       background-color: whitesmoke;
+    height: auto;
+    width: 200px;
+    border: 1px solid whitesmoke;
+    }
+    input[type="search"]{
+        width: 90%;
+        font-size: 16px;
+        margin: 0 auto;
+        margin: 10px auto;
+
+    }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) and (min-width: 481px) {
+    .desktop-menu,  .category-desktop, .mobile-menu-items{
+        display: none ;
+    }
+    .mobile-menu{
+        display: block;
+    }
 
+
+}
+
+@media (min-width: 992px){
+    .desktop-menu,  .category-desktop, .mobile-menu-items{
+        display: block;
+    }
+    .mobile-menu{
+        display: none;
+    }
+    .mobile-bottom-menu{
+        display: none;
+    }
 }

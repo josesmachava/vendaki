@@ -58,6 +58,10 @@ def product(request):
     return render(request, 'products.html', {'products': products, 'categories': categories})
 
 
+def search(request):
+    return render(request, 'price/search.html')
+
+
 def dashboard(request):
     return render(request, 'dashboard.html')
 
@@ -111,9 +115,9 @@ def add_to_cart_referral(request, id, referral):
             order.product.add(order_product)
         print("BEFORE")
         referred_link, created = ReferredLink.objects.get_or_create(user=request.user,
-                                                                        link=f'www.preco.co.mz/product/{referral}/{id}',
-                                                                        product=product,
-                                                                        referral=referral)
+                                                                    link=f'www.preco.co.mz/product/{referral}/{id}',
+                                                                    product=product,
+                                                                    referral=referral)
 
         print("AFTER")
     else:
@@ -135,9 +139,6 @@ class OrderSummary(View):
         except ObjectDoesNotExist:
             messages.error(self.request, "You do not hava an active order")
             return redirect('product')
-
-
-
 
 
 class RefereLink(View):
@@ -208,7 +209,6 @@ class ReferralLinkListView(ListView):
             products = paginator.page(paginator.num_pages)
         context['referrals'] = referrals
         return context
-
 
 
 def handler404(request, exception):

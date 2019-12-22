@@ -43,6 +43,7 @@ urlpatterns = [
          name='order-summary'),
     path('referallink', views.RefereLink.as_view(),
                        name='referallink'),
+    path('search',  views.search, name="search")
 
 
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

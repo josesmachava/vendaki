@@ -9,7 +9,7 @@
         <div class="row">
 
             <div class="col-md-4 col-xs-3 col-sm-3">
-                <ul>
+                <ul class="hide">
 
                     <li><a href=" {% url 'signin' %}" title="" >Entrar</a></li>
 
@@ -24,7 +24,7 @@
 
             <div class="col-md-4 col-xs-3 col-sm-3">
 
-                <ul>
+                <ul class="hide">
                     <li><a href=" {% url 'security' %}" title="" >Segurança</a></li>
                     <li><a href=" {% url 'policies' %}" title="" >Políticas e privacidade</a></li>
                     <li><a href=" {% url 'terms' %}" title="" >Termos e condições</a></li>
@@ -34,7 +34,7 @@
 
             <div class="col-md-4 col-xs-3 col-sm-3">
 
-                    <ul>
+                    <ul class="hide">
                             <li> Twitter</a></li>
                             <li>Facebook</a></li>
                             <li>Instagram</a></li>
@@ -67,7 +67,7 @@
             </div>
             <ul class="mobile-footer">
                 <li> &copy; {% now 'Y' %} Preço</li>
-                <li>Recursos Utilitários  </li><span><i class="fas fa-chevron-down"></i></span>
+                <li>Recursos Utilitários  </li><span class="show-footer"><i class="fas fa-chevron-down"></i></span>
             </ul>
 
 

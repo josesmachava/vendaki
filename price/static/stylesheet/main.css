@@ -326,6 +326,7 @@ footer a{
             margin: 10px auto;
 
     }
+    .hide{display: none}
 }
 .mobile-footer{
     display: inline-flex;
@@ -361,13 +362,9 @@ white !important;
     margin: 0 10px;
     font-size: 12px;
 }
-.mobile-utilities{
-   display: none;
-}
-.mobile-utilities{
-    display: none;
-}
+
 @media (max-width: 480px ) and  (min-width: 321px){
+    .hide{display: none}
     .desktop-menu,  .category-desktop, .mobile-menu-items{
         display: none ;
     }

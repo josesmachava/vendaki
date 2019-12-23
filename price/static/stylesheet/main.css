@@ -182,7 +182,7 @@ nav ul{
     white;
     font-size: 12px;
 
-    
+
 
 }
 .create-account a{
@@ -265,6 +265,7 @@ footer p{
 }
 
 
+
 footer a{
     color: black;
 }
@@ -287,12 +288,16 @@ footer a{
 
 
 }
+.mobile-footer{
+    display: none;
+
+}
 @media (max-width: 320px) {
     .desktop-menu,  .category-desktop, .mobile-menu-items{
         display: none ;
     }
     .mobile-footer{
-        display: block;
+        display: inline-flex;
     }
     .mobile-menu{
         display: block;
@@ -368,6 +373,7 @@ width: 95%;
 padding-bottom: 30px;
 background:
 white !important;
+    position: relative;
 }
 .mobile-utilities ul{
    padding: 0;
@@ -378,8 +384,11 @@ white !important;
 @media (max-width: 480px ) and  (min-width: 321px){
     .hide{display: none}
      .mobile-footer{
-         display: block;
+         display: inline-flex;
      }
+
+
+
     .desktop-menu,  .category-desktop {
         display: none ;
     }
@@ -435,12 +444,19 @@ white !important;
         font-size: 55px;
 
      }
- .company, .products {
+.products {
        background-color: whitesmoke;
     height: auto;
     width: 200px;
     border: 1px solid whitesmoke;
     }
+ .company{
+    background-color: whitesmoke;
+    height: auto;
+    width: 300px;
+    border: 1px solid whitesmoke;
+    margin: 0 auto;
+ }
     input[type="search"]{
         width: 90%;
         font-size: 16px;

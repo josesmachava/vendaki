@@ -344,6 +344,12 @@ footer a{
 
     }
     .hide{display: none}
+      .empty-products img{
+        width: 100px;
+        margin: 0 auto;
+        display: block;
+
+    }
 }
 .mobile-footer{
     display:none;
@@ -386,7 +392,12 @@ white !important;
      .mobile-footer{
          display: inline-flex;
      }
+    .empty-products img{
+        width: 100px;
+        margin: 0 auto;
+        display: block;
 
+    }
 
 
     .desktop-menu,  .category-desktop {

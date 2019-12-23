@@ -350,6 +350,10 @@ footer a{
         display: block;
 
     }
+        .empty-products p{
+        text-align: center;
+    }
+
 }
 .mobile-footer{
     display:none;
@@ -397,6 +401,9 @@ white !important;
         margin: 0 auto;
         display: block;
 
+    }
+    .empty-products p{
+        text-align: center;
     }
 
 

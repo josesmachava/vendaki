@@ -95,6 +95,7 @@ nav ul{
 .products-price{
     font-size: 18px;
 }
+
 .sigin{
     background-color: white;
     width: 500px;
@@ -128,6 +129,7 @@ nav ul{
     display: none;
 
 }
+
 .mobile-menu{
     background-color:white;
 
@@ -294,6 +296,7 @@ footer a{
         border: 1px solid whitesmoke;
 
     }
+
     .products-body{
         width: 130px;
         margin: 10px;
@@ -324,7 +327,46 @@ footer a{
 
     }
 }
+.mobile-footer{
+    display: inline-flex;
+    margin:0 auto;
+    padding: 0;
+}
+.mobile-footer li{
+    margin: 10px;
+}
+.mobile-footer span{
+    display: inline-block;
+   margin-top: 11px;
+    font-size: 12px;
 
+}
+.mobile-utilities{
+    display: flex;
+    margin: 0 auto;
+border: 1px solid #e8e8e8;
+box-shadow: 0 0 0 1px
+#4285f408, 0 0 3px 3px
+#e8e8e8ab;
+border-radius: 10px;
+padding: 15px;
+    padding-bottom: 15px;
+width: 95%;
+padding-bottom: 30px;
+background:
+white !important;
+}
+.mobile-utilities ul{
+   padding: 0;
+    margin: 0 10px;
+    font-size: 12px;
+}
+.mobile-utilities{
+   display: none;
+}
+.mobile-utilities{
+    display: none;
+}
 @media (max-width: 480px ) and  (min-width: 321px){
     .desktop-menu,  .category-desktop, .mobile-menu-items{
         display: none ;

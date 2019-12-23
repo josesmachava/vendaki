@@ -18,6 +18,19 @@
             </a>
             </div>
         </div>
+        {% else %}
+                 <div class="mobile-shop-cart">
+            <div>
+            <a href="#">
+                <img src="{% static 'images/shopicon.svg' %}" alt="">
+
+
+
+
+
+            </a>
+            </div>
+        </div>
         {% endif %}
          {% if not  user.is_authenticated %}
         <div class="mobile-menu-icon"> <i class="fas fa-bars"></i>

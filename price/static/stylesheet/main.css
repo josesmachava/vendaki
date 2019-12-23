@@ -185,6 +185,9 @@ nav ul{
     
 
 }
+.create-account a{
+    color: white;
+}
 .mobile-menu-items{
     width: 80vw;
     height: 100vh;
@@ -194,6 +197,7 @@ nav ul{
     margin-top: -54px;
     background:whitesmoke;
    float: right;
+    padding: 30px;
 }
 .mobile-menu-items li{
     padding: 0 20px;

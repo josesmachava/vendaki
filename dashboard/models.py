@@ -72,7 +72,7 @@ class Order(models.Model):
 
 
 class Referral(models.Model):
-    referral_token = models.CharField(max_length=4, blank=False, default=get_random_string(length=32), editable=False)
+    referral_token = models.TextField(max_length=4, blank=False, default=get_random_string(length=32), editable=False)
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
 

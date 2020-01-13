@@ -20,6 +20,7 @@
         </div>
          {% if user.is_authenticated %}
         <ul class="navbar-nav">
+
             <li class="shop-cart"><a href="{% url 'order-summary' %}"><i class="fas fa-shopping-cart"></i>
 
 
@@ -37,7 +38,9 @@
   <li class=" dropdown-toggle user"id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <i class="fas fa-user"></i>
   </li>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">n
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+         <a class="dropdown-item" href="{% url 'referrals' %}">Referrals</a>
         <a class="dropdown-item" href="{%  url 'logout' %}">Logout</a>
       </div>
     </div>

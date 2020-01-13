@@ -101,12 +101,13 @@
             <div class="col-md-8">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="products">
+                     <div class="products">
                             <img src="{{ product.company.company_logo.url }}" alt="{{ company.commercial_name }} logo ">
-                            <h1>Hello</h1>
-                            <h2>{{ product.name }}</h2>
-                            <h3>{{ product.price }} MT</h3>
-                            <h3>{{ product.company.commercial_name }}</h3>
+                        </div>
+                          <div class="products-body">
+                        <h2 class="products-name">{{ product.name }}</h2>
+                            <h3 class="products-company">{{ product.company.commercial_name }}</h3>
+                            <h2 class="products-price">{{ product.price }} MT</h2>
                             {% if request.user.is_authenticated %}
                             <a href="{% url 'add_to_cart_referral' product.id request.resolver_match.kwargs.referral  %}">
                                 <button type="button" class="btn btn-primary add">Adicionar ao carinho</button>

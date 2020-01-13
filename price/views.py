@@ -63,7 +63,6 @@ def dashboard(request):
     return render(request, 'dashboard.html')
 
 
-@method_decorator(login_required, name='dispatch')
 class ProductDetailView(DetailView):
     model = Product
     template_name = 'product_detail.html'

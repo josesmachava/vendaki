@@ -8,12 +8,9 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import Http404
 
 from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import View, DeleteView, DetailView, ListView
-from pinax.referrals.models import Referral
 
-from dashboard.models import ReferralLink
 from dashboard.models import *
 
 
@@ -86,10 +83,6 @@ def add_to_cart(request, id):
         else:
             messages.info(request, "Produto addicionado no carinho")
             order.product.add(order_product)
-            referral_link, created = ReferredLink.objects.get_or_create(user=request.user,
-                                                                        link=f'www.preco.co.mz/product/{request.user.referral.referral_token}/{id}',
-                                                                        product=product,
-                                                                        referral=request.user.referral.referral_token)
 
 
     else:
@@ -113,17 +106,16 @@ def add_to_cart_referral(request, id, referral):
         else:
             messages.info(request, "Produto addicionado no carinho")
             order.product.add(order_product)
-        print("BEFORE")
-        referred_link, created = ReferredLink.objects.get_or_create(user=request.user,
-                                                                    link=f'www.preco.co.mz/product/{referral}/{id}',
-                                                                    product=product,
-                                                                    referral=referral)
 
-        print("AFTER")
     else:
         order = Order.objects.create(user=request.user)
         order.product.add(order_product)
         messages.info(request, "Produto addicionado no carinho")
+    referred_link = ReferredLink.objects.create(user=request.user,
+                                                link=f'www.preco.co.mz/product/{referral}/{id}',
+                                                product=product,
+                                                referral=referral)
+
     return redirect('product')
 
 
@@ -209,6 +201,11 @@ class ReferralLinkListView(ListView):
             products = paginator.page(paginator.num_pages)
         context['referrals'] = referrals
         return context
+
+
+def referrallist(request):
+    referral_links = ReferralLink.objects.filter(user=request.user.pk)
+    return render(request, 'referral/list.html', {'referral_link': referral_links})
 
 
 def handler404(request, exception):

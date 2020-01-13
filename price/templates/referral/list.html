@@ -67,7 +67,7 @@
 
     <div class="container">
         <div class="row">
-<div class="col-md-9">
+<div class="col-md-12">
 
     <table class="table table-striped">
   <thead>
@@ -76,18 +76,25 @@
       <th scope="col">Producto</th>
       <th scope="col">Link</th>
       <th scope="col">Preco</th>
-      <th scope="col">Desconto</th>
+      <th scope="col">Compras</th>
+      <th scope="col"> Desconto por compra</th>
+      <th scope="col">Desconto Total</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
-  {% for referral in referrals %}
+  {% for referral_link in referral_link %}
     <tr>
       <th scope="row"></th>
-      <td>{{ referral.product.name }}</td>
-      <td><a href="http://{{ referral.link }}" target="_blank">{{   referral.link }}</a></td>
+      <td>{{ referral_link.product.name }}</td>
+      <td><a href="http://{{ referral_link.link }}" target="_blank">{{   referral_link.link }}</a></td>
+        <td>{{ referral_link.product.price }}</td>
+        <td>{{ referral_link.count_referral }}</td>
 
-      <td>{{ referral.product.price }}</td>
-      <td>0 MT</td>
+
+        <td>{{ referral_link.get_discount_per_click }} MT</td>
+
+    <td>{{ referral_link.get_total_discount }} MT</td>
     </tr>
     {% endfor %}
     <tr>

@@ -103,7 +103,7 @@
                     <div class="col-md-12">
                         <div class="products">
                             <img src="{{ product.company.company_logo.url }}" alt="{{ company.commercial_name }} logo ">
-
+                            <h1>Hello</h1>
                             <h2>{{ product.name }}</h2>
                             <h3>{{ product.price }} MT</h3>
                             <h3>{{ product.company.commercial_name }}</h3>
@@ -117,11 +117,8 @@
                                             <button  class="btn btn-primary siginupButton" ><a href=" {% url 'signup' %}" title="" class="create-account" >Criar conta</a></button>
 
                             {% endif %}
-                          <!--   <a href="{% url 'remove_from_cart' product.id   %}">
-                                <button type="button" class="btn btn-primary add">Remove from cart</button>
 
-                            </a>
--->
+
                         </div>
                     </div>
 

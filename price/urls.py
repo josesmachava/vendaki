@@ -32,11 +32,11 @@ urlpatterns = [
     path("showlinks/", views.create_referral, name="showlinks"),
     path("dashboard/", include("dashboard.urls")),
     path('add_to_cart/<int:id>', views.add_to_cart, name="add_to_cart"),
-    path('add_to_cart/<int:id>/<str:referral>/', views.add_to_cart_referral, name="add_to_cart_referral"),
+    path('add_to_cart_referral/<int:id>/<str:referral>/', views.add_to_cart_referral, name="add_to_cart_referral"),
     path('graphql', GraphQLView.as_view(graphiql=True)),
     path('product/<str:referral>/<int:pk>', views.ProductDetailView.as_view(),
          name='product-detail'),
-    path("referrals/", views.ReferralLinkListView.as_view(), name="referrals"),
+    path("referrals/", views.referrallist, name="referrals"),
 
                   path('remove_from_cart/<int:id>', views.remove_from_cart, name="remove_from_cart"),
     path('order_summary', views.OrderSummary.as_view(),

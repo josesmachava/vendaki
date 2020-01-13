@@ -108,9 +108,11 @@ class ReferralLink(models.Model):
         count = 0
 
         for i in ReferredLink.objects.all():
-            if i.referral == self.referral:
+            if i.referral == self.referral and i.product.id == self.product.id:
                 if not self.product.total_number_of_click == count:
-                    count = count + 1
+                    #if self.active:
+                    #count = count + 1
+                   count = count + 1
         return count
 
     def get_total_number(self):

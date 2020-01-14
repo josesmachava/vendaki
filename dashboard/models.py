@@ -74,6 +74,10 @@ class Order(models.Model):
         return total
 
 
+def end_order(request):
+    render(request)
+
+
 class Referral(models.Model):
     referral_token = models.TextField(max_length=1000, blank=False, default=get_random_string(length=20),
                                       editable=False)
@@ -110,9 +114,8 @@ class ReferralLink(models.Model):
         for i in ReferredLink.objects.all():
             if i.referral == self.referral and i.product.id == self.product.id:
                 if not self.product.total_number_of_click == count:
-                    #if self.active:
-                    #count = count + 1
-                   count = count + 1
+                    if self.active:
+                        count = count + 1
         return count
 
     def get_total_number(self):

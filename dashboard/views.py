@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 
-from .models import Product, Order
+from .models import Product, Order, ReferralLink
 
 # Create your views here.
 from account.models import Company, User
@@ -14,19 +14,12 @@ from account.models import Company, User
 def index(request):
     company = Company.objects.all().count()
     product = Product.objects.all().count()
-    order   = Order.objects.all().count()
-    return render(request, "dashboard/index.html", {'product':product, 'company':company, 'order':order})
+    order = Order.objects.all().count()
+    return render(request, "dashboard/index.html", {'product': product, 'company': company, 'order': order})
 
 
 def painel(request):
     return render(request, "dashboard/painel.html")
-
-
-
-
-
-
-
 
 
 # @method_decorator(login_required, name='dispatch')
@@ -58,19 +51,14 @@ class ProductListView(ListView):
         return context
 
 
-
 class ProductUpdateView(UpdateView):
-
     model = Product
     template_name = 'dashboard/product/update.html'
     context_object_name = 'product'
     fields = ('name', 'description', 'price', 'discount', 'categories', 'company')
 
-
     def get_success_url(self):
-            return reverse_lazy('product-list', kwargs={'pk': self.object.id})
-
-
+        return reverse_lazy('product-list', kwargs={'pk': self.object.id})
 
 
 class ProductDeleteView(DeleteView):
@@ -122,7 +110,6 @@ class UserListView(ListView):
 
 
 class UserUpdateView(UpdateView):
-
     model = User
     template_name = 'dashboard/user/update.html'
     context_object_name = 'user'
@@ -132,12 +119,10 @@ class UserUpdateView(UpdateView):
         return reverse_lazy('user-list', kwargs={'pk': self.object.id})
 
 
-
 class UserDeleteView(DeleteView):
     model = User
     template_name = 'dashboard/user/delete.html'
     success_url = reverse_lazy('user-list')
-
 
 
 class CompanyListView(ListView):
@@ -167,9 +152,21 @@ class OrderDetailView(DetailView):
     template_name = 'dashboard/order_detail.html'
     context_object_name = 'order'
 
+
 def companies(request):
     companies = Company.objects.all()
     return render(request, "dashboard/companies.html", {'companies': companies})
+
+
+def complete_order(request, order_pk, user_pk):
+    order = Order.objects.get(id=order_pk, user=user_pk)
+    for order in order.product.all():
+        referral = ReferralLink.objects.filter(product=order.product.id, user=user_pk)
+        for referral in referral:
+            referral.active = True
+            referral.save()
+
+    return redirect('order')
 
 
 def editar_empresas(request):

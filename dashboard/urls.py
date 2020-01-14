@@ -38,6 +38,8 @@ urlpatterns = [
    path("editar_empresas/", views.editar_empresas, name="editar_empresas"),
    path('order/<int:pk>', views.OrderDetailView.as_view(),
                        name='order-detail'),
+   path('complete/<int:order_pk>/<int:user_pk>', views.complete_order,
+                       name='complete-order'),
 
    
 ]

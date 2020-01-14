@@ -115,7 +115,7 @@
               <div class="summary">
 
                   <h4>Total: {{ object.get_total }}</h4>
-                <button class="btn btn-danger"><a href="#">Finalizar Compra</a> </button>
+                <button class="btn btn-danger"><a href="{%  url  'complete-order' order.id  order.user.pk %}">Finalizar Compra</a> </button>
               </div>
           </div>
     </div>

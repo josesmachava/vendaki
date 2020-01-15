@@ -19,7 +19,6 @@ from . import views
 
 urlpatterns = [
    path("", views.index, name="dashboard"),
-   path("painel/", views.painel, name="painel"), 
    path("companies/", views.CompanyListView.as_view(), name="companies"),
    path("user/", views.UserListView.as_view(), name="user-list"),
    path('user/<int:pk>/update', views.UserUpdateView.as_view(),

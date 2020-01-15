@@ -18,10 +18,6 @@ def index(request):
     return render(request, "dashboard/index.html", {'product': product, 'company': company, 'order': order})
 
 
-def painel(request):
-    return render(request, "dashboard/painel.html")
-
-
 # @method_decorator(login_required, name='dispatch')
 class ProductCreateView(CreateView):
     model = Product
@@ -58,7 +54,7 @@ class ProductUpdateView(UpdateView):
     fields = ('name', 'description', 'price', 'discount', 'categories', 'company')
 
     def get_success_url(self):
-        return reverse_lazy('product-list', kwargs={'pk': self.object.id})
+        return reverse_lazy('product-list')
 
 
 class ProductDeleteView(DeleteView):
@@ -69,7 +65,7 @@ class ProductDeleteView(DeleteView):
 
 class OrdertListView(ListView):
     model = Order
-    template_name = 'dashboard/product/order.html'
+    template_name = 'dashboard/product/../price/templates/dashboard/order/list.html'
     context_object_name = 'orders'
     paginate_by = 15
 
@@ -127,7 +123,7 @@ class UserDeleteView(DeleteView):
 
 class CompanyListView(ListView):
     model = Company
-    template_name = 'dashboard/companies.html'
+    template_name = 'dashboard/company/companies.html'
     context_object_name = 'companies'
     paginate_by = 20
 
@@ -149,13 +145,13 @@ class CompanyListView(ListView):
 @method_decorator(login_required, name='dispatch')
 class OrderDetailView(DetailView):
     model = Order
-    template_name = 'dashboard/order_detail.html'
+    template_name = 'dashboard/order/details.html'
     context_object_name = 'order'
 
 
 def companies(request):
     companies = Company.objects.all()
-    return render(request, "dashboard/companies.html", {'companies': companies})
+    return render(request, "dashboard/company/companies.html", {'companies': companies})
 
 
 def complete_order(request, order_pk, user_pk):
@@ -170,4 +166,4 @@ def complete_order(request, order_pk, user_pk):
 
 
 def editar_empresas(request):
-    return render(request, "dashboard/editar_empresa.html")
+    return render(request, "dashboard/company/editar_empresa.html")

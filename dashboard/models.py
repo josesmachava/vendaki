@@ -30,7 +30,7 @@ class Product(models.Model):
     discount = models.CharField(max_length=30, blank=True)
     type_of_discount = models.ForeignKey(TypeDiscount, on_delete=models.CASCADE)
     total_number_of_click = models.IntegerField(blank=True)
-    discount_price_per_click = models.IntegerField(blank=True)
+    discount_price_per_click = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
         return f'{self.name}'

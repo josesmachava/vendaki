@@ -21,12 +21,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'o8s*r3ikgpg5!_0hhn(3&mmxd1_o_htb+2%+u@&c-4-l9n#0c6'
+SECRET_KEY = 'o8s*r3ikgpdfdfg5!_0hhn(3&mmxd1_o_htb+2%+u@&c-4-l9n#0c6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*", 'localhost']
+ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]']
 
 
 ROOT_URLCONF = 'price.urls'
@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     "pinax.referrals",
     "graphene_django",
     "corsheaders",
-
+    "sass_processor",
     'about',
     'account',
     'price',
@@ -99,18 +99,28 @@ GRAPHENE = {
     'SCHEMA': 'price.schema.schema' # Where your Graphene schema lives
 }
 
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ["price/templates"],
-        'APP_DIRS': True,
+        'DIRS': [
+            os.path.join(BASE_DIR, 'price/templates')
+        ],
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+            ],
+            # PyPugJS part:
+            'loaders': [
+                ('pypugjs.ext.django.Loader', (
+                    'django.template.loaders.filesystem.Loader',
+                    'django.template.loaders.app_directories.Loader',
+                ))
+            ],
+            'builtins': [
+                'pypugjs.ext.django.templatetags',
             ],
         },
     },
@@ -126,7 +136,8 @@ try:
     from .settings_local import *
 except ImportError:
 
-    ALLOWED_HOSTS = ["*"]
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
 
     #ADMINS = [('Arnaldo Govene', 'arnaldo.govene@outlook.com'), ('Guidione  Machava', 'geral.market.co.mz@gmail.com'),
      #('Jose Machava',  'josesmachava@gmail.com'), ]

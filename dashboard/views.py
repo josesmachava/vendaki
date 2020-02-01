@@ -15,7 +15,7 @@ def index(request):
     company = Company.objects.all().count()
     product = Product.objects.all().count()
     order = Order.objects.all().count()
-    return render(request, "dashboard/index.html", {'product': product, 'company': company, 'order': order})
+    return render(request, "dashboard/index.jade", {'product': product, 'company': company, 'order': order})
 
 
 # @method_decorator(login_required, name='dispatch')

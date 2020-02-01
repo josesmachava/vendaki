@@ -1,0 +1,76 @@
+{% extends "price/layout/base.html" %}
+{% load staticfiles %}
+
+{% comment %}
+
+{% endcomment %}
+{% load staticfiles %}
+{% load sass_tags %}
+{# overide the tile of the page #}
+{% block title %}
+<title>Price</title>
+{% endblock %}
+{% block styles %}
+{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+
+link(rel="stylesheet",   href="{% static 'stylesheet/malangatana.min.css' %}")
+link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous")
+
+
+
+{% endblock %}
+
+
+{% block scripts %}
+{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+{% endblock %}
+
+
+
+{% block content %}
+
+main
+    .layout
+        .layout-header
+            {% include "dashboard/menu.jade" %}
+
+
+        .layout-content
+                    .mtn-row
+                        .mtn-col-8
+                            .card.border-none
+                                .card-body
+                                    .statistic
+                                        .statistic-title
+                                            |Número de empresas
+                                        .statistic-content
+                                            span {{ company }}
+
+
+                        .mtn-col-8
+                            .card.border-none
+                                .card-body
+                                    .statistic
+                                        .statistic-title
+                                            |Número de Productos
+                                        .statistic-content
+                                            span {{ product }}
+
+
+                        .mtn-col-8
+                            .card.border-none
+                                .card-body
+                                    .statistic
+                                        .statistic-title
+                                            |Número de Encomendas
+                                        .statistic-content
+                                             span {{ order }}
+
+
+
+                 .layout-footer
+                     h1 hello
+
+{% endblock %}

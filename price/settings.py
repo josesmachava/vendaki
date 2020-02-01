@@ -54,8 +54,7 @@ INSTALLED_APPS = [
     'crispy_forms',
 
     'phonenumber_field',
-    "pinax.referrals",
-    "graphene_django",
+
     "corsheaders",
     "sass_processor",
     'about',
@@ -92,7 +91,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'price.urls'
-
 
 
 GRAPHENE = {
@@ -136,12 +134,10 @@ try:
     from .settings_local import *
 except ImportError:
 
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+    ALLOWED_HOSTS = ['localhost:', '127.0.0.1']
 
-
-    #ADMINS = [('Arnaldo Govene', 'arnaldo.govene@outlook.com'), ('Guidione  Machava', 'geral.market.co.mz@gmail.com'),
-     #('Jose Machava',  'josesmachava@gmail.com'), ]
-
+    ADMINS = [('Guidione  Machava', 'geral.market.co.mz@gmail.com'),
+              ('Jose Machava', 'josesmachava@gmail.com'), ]
     # Parse database configuration from $DATABASE_URL
     DATABASES = {}
     DATABASES['default'] = dj_database_url.config(conn_max_age=600)
@@ -201,6 +197,6 @@ EMAIL_PORT = 26
 EMAIL_HOST_USER = 'conta@preco.co.mz'
 EMAIL_HOST_PASSWORD = '849394995Jose'
 EMAIL_USE_TLS = True
-
-
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+

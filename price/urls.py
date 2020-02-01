@@ -20,7 +20,6 @@ from django.urls import path, include
 from price import settings
 from . import views
 from django.conf.urls import handler404, handler500, url
-from graphene_django.views import GraphQLView
 
 urlpatterns = [
     path('account/', include("account.urls")),
@@ -33,7 +32,6 @@ urlpatterns = [
     path("dashboard/", include("dashboard.urls")),
     path('add_to_cart/<int:id>', views.add_to_cart, name="add_to_cart"),
     path('add_to_cart_referral/<int:id>/<str:referral>/', views.add_to_cart_referral, name="add_to_cart_referral"),
-    path('graphql', GraphQLView.as_view(graphiql=True)),
     path('product/<str:referral>/<int:pk>', views.ProductDetailView.as_view(),
          name='product-detail'),
     path("referrals/", views.referrallist, name="referrals"),
@@ -49,14 +47,5 @@ urlpatterns = [
 ]
 
 
-#handler404 = 'price.views.handle404'
 
-
-#handler500 = 'mysite.views.my_custom_error_view'
-
-
-#handler403 = 'mysite.views.my_custom_permission_denied_view'
-
-
-#handler400 = 'mysite.views.my_custom_bad_request_view'
 

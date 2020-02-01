@@ -6,8 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import Http404
-
-from django.shortcuts import render, get_object_or_404, redirect
+from django.template import RequestContext
+from django.shortcuts import render, get_object_or_404, redirect, render_to_response
 from django.utils.decorators import method_decorator
 from django.views.generic import View, DeleteView, DetailView, ListView
 
@@ -205,5 +205,6 @@ class ReferralLinkListView(ListView):
 def referrallist(request):
     referral_links = ReferralLink.objects.filter(user=request.user.pk)
     return render(request, 'referral/list.html', {'referral_link': referral_links})
+
 
 

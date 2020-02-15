@@ -65,7 +65,7 @@ class ProductDeleteView(DeleteView):
 
 class OrdertListView(ListView):
     model = Order
-    template_name = 'dashboard/product/../price/templates/dashboard/order/list.html'
+    template_name = 'dashboard/product/../price/templates/dashboard/order/list.jade'
     context_object_name = 'orders'
     paginate_by = 15
 
@@ -86,7 +86,7 @@ class OrdertListView(ListView):
 
 class UserListView(ListView):
     model = User
-    template_name = 'dashboard/user/list.html'
+    template_name = 'dashboard/user/list.jade'
     context_object_name = 'users'
     paginate_by = 20
 
@@ -123,7 +123,7 @@ class UserDeleteView(DeleteView):
 
 class CompanyListView(ListView):
     model = Company
-    template_name = 'dashboard/company/companies.html'
+    template_name = 'dashboard/company/companies.jade'
     context_object_name = 'companies'
     paginate_by = 20
 
@@ -151,7 +151,7 @@ class OrderDetailView(DetailView):
 
 def companies(request):
     companies = Company.objects.all()
-    return render(request, "dashboard/company/companies.html", {'companies': companies})
+    return render(request, "dashboard/company/companies.jade", {'companies': companies})
 
 
 def complete_order(request, order_pk, user_pk):

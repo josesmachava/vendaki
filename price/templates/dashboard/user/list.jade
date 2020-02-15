@@ -22,21 +22,7 @@ link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/a
 {% block content %}
 
 main.layout-row
-    .mtn-slider.mtn-slider-dark
-        nav
-            ul
-                li
-                    a(href="") painel
-                li
-                    a(href="") productos
-                li
-                    a(href="") encomendas
-                li
-                    a(href="") empresas
-                li
-                    a(href="") usuarios
-                li
-                    a(href="") definições
+    {% include "dashboard/aside.jade" %}
     .layout
         .layout-header
             {% include "dashboard/menu.jade" %}

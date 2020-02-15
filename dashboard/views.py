@@ -28,7 +28,7 @@ class ProductCreateView(CreateView):
 
 class ProductListView(ListView):
     model = Product
-    template_name = 'dashboard/product/list.html'
+    template_name = 'dashboard/product/list.jade'
     context_object_name = 'products'
     paginate_by = 5
 

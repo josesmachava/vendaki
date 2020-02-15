@@ -65,7 +65,7 @@
     </div>
 
     {% include "price/layout/navegation.html" %}
-    {% include "price/layout/mobile-navegation.html" %}
+    {% include "price/layout/mobile-navegation.jade" %}
 
 
     <div class="container">
@@ -106,7 +106,7 @@
                             </a>
                             {% else %}
 
-                                            <button  class="btn btn-primary siginupButton" ><a href=" {% url 'signup' %}" title="" class="create-account" >Criar conta</a></button>
+                                            <button  class="btn btn-primary siginupButton" ><a href=" {% url 'signup' %}" title="" class="create-account" >Adicionar ao carinho</a></button>
 
                             {% endif %}
                           <!--   <a href="{% url 'remove_from_cart' product.id   %}">
@@ -137,7 +137,7 @@
 
     </div>
 </main>
-{% include "price/layout/footer.html" %}
+{% include "price/layout/footer.jade" %}
 
 
 {% endblock %}

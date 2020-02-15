@@ -1,0 +1,23 @@
+.layout-row{
+    display: flex;
+}
+
+.mtn-slider{
+    min-width: 200px;
+    width: 300px;
+    position: relative;
+    min-width: 0;
+    height: 100vh;
+    color: white;
+
+
+}
+.mtn-slider-dark{
+    background: #001529;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+
+}
+body{
+
+}

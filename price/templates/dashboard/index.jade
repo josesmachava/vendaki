@@ -5,7 +5,6 @@
 
 {% endcomment %}
 {% load staticfiles %}
-{% load sass_tags %}
 {# overide the tile of the page #}
 {% block title %}
 <title>Price</title>
@@ -15,6 +14,8 @@
 
 
 link(rel="stylesheet",   href="{% static 'stylesheet/malangatana.min.css' %}")
+link(rel="stylesheet",   href="{% static 'stylesheet/dashboard.css' %}")
+
 link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous")
 
 
@@ -31,7 +32,22 @@ link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/a
 
 {% block content %}
 
-main
+main.layout-row
+    .mtn-slider.mtn-slider-dark
+        nav
+            ul
+                li
+                    a(href="") painel
+                li
+                    a(href="") productos
+                li
+                    a(href="") encomendas
+                li
+                    a(href="") empresas
+                li
+                    a(href="") usuarios
+                li
+                    a(href="") definições
     .layout
         .layout-header
             {% include "dashboard/menu.jade" %}
@@ -71,6 +87,7 @@ main
 
 
                  .layout-footer
-                     h1 hello
+
+                     p &copy; {% now 'Y' %} Preço
 
 {% endblock %}

@@ -1,0 +1,16 @@
+{% load staticfiles %}
+
+nav
+    ul
+        li
+
+            a(href='{% url "signin"  %}')
+                i.far.fa-user
+        li
+            h1
+                a(href='{% url "index"  %}') Preço
+
+        li
+            i.fas.fa-search
+        li
+            img(src="{% static 'images/shopicon.svg' %}", alt="", class="cart-icon")

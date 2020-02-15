@@ -49,3 +49,5 @@ urlpatterns = [
 
 
 
+handler404 = "price.views.handler404"
+handler500 = "price.views.handler500"

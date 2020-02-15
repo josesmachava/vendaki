@@ -33,61 +33,48 @@ link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/a
 {% block content %}
 
 main.layout-row
-    .mtn-slider.mtn-slider-dark
-        nav
-            ul
-                li
-                    a(href="") painel
-                li
-                    a(href="") productos
-                li
-                    a(href="") encomendas
-                li
-                    a(href="") empresas
-                li
-                    a(href="") usuarios
-                li
-                    a(href="") definições
+    {% include "dashboard/aside.jade" %}
+
     .layout
-        .layout-header
-            {% include "dashboard/menu.jade" %}
+            .layout-header
+                {% include "dashboard/menu.jade" %}
 
 
-        .layout-content
-                    .mtn-row
-                        .mtn-col-8
-                            .card.border-none
-                                .card-body
-                                    .statistic
-                                        .statistic-title
-                                            |Número de empresas
-                                        .statistic-content
-                                            span {{ company }}
+            .layout-content
+                        .mtn-row
+                            .mtn-col-8
+                                .card.border-none
+                                    .card-body
+                                        .statistic
+                                            .statistic-title
+                                                |Número de empresas
+                                            .statistic-content
+                                                span {{ company }}
 
 
-                        .mtn-col-8
-                            .card.border-none
-                                .card-body
-                                    .statistic
-                                        .statistic-title
-                                            |Número de Productos
-                                        .statistic-content
-                                            span {{ product }}
+                            .mtn-col-8
+                                .card.border-none
+                                    .card-body
+                                        .statistic
+                                            .statistic-title
+                                                |Número de Productos
+                                            .statistic-content
+                                                span {{ product }}
 
 
-                        .mtn-col-8
-                            .card.border-none
-                                .card-body
-                                    .statistic
-                                        .statistic-title
-                                            |Número de Encomendas
-                                        .statistic-content
-                                             span {{ order }}
+                            .mtn-col-8
+                                .card.border-none
+                                    .card-body
+                                        .statistic
+                                            .statistic-title
+                                                |Número de Encomendas
+                                            .statistic-content
+                                                 span {{ order }}
 
 
 
-                 .layout-footer
+                     .layout-footer
 
-                     p &copy; {% now 'Y' %} Preço
+                         p &copy; {% now 'Y' %} Preço
 
 {% endblock %}

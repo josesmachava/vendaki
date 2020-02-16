@@ -48,7 +48,11 @@
           {% else %}
 
                         <ul class="navbar-nav">
-            <li ><a href="{% url 'order-summary' %}"><i class="fas fa-shopping-cart"></i>
+
+             <a href=" {% url 'signin' %}" title="" style="font-size: 16px;color: #333;"><i class="far fa-user"></i>  Entrar</a>
+             <a href=" {% url 'signup' %}" title="" class="create-account" >Criar conta</a>
+
+              <li ><a href="{% url 'order-summary' %}"> <img src="{% static 'images/shopicon.svg' %}" alt="" class="cart-icon" />
 
 
 
@@ -56,10 +60,6 @@
 
 
             </a></li>
-            <button  class="btn btn-light siginupButton" style="color: #3949ab;"><a href=" {% url 'signin' %}" title="" >Entrar</a></button>
-            <button  class="btn btn-primary siginupButton" ><a href=" {% url 'signup' %}" title="" class="create-account" >Criar conta</a></button>
-
-
         </ul>
 
                 {% endif %}

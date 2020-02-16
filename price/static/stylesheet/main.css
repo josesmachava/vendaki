@@ -1,7 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Mada:400,500,600,700&display=swap');
 body{
-    background-color:#f2f2f2;
+    background-color:white;
     color:#4b4f54!important;
     font-size:15px!important;
 }
@@ -65,7 +65,7 @@ nav ul{
     margin: 0;
 }
 .company, .products{
-    background-color: white;
+    background-color: whitesmoke;
     height: auto;
     width: 200px;
     margin: 0 auto;
@@ -135,15 +135,9 @@ nav ul{
 }
 
 .mobile-menu{
-    background-color:white;
-
-
-    display: block;
-    position: fixed;
-    z-index: 1;
-
-
+    display: none;
 }
+
 .menu-content{
  display: flex;
  justify-content: space-between;
@@ -228,6 +222,9 @@ input[type="search"] {
     color: black;
 
 }
+.cart-icon{
+    width: 20px;
+}
 a:hover{
     text-decoration: none;
 }
@@ -251,7 +248,7 @@ footer {
      margin-top:auto;
 
     width: 100%;
-    background-color: white;
+    background-color: #fafafa;
     color:#333;
 }
 footer ul{
@@ -306,6 +303,16 @@ footer a{
         display: block;
     }
 
+    .mobile-menu{
+        background-color:white;
+
+
+        display: block;
+        position: fixed;
+        z-index: 1;
+
+
+    }
 
     nav{
         background: white;

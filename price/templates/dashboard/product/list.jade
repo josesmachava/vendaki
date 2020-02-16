@@ -22,10 +22,10 @@ link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/a
 {% block content %}
 
 main.layout-row
-    {% include "dashboard/aside.jade" %}
+    {% include "dashboard/layout/aside.jade" %}
     .layout
         .layout-header
-            {% include "dashboard/menu.jade" %}
+            {% include "dashboard/layout/menu.jade" %}
 
 
         .layout-content
@@ -46,9 +46,9 @@ main.layout-row
 
 
                         th
-                            span.mtn-table-header-column Edit
+                            span.mtn-table-header-column Editar
                         th
-                            span.mtn-table-header-column Delete
+                            span.mtn-table-header-column Deletar
 
 
                 {% for product in products %}
@@ -63,15 +63,19 @@ main.layout-row
 
 
                         td
-                            a(href="{% url 'product-delete' 1   %}")
-                                i.far.fa-trash-alt
-                        td
-                            a(href="{% url 'product-update' 1   %}")
+                            a(href="{% url 'product-update' product.id   %}")
                                 i.fas.fa-edit
+
+                        td
+                            a(href="{% url 'product-delete' product.id   %}")
+                                i.far.fa-trash-alt
+
 
 
                 {% endfor %}
-
+           {% if is_paginated %}
+           {% include "price/layout/pagination.html" %}
+           {% endif %}
          .layout-footer
                 {% include "dashboard/layout/footer.jade" %}
 

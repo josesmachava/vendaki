@@ -22,10 +22,10 @@ link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/a
 {% block content %}
 
 main.layout-row
-    {% include "dashboard/aside.jade" %}
+    {% include "dashboard/layout/aside.jade" %}
     .layout
         .layout-header
-            {% include "dashboard/menu.jade" %}
+            {% include "dashboard/layout/menu.jade" %}
 
 
         .layout-content
@@ -67,8 +67,12 @@ main.layout-row
 
                 {% endif %}
                 {% endfor %}
+           {% if is_paginated %}
+           {% include "price/layout/pagination.html" %}
+           {% endif %}
 
-         .layout-footer
+
+        .layout-footer
               {% include "dashboard/layout/footer.jade" %}
 
 {% endblock %}

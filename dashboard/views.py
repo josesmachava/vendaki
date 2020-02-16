@@ -30,7 +30,7 @@ class ProductListView(ListView):
     model = Product
     template_name = 'dashboard/product/list.jade'
     context_object_name = 'products'
-    paginate_by = 5
+    paginate_by = 13
 
     def get_context_data(self, **kwargs):
         context = super(ProductListView, self).get_context_data(**kwargs)
@@ -49,7 +49,7 @@ class ProductListView(ListView):
 
 class ProductUpdateView(UpdateView):
     model = Product
-    template_name = 'dashboard/product/update.html'
+    template_name = 'dashboard/product/update.jade'
     context_object_name = 'product'
     fields = ('name', 'description', 'price', 'discount', 'categories', 'company')
 
@@ -67,7 +67,7 @@ class OrdertListView(ListView):
     model = Order
     template_name = 'dashboard/order/list.jade'
     context_object_name = 'orders'
-    paginate_by = 15
+    paginate_by = 11
 
     def get_context_data(self, **kwargs):
         context = super(OrdertListView, self).get_context_data(**kwargs)
@@ -88,7 +88,7 @@ class UserListView(ListView):
     model = User
     template_name = 'dashboard/user/list.jade'
     context_object_name = 'users'
-    paginate_by = 20
+    paginate_by = 13
 
     def get_context_data(self, **kwargs):
         context = super(UserListView, self).get_context_data(**kwargs)
@@ -125,7 +125,7 @@ class CompanyListView(ListView):
     model = Company
     template_name = 'dashboard/company/list.jade'
     context_object_name = 'companies'
-    paginate_by = 20
+    paginate_by = 13
 
     def get_context_data(self, **kwargs):
         context = super(CompanyListView, self).get_context_data(**kwargs)

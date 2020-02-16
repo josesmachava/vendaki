@@ -22,10 +22,10 @@ link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/a
 {% block content %}
 
 main.layout-row
-    {% include "dashboard/aside.jade" %}
+    {% include "dashboard/layout/aside.jade" %}
     .layout
         .layout-header
-            {% include "dashboard/menu.jade" %}
+            {% include "dashboard/layout/menu.jade" %}
 
 
         .layout-content
@@ -43,9 +43,9 @@ main.layout-row
                         th
                             span.mtn-table-header-column Numero de telefone
                         th
-                            span.mtn-table-header-column Edit
+                            span.mtn-table-header-column Editar
                         th
-                            span.mtn-table-header-column Delete
+                            span.mtn-table-header-column Deletar
 
                 tbody.mtn-table-tbody
                     {% for company in companies %}
@@ -58,11 +58,12 @@ main.layout-row
 
 
                         td
-                            a(href="{% url 'user-delete' 1   %}")
-                                i.far.fa-trash-alt
-                        td
-                            a(href="{% url 'user-update' 1   %}")
+                            a(href="{% url 'user-update'  company.user.id   %}")
                                 i.fas.fa-edit
+
+                        td
+                            a(href="{% url 'user-delete' company.user.id   %}")
+                                i.far.fa-trash-alt
 
 
 

@@ -123,7 +123,7 @@ class UserDeleteView(DeleteView):
 
 class CompanyListView(ListView):
     model = Company
-    template_name = 'dashboard/company/companies.jade'
+    template_name = 'dashboard/company/list.jade'
     context_object_name = 'companies'
     paginate_by = 20
 
@@ -151,7 +151,7 @@ class OrderDetailView(DetailView):
 
 def companies(request):
     companies = Company.objects.all()
-    return render(request, "dashboard/company/companies.jade", {'companies': companies})
+    return render(request, "dashboard/company/list.jade", {'companies': companies})
 
 
 def complete_order(request, order_pk, user_pk):
@@ -166,4 +166,4 @@ def complete_order(request, order_pk, user_pk):
 
 
 def editar_empresas(request):
-    return render(request, "dashboard/company/editar_empresa.html")
+    return render(request, "dashboard/company/edit.html")

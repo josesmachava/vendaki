@@ -31,48 +31,47 @@ main.layout-row
         .layout-content
            table.mtn-table
                 thead.mtn-table-thead
-
                     tr
                         th
                             span.mtn-table-header-column #
                         th
                             span.mtn-table-header-column Nome
                         th
-                            span.mtn-table-header-column Apelido
+                            span.mtn-table-header-column Endereço
                         th
                             span.mtn-table-header-column Email
                         th
-                            span.mtn-table-header-column Quantidade
+                            span.mtn-table-header-column Numero de telefone
+                        th
+                            span.mtn-table-header-column Edit
+                        th
+                            span.mtn-table-header-column Delete
 
-
-
-
-
-                {% for order in orders %}
-                {% if order.ordered  %}
                 tbody.mtn-table-tbody
+                    {% for company in companies %}
                     tr
+                        th {{ company.id }}
+                        td {{ company.commercial_name }}
+                        td {{ company.address }}
+                        td {{ user.email }}
+                        td {{ company.user.phone_number }}
+
+
                         td
-                            a(href="{%  url  'order-detail' order.id %}") {{ order.id }}
-
-                        td  {{ order.user.last_name }}
-                        td {{ order.user.first_name }}
-                        td {{ order.user.email }}
-                        td {{ order.product.all.count }}
-
+                            a(href="{% url 'user-delete' 1   %}")
+                                i.far.fa-trash-alt
+                        td
+                            a(href="{% url 'user-update' 1   %}")
+                                i.fas.fa-edit
 
 
 
-
-
-                {% endif %}
                 {% endfor %}
 
          .layout-footer
-                p &copy; {% now 'Y' %} Preço
+               {% include "dashboard/layout/footer.jade" %}
 
 {% endblock %}
-
 
 
 

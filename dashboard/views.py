@@ -65,7 +65,7 @@ class ProductDeleteView(DeleteView):
 
 class OrdertListView(ListView):
     model = Order
-    template_name = 'dashboard/product/../price/templates/dashboard/order/list.jade'
+    template_name = 'dashboard/order/list.jade'
     context_object_name = 'orders'
     paginate_by = 15
 

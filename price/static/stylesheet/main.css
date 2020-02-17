@@ -19,8 +19,10 @@ body{
   flex-direction:column;
 }
 .user{
-font-size: 25px;
+    margin-top: 8px;
+    font-size: 19px;
     padding-left: 40px;
+
 }
 .shop-cart{
         font-size: 22px;
@@ -209,17 +211,18 @@ nav ul{
 input[type="search"] {
 
 
-    display: block;
+     display: block;
     margin: 0 auto;
     margin-left: 200px;
     height: 40px;
     padding: 6px 12px;
     border: none;
     border-radius: 28px;
-    background: whitesmoke;
+    color: black;
     font-size: 14px;
     width: 500px;
     color: black;
+    border: 1px solid #ccc;
 
 }
 .cart-icon{
@@ -229,8 +232,8 @@ a:hover{
     text-decoration: none;
 }
 .cart-number-order{
-      min-width: 25px;
-    height: 16px;
+      width: 18px;
+    height: 18px;
     line-height: 16px;
     text-align: center;
     border-radius: 8px;
@@ -238,7 +241,8 @@ a:hover{
     color: #fff;
     font-size: 12px;
     display: inline-block;
-    margin-top: 12px;
+    position: absolute;
+    margin-top: -6px;
 
 }
 .navbar button{
@@ -306,7 +310,7 @@ footer a{
     .mobile-menu{
         background-color:white;
 
-
+        width: 100vw;
         display: block;
         position: fixed;
         z-index: 1;

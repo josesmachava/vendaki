@@ -1,6 +1,18 @@
 {% load staticfiles %}
 
 nav.mobile-menu
+    {% if user.is_authenticated %}
+    ul
+        li
+            h1
+                a(href='{% url "index"  %}') Preço
+
+        //li
+            i.fas.fa-search
+        li
+            img(src="{% static 'images/shopicon.svg' %}", alt="", class="cart-icon")
+    {% else %}
+
     ul
         li
 
@@ -10,7 +22,9 @@ nav.mobile-menu
             h1
                 a(href='{% url "index"  %}') Preço
 
-        li
+        //li
             i.fas.fa-search
         li
             img(src="{% static 'images/shopicon.svg' %}", alt="", class="cart-icon")
+
+    {% endif %}

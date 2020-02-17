@@ -117,7 +117,7 @@ nav ul{
 
 }
 .sigin h1{
-    text-align: center;
+    margin: auto;
 }
 .sigin a{
     display: block;
@@ -324,9 +324,10 @@ footer a{
         padding-top: 15px;
     }
     nav ul{
-        display: flex;
-        justify-content: space-around;
-        flex-wrap:wrap;
+         display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 0 30px;
     }
 
     .cart-icon{

@@ -21,7 +21,12 @@
 <meta http-equiv="X-UA-Compatible", content="IE=edge">
 <meta name="viewport", content="width=device-width, initial-scale=1">
 
+  <style>
+        body{
+            background-color: whitesmoke;
+        }
 
+    </style>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 {% endblock %}
 
@@ -44,7 +49,7 @@
 
             <div class="sigin">
                 <form action="signup" method="post">
-                    <h1 class="">Logo</h1>
+                    <h1 class="logo"><a><img class="logo" src="{% static "img/logo.png" %}" alt="preco logo"></a></h1>
                     {% csrf_token %}
                     <input type="hidden" name="next" value="{{ next }}">
                     <div class="row">

@@ -36,6 +36,26 @@ def index(request):
         return render(request, 'index.html',
                       {'social_media': social_media, 'categories': categories, 'companies': companies})
 
+def categories(request, id):
+    social_media = SocialMedia.objects.all()
+    categories = Category.objects.filter(type_id=1)
+    companies = Company.objects.filter(categories=id)
+
+    if not request.user.is_authenticated:
+        return render(request, 'companies.html'
+                               ,
+                      {'social_media': social_media, 'categories': categories, 'companies': companies})
+
+    try:
+
+        order = Order.objects.get(user=request.user, ordered=False)
+
+        return render(request, 'companies.html',
+                      {'social_media': social_media, 'order': order, 'categories': categories, 'companies': companies})
+    except Order.DoesNotExist:
+
+        return render(request, 'companies.html',
+                      {'social_media': social_media, 'categories': categories, 'companies': companies})
 
 def products(request):
     categories = Category.objects.filter(type_id=2)

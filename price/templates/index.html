@@ -72,7 +72,7 @@
                         <h1 class="category">Categoria</h1>
                         <ul>
                             {% for category in categories %}
-                                 <li>{{ category.name|capfirst  }}</li>
+                                 <li><a href="{% url 'categories' category.id %}"> {{ category.name|capfirst  }}</a></li>
                             {% endfor  %}
 
                         </ul>
@@ -88,6 +88,7 @@
                     <div class="col-md-3">
                         <a href="{% url 'products' company.id   %}">
                         <div class="company">
+                            {{ company.categories.id }}
                             <img src="{{ company.company_logo.url }}" alt="{{ company.commercial_name }} logo ">
 
 

@@ -1,3 +1,4 @@
+
 {% extends "price/layout/base.html" %}
 {% load staticfiles %}
 
@@ -5,7 +6,7 @@
 
 {% endcomment %}
 {% load staticfiles %}
-
+{% load sass_tags %}
 {# overide the tile of the page #}
 {% block title %}
 <title>Price</title>
@@ -17,9 +18,6 @@
 <meta charset="utf-8">
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible", content="IE=edge">
-<meta name="viewport", content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="{% static 'stylesheet/main.css' %}">
-
 
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -49,10 +47,8 @@
 
             </div>
             <div class="col-md-4">
-
                 <div class="contact">
                     <ul>
-                        <li><i class="fas fa-shopping-cart"></i></li>
                         <li><i class="fab fa-twitter"></i></li>
                         <li><i class="fab fa-facebook-f"></i></li>
                         <li><i class="fab fa-instagram"></i></li>
@@ -64,17 +60,17 @@
         </div>
     </div>
 
-    {% include "price/layout/navegation.html" %}
+{% include "price/layout/navegation.html" %}
     {% include "price/layout/mobile-navegation.jade" %}
 
 
     <div class="container">
-        <div class="row mobile-row">
+        <div class="row">
             <div class="col-md-3">
                 <aside>
                     <nav class="category-desktop">
                         <h1 class="category">Categoria</h1>
-                           <ul>
+                        <ul>
                             {% for category in categories %}
                                  <li><a href="{% url 'categories' category.id %}"> {{ category.name|capfirst  }}</a></li>
                             {% endfor  %}
@@ -87,50 +83,25 @@
             </div>
 
             <div class="col-md-8">
-                <div class="row d-flex justify-content-center">
-                   {% if products %}
-                    {% for product in products %}
-                    <div class="col-xs-6 col-sm-6 col-lg-3">
-                        <div class="products">
-                            <img src="{{ product.company.company_logo.url }}" alt="{{ company.commercial_name }} logo ">
+                    <div class="row mobile-row">
+                {% for company in companies %}
+                    <div class="col-md-3">
+                        <a href="{% url 'products' company.id   %}">
+                        <div class="company">
+                            <img src="{{ company.company_logo.url }}" alt="{{ company.commercial_name }} logo ">
+
+
+                            <h2 class="commercial-name">{{ company.commercial_name }}</h2>
+                           <!-- <h3>{{ company.address }} MT</h3>-->
+
                         </div>
-                        <div class="products-body">
-                        <h2 class="products-name">{{ product.name }}</h2>
-                            <h3 class="products-company">{{ product.company.commercial_name }}</h3>
-                            <h2 class="products-price">{{ product.price }} MT</h2>
-
-                            {% if request.user.is_authenticated %}
-                            <a href="{% url 'add_to_cart' product.id   %}">
-                                <button type="button" class="btn btn-primary add">Adicionar ao carinho</button>
-
                             </a>
-                            {% else %}
-
-                                            <button  class="btn btn-primary siginupButton" ><a href=" {% url 'signup' %}" title="" class="create-account" >Adicionar ao carinho</a></button>
-
-                            {% endif %}
-                          <!--   <a href="{% url 'remove_from_cart' product.id   %}">
-                                <button type="button" class="btn btn-primary add">Remove from cart</button>
-
-                            </a>
--->
-                        </div>
                     </div>
-                 {% endfor %}
-                 {% else %}
-                       <div class="empty-products">
-                           <img src="{% static 'images/shopicon.svg' %}" alt="">
+                    {% endfor %}
 
-                        <p>Empresa sem productos</p>
-                        <li class="btn btn-primary create-account"><a href=" {% url 'product' %}" title="criar conta">Adicionar productos ao carrinho</a></li>
 
-                       </div>
 
-                {% endif %}
                     </div>
-
-
-                </div>
             </div>
         </div>
 

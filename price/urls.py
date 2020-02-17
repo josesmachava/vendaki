@@ -30,6 +30,7 @@ urlpatterns = [
     path("product/", views.product, name="product"),
     path("showlinks/", views.create_referral, name="showlinks"),
     path("dashboard/", include("dashboard.urls")),
+    path('categories/<int:id>', views.categories, name="categories"),
     path('add_to_cart/<int:id>', views.add_to_cart, name="add_to_cart"),
     path('add_to_cart_referral/<int:id>/<str:referral>/', views.add_to_cart_referral, name="add_to_cart_referral"),
     path('product/<str:referral>/<int:pk>', views.ProductDetailView.as_view(),

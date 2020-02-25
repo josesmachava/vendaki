@@ -157,6 +157,9 @@ nav ul{
 .mobile-footer{
     display: none;
 }
+.mobile-bottom-menu{
+    display: none;
+}
 
 
 .mobile-shop-cart{
@@ -302,6 +305,9 @@ footer a{
 @media (max-width: 480px){
     .desktop-menu,  .category-desktop, .mobile-menu-items, .desktop-footer{
         display: none ;
+    }
+    .desktop-footer{
+        display: none;
     }
     .mobile-footer, .mobile-category{
         display: block;

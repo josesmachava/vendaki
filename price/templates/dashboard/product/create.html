@@ -20,11 +20,35 @@
 <meta http-equiv="X-UA-Compatible", content="IE=edge">
 <meta name="viewport", content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="{% static 'stylesheet/main.css' %}">
-
+<style>
+    nav ul li a{
+        color:
+white;
+text-transform: capitalize;
+    }
+.mtnicon {
+    display: inline-block;
+    color: inherit;
+    font-style: normal;
+    color:
+    white;
+    line-height: 0;
+    text-align: center;
+    text-transform: none;
+    vertical-align: -0.125em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    min-width: 14px;
+    margin-right: 10px;
+    font-size: 14px;
+    -webkit-transition: font-size 0.15s cubic-bezier(0.215, 0.61, 0.355, 1),margin 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: font-size 0.15s cubic-bezier(0.215, 0.61, 0.355, 1),margin 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+</style>
 
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="stylesheet" href="{% static 'stylesheet/dashboard.scss' %}">
+
 
 {% endblock %}
 
@@ -49,7 +73,7 @@
     <div class="container-fluid">
         <div class="row">
 
-            <div class="col-md-2 aside">
+            <div class="col-md-2 aside" style="background: #001529;height: 100vh;">
                 {% include "dashboard/layout/aside.jade" %}
 
             </div>

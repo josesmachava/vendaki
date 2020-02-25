@@ -145,7 +145,7 @@ class CompanyListView(ListView):
 @method_decorator(login_required, name='dispatch')
 class OrderDetailView(DetailView):
     model = Order
-    template_name = 'dashboard/order/details.html'
+    template_name = 'dashboard/order/details.jade'
     context_object_name = 'order'
 
 

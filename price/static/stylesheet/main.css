@@ -285,7 +285,7 @@ footer a{
     z-index: 1;
     border-top: 1px solid whitesmoke;
     height: 0;
-
+    padding:0;
 }
 .mobile-bottom-menu ul{
     display: flex;
@@ -325,6 +325,8 @@ footer a{
         display: block;
         position: fixed;
         z-index: 1;
+	border-bottom: 1px solid whitesmoke;
+
 
 
     }

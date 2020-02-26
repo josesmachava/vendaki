@@ -278,12 +278,14 @@ footer a{
     color: black;
 }
 .mobile-bottom-menu{
-    position: fixed;
-    bottom: -50px;
+      position: fixed;
+    bottom: 0;
     width: 100vw;
-    background:white;
+    background: white;
     z-index: 1;
     border-top: 1px solid whitesmoke;
+    height: 0;
+
 }
 .mobile-bottom-menu ul{
     display: flex;
@@ -312,6 +314,9 @@ footer a{
     .mobile-footer, .mobile-category{
         display: block;
     }
+    .mobile-bottom-menu{
+    display: block;
+}
 
     .mobile-menu{
         background-color:white;

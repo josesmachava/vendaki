@@ -305,6 +305,14 @@ footer a{
 
 
 @media (max-width: 480px){
+    .mobile-row{
+            margin-top: 100px;
+            margin-bottom: 20px;
+
+    }
+    .mobile-bottom-menu ul{
+        background: white;
+    }
     .desktop-menu,  .category-desktop, .mobile-menu-items, .desktop-footer{
         display: none ;
     }
@@ -317,7 +325,15 @@ footer a{
     .mobile-bottom-menu{
     display: block;
 }
+    .products-body{
+        width: 200px;
+       margin: 20px auto;
 
+
+    }
+    .company-products{
+        margin-bottom: 50px;
+    }
     .mobile-menu{
         background-color:white;
 

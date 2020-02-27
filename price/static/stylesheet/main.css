@@ -336,7 +336,7 @@ footer a{
     }
     .mobile-menu{
         background-color:white;
-
+        top: 0;
         width: 100vw;
         display: block;
         position: fixed;

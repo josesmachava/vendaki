@@ -10,7 +10,14 @@ nav.mobile-menu
         //li
             i.fas.fa-search
         li
-            img(src="{% static 'images/shopicon.svg' %}", alt="", class="cart-icon")
+            a(href="{% url 'order-summary' %}")
+                img(src="{% static 'images/shopicon.svg' %}", alt="" class="cart-icon")
+                {% if order.product %}
+                <span class="cart-number-order" >
+                {{ order.product.all.count }}
+                </span>
+                {% endif %}
+
     {% else %}
 
     ul
@@ -25,6 +32,13 @@ nav.mobile-menu
         //li
             i.fas.fa-search
         li
+
             img(src="{% static 'images/shopicon.svg' %}", alt="", class="cart-icon")
 
-    {% endif %}
+{% endif %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }}">{% if message.tags %} {% endif %}{{ message }}</div>
+{% endfor %}
+
+{% endif %}

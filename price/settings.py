@@ -61,6 +61,8 @@ INSTALLED_APPS = [
     'account',
     'price',
     'dashboard',
+    'api',
+    'rest_framework',
 
 ]
 SITE_ID = 1

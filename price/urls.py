@@ -16,7 +16,8 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-
+from django.conf.urls.static import static # new
+    
 from price import settings
 from . import views
 from django.conf.urls import handler404, handler500, url
@@ -53,3 +54,8 @@ urlpatterns = [
 
 handler404 = "price.views.handler404"
 handler500 = "price.views.handler500"
+
+
+
+if settings.DEBUG: # new
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

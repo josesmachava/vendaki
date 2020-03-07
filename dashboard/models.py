@@ -1,11 +1,18 @@
 from django.db import models
 from django.urls import reverse
 from django.utils.crypto import get_random_string
+import io
+from django.core.files.uploadedfile import InMemoryUploadedFile
+
 
 from account.models import User, Company, Category
 
 # Create your models here.
 from price import settings
+import qrcode
+from django.db import models
+
+
 
 
 class SocialMedia(models.Model):
@@ -60,6 +67,8 @@ class OrderProduct(models.Model):
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    qrcode_image = models.ImageField(upload_to = 'qrcode')
     product = models.ManyToManyField(OrderProduct)
     start_date = models.DateTimeField(auto_now_add=True)
     ordered = models.BooleanField(default=False)

@@ -4,12 +4,16 @@ import string
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
+
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import Http404
 from django.template import RequestContext
+from django.core.files.base import ContentFile
+
 from django.shortcuts import render, get_object_or_404, redirect, render_to_response
 from django.utils.decorators import method_decorator
 from django.views.generic import View, DeleteView, DetailView, ListView
+import qrcode
 
 from dashboard.models import *
 
@@ -187,16 +191,23 @@ def remove_from_cart(request, id):
 
 def create_referral(request):
     order = Order.objects.get(user=request.user, ordered=False)
+
     referral_links = ReferralLink.objects.filter(user=request.user)
-    print(order.product.all())
     for orders in order.product.all():
-        print(orders.product.id)
-        referral_link, created = ReferralLink.objects.get_or_create(user=request.user,
+          referral_link, created = ReferralLink.objects.get_or_create(user=request.user,
                                                                     link=f'www.preco.co.mz/product/{request.user.referral.referral_token}/{orders.product.id}',
                                                                     product=orders.product,
-                                                                    referral=request.user.referral.referral_token)
+                                                                    referral=request.user.referral.referral_token
+                                                                    )
+    img = qrcode.make(order.id)
+    img.save('media/generateQr/' + f'{order.id}.png')
+    with open('media/generateQr/' + f'{order.id}.png', 'rb') as f:
+        data = f.read()
+
+    order.qrcode_image.save(f'{order.id}.png', ContentFile(data))
 
     order.ordered = True
+
     order.save()
     return render(request, 'referral.html', {'referral_link': referral_links})
 

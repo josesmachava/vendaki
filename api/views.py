@@ -29,7 +29,7 @@ def Companies(request):
 
 
 @api_view(['GET', 'POST'])
-def Orders(request):
+def APIOrders(request):
     """
     List all code Payment, or create a new Payment.
     """
@@ -40,3 +40,13 @@ def Orders(request):
 
 
     #Get Data from Post API
+
+@api_view(['GET', 'POST'])
+def APIOrder(request, id):
+    """
+    List all code Payment, or create a new Payment.
+    """
+    if request.method == 'GET':
+        order = Order.objects.filter(id=id)
+        serializer = OrderSerializer(order, many=True)
+        return Response(serializer.data)

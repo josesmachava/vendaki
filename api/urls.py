@@ -6,7 +6,8 @@ from . import views
 urlpatterns = [
 
     path('companies', views.Companies, name='companies'),
-    path('order', views.Orders, name='order'),
+    path('order', views.APIOrders, name='apiorders'),
+    path('order/<int:id>',  views.APIOrder, name='apiorder'),
 
 
 ]

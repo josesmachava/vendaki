@@ -79,9 +79,33 @@ def product(request):
     return render(request, 'products.html', {'products': products, 'categories': categories})
 
 
-def search(request):
-    return render(request, 'price/search.html')
 
+@method_decorator(login_required, name='dispatch')
+class MyOrdersDetailView(DetailView):
+    model = Order
+    template_name = 'dashboard/order/details.jade'
+    context_object_name = 'order'
+
+
+class MyOrderstListView(ListView):
+    model = Order
+    template_name = 'price/order/list.jade'
+    context_object_name = 'order'
+    paginate_by = 11
+
+    def get_context_data(self, **kwargs):
+        context = super(MyOrderstListView, self).get_context_data(**kwargs)
+        orders = self.get_queryset()
+        page = self.request.GET.get('page')
+        paginator = Paginator(orders, self.paginate_by)
+        try:
+            orders = paginator.page(page)
+        except PageNotAnInteger:
+            orders = paginator.page(1)
+        except EmptyPage:
+            orders = paginator.page(paginator.num_pages)
+        context['order'] = orders
+        return context
 
 def dashboard(request):
     return render(request, 'dashboard.html')

@@ -21,3 +21,11 @@
 body{
 
 }
+@media (max-width: 480px){
+    .desktop{
+        display: none;
+    }
+    body{
+        background: whitesmoke;
+    }
+}

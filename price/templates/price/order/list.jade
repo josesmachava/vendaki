@@ -75,7 +75,30 @@ main.layout-row.desktop
         .layout-footer
               {% include "dashboard/layout/footer.jade" %}
 main.layout-row.mobile
-    
+    .layout
+        .layout-header
+        .layout-content
+    {% for order in orders %}
+    {% if order.ordered  %}
+    H1 HELLO
+    tbody.mtn-table-tbody
+        tr
+            td
+                a(href="{%  url  'order-detail' order.id %}") {{ order.id }}
+
+            td  {{ order.user.last_name }}
+            td {{ order.user.first_name }}
+            td {{ order.user.email }}
+            td {{ order.product.all.count }}
+
+
+
+
+
+
+    {% endif %}
+    {% endfor %}
+
 {% endblock %}
 
 

@@ -66,7 +66,7 @@ class ProductDeleteView(DeleteView):
 class OrdertListView(ListView):
     model = Order
     template_name = 'dashboard/order/list.jade'
-    context_object_name = 'orders'
+    context_object_name = 'order'
     paginate_by = 11
 
     def get_context_data(self, **kwargs):

@@ -44,8 +44,8 @@ urlpatterns = [
          name='order-summary'),
     path('referallink', views.RefereLink.as_view(),
                        name='referallink'),
-    path('search',  views.search, name="search")
-
+    path("myorders/", views.MyOrderstListView.as_view(), name="myorders"),
+    path('myorders/<int:pk>', views.MyOrdersDetailView, name="myorders"),
 
 ]
 

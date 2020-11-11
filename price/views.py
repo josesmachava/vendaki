@@ -10,7 +10,7 @@ from django.http import Http404
 from django.template import RequestContext
 from django.core.files.base import ContentFile
 
-from django.shortcuts import render, get_object_or_404, redirect, render_to_response
+from django.shortcuts import render, get_object_or_404, redirect
 from django.utils.decorators import method_decorator
 from django.views.generic import View, DeleteView, DetailView, ListView
 import qrcode

@@ -5,17 +5,10 @@ footer
     .desktop-footer
         .container
             .row
-                .col-md-4
-                    ul
-                        li
-                            a(href="{% url 'signin' %}") Entrar
-                        li
-                            a(href="{% url 'company' %}") Registar Empresa
-                        li
-                            a(href="{% url 'signup' %}") Criar conta
 
-                .col-md-4
 
+
+                .col-md-12
                     ul
                         li
                             a(href="{% url 'security' %}") Segurança
@@ -23,65 +16,28 @@ footer
                             a(href="{% url 'policies' %}") Políticas e privacidade
                         li
                             a(href="{% url 'terms' %}") Termos e condições
-                .col-md-4
-
-                    ul.align-right
-                        li
-                            a(href=" {% url 'index' %}") Facebook
-                        li
-                            a(href=" {% url 'index' %}") Twitter
-                        li
-                            a(href=" {% url 'index' %}") Instagram
 
                 .col-md-12
+
                     p &copy; {% now 'Y' %} Preço
-
-
-
 
     {% else %}
     .desktop-footer
         .container
             .row
-                .col-md-4
+                .col-md-12
                     ul
                         li
-                          a(href="{% url 'signin' %}") Entrar
+                            a(href="{% url 'security' %}") Segurança
                         li
-                          a(href="{% url 'company' %}") Registar Empresa
+                            a(href="{% url 'policies' %}") Políticas e privacidade
                         li
-                          a(href="{% url 'signup' %}") Criar conta
-
-                .col-md-4
-
-                    ul
-                        li
-                          a(href="{% url 'security' %}") Segurança
-                        li
-                          a(href="{% url 'policies' %}") Políticas e privacidade
-                        li
-                          a(href="{% url 'terms' %}") Termos e condições
-                .col-md-4
-
-                    ul.align-right
-                        li
-                          a(href=" {% url 'index' %}") Facebook
-                        li
-                          a(href=" {% url 'index' %}") Twitter
-                        li
-                          a(href=" {% url 'index' %}") Instagram
+                            a(href="{% url 'terms' %}") Termos e condições
 
                 .col-md-12
                     p &copy; {% now 'Y' %} Preço
-
-
-
-
     .mobile-footer
-
-
         p &copy; {% now 'Y' %} Preço
-
 
     {% endif %}
 

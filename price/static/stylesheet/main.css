@@ -252,15 +252,18 @@ a:hover{
     margin: 0 10px;
 }
 footer {
-     margin-top:auto;
-
+    margin-top:auto;
     width: 100%;
-    background-color: #fafafa;
     color:#333;
 }
 footer ul{
     margin-top: 20px;
     list-style: none;
+    text-align: center;
+}
+footer ul li{
+    display: inline;
+    padding: 20px;
 }
 .summary{
     padding: 20px 30px;

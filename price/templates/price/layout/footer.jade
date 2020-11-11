@@ -19,7 +19,7 @@ footer
 
                 .col-md-12
 
-                    p &copy; {% now 'Y' %} Preço
+                    p &copy; {% now 'Y' %} Eskina
 
     {% else %}
     .desktop-footer
@@ -28,16 +28,26 @@ footer
                 .col-md-12
                     ul
                         li
+                            a(href="#")  <i class="fab fa-facebook-f"></i>
+                        li
+                            a(href="#")  <i class="fab fa-instagram"></i>
+                        li
+                            a(href="#")  <i class="fab fa-twitter"></i>
+                        li
+                            a(href="#")  <i class="fab fa-youtube"></i>
+                .col-md-12
+                    ul
+                        li
                             a(href="{% url 'security' %}") Segurança
                         li
-                            a(href="{% url 'policies' %}") Políticas e privacidade
+                            a(href="{% url 'policies' %}") Políticas e Privacidade
                         li
                             a(href="{% url 'terms' %}") Termos e condições
 
                 .col-md-12
-                    p &copy; {% now 'Y' %} Preço
+                    p &copy; {% now 'Y' %} Eskina
     .mobile-footer
-        p &copy; {% now 'Y' %} Preço
+        p &copy; {% now 'Y' %} Eskina
 
     {% endif %}
 

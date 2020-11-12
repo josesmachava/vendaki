@@ -1,8 +1,13 @@
-nav
-    ul.mtn-flex-align-end
-        li
-            a(href="{% url 'product-create' %}") Novo producto
-        li
-            a(href="{% url 'logout' %"})
-                <i class="far fa-user"></i>
+header
+    nav
+        ul
+            li
+                a(href="{% url 'product-create' %}", class="link") Ver Loja
+
+            li
+                a(href="{% url 'product-create' %}", class="eka-button") Mudar Pacote
+
+            li
+                a(href="{% url 'logout' %"})
+                    <i class="fas fa-user-circle"></i>
 

@@ -1,7 +1,6 @@
 footer
 
     {% if user.is_authenticated %}
-    {% include "price/layout/mobile-bottom-menu.html" %}
     .desktop-footer
         .container
             .row
@@ -19,7 +18,7 @@ footer
 
                 .col-md-12
 
-                    p &copy; {% now 'Y' %} Eskina
+                    p.text-center &copy; {% now 'Y' %} Eskina
 
     {% else %}
 

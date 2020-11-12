@@ -1,71 +1,77 @@
-
 @import url('https://fonts.googleapis.com/css?family=Mada:400,500,600,700&display=swap');
-:root{
-    --primary-color:#222;
-    --base-color:#fff;
+
+:root {
+    --primary-color: #222;
+    --base-color: #fff;
 }
-body{
-    background-color:white;
-    color:#4b4f54!important;
-    font-size:15px!important;
+
+body {
+    background-color: white;
+    color: #4b4f54 !important;
+    font-size: 15px !important;
 }
-html, body{
-    height:100%;
-    margin:0;
+
+html, body {
+    height: 100%;
+    margin: 0;
     background-color: #fafafa;
 
 }
-header{
+
+header {
     display: flex;
     justify-content: space-around;
     align-items: center;
 
     background-color: var(--base-color);
 }
-nav ul li{
+
+nav ul li {
     display: inline;
     padding: 30px;
     font-weight: bold;
     font-size: 16px;
-    margin-top:50px;
+    margin-top: 50px;
     text-transform: capitalize;
 }
-ul li a{
-    color:var(--primary-color)
 
-}
-ul li a:hover{
+
+ul li a:hover {
     text-decoration: none;
 
-    color:var(--primary-color)
+    color: var(--primary-color)
 
 }
-.hero-content{
+
+.hero-content {
     padding-top: 100px;
     height: 60vh;
 }
-.hero-title{
+
+.hero-title {
     font-size: 50px;
     font-weight: 600;
 }
-.hero-subtitle{
+
+.hero-subtitle {
 
 }
-.price{
+
+.price {
     background: var(--base-color);
     border-radius: 0 0 4px 4px;
     padding: 40px;
     text-align: center;
-        border-radius: 0 0 4px 4px;
+    border-radius: 0 0 4px 4px;
 
     position: relative;
 }
 
-button{
+button {
 
 }
 
-.price button{
+.price button {
     font-family: "Gotham A", "Gotham B", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -88,22 +94,25 @@ button{
     font-size: 16px;
     text-transform: capitalize;
 }
+
 footer {
-    margin-top:auto;
+    margin-top: auto;
     width: 100%;
-    color:#333;
+    color: #333;
 }
-footer ul{
+
+footer ul {
     margin-top: 20px;
     list-style: none;
     text-align: center;
 }
-footer ul li{
+
+footer ul li {
     display: inline;
     padding: 20px;
 }
 
-@media (max-width: 480px){
+@media (max-width: 480px) {
 
 }
 
@@ -112,6 +121,6 @@ footer ul li{
 
 }
 
-@media (min-width: 992px){
+@media (min-width: 992px) {
 
 }

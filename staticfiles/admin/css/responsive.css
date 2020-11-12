@@ -141,7 +141,6 @@ input[type="submit"], button {
         background: #fff;
     }
 
-    #changelist .actions .button {
         min-width: 48px;
         margin: 0 10px;
     }

@@ -1,82 +1,14 @@
 {% load staticfiles %}
 
 
+<header>
+    <h1>eskina</h1>
 
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light desktop-menu" >
-    <div class="container">
-        <a href=""><h1><a href="{% url 'index' %}"><img class="logo" src="{% static "img/logo.png" %}" alt="preco logo"></a></h1></a>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-        <div class="navbar-nav mr-auto">
-            <input type="search" placeholder="pesquisar" >
-        </div>
-         {% if user.is_authenticated %}
-        <ul class="navbar-nav">
-
-            <li class="shop-cart"><a href="{% url 'order-summary' %}"> <img src="{% static 'images/shopicon.svg' %}" alt="" class="cart-icon" />
-
-
-
-                    {% if order.product %}
-
-                    <span class="cart-number-order" >
-                         {{ order.product.all.count }}
-                        </span>
-
-                    {% endif %}
-
-
-            </a></li>
-            <div class="dropdown">
-  <li class=" dropdown-toggle user"id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-     <i class="far fa-user"></i>
-  </li>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-         <a class="dropdown-item" href="{% url 'referrals' %}">Referrals</a>
-        <a class="dropdown-item" href="{%  url 'logout' %}">Logout</a>
-      </div>
-    </div>
-
+    <nav class="list-unstyled">
+        <ul>
+            <li><a href="">preço</a></li>
+            <li><a href="">entrar</a></li>
+            <li><a href="">criar conta</a></li>
         </ul>
-
-          {% else %}
-
-                        <ul class="navbar-nav">
-
-             <a href=" {% url 'signin' %}" title="" style="font-size: 16px;color: #333;"><i class="far fa-user"></i>  Entrar</a>
-             <a href=" {% url 'signup' %}" title="" class="create-account" >Criar conta</a>
-
-              <li ><a href="{% url 'signin' %}"> <img src="{% static 'images/shopicon.svg' %}" alt="" class="cart-icon" />
-
-
-
-
-
-
-            </a></li>
-        </ul>
-
-                {% endif %}
-
-    </div>
-
-    </div>
-
-
-
-    </div>
-   </nav>
-
-{% if messages %}
-    {% for message in messages %}
-    <div class="alert alert-{{ message.tags }}">{% if message.tags %} {% endif %}{{ message }}</div>
-    {% endfor %}
-
-{% endif %}
+    </nav>
+</header>

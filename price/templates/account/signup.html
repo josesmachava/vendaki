@@ -10,83 +10,88 @@
 
 {# overide the tile of the page #}
 {% block title %}
-<title>Price</title>
+    <title>Price</title>
 {% endblock %}
 
 {% block styles %}
-{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+    {#    only include css  files needed for thi page bootstap and other libs are add in base template #}
 
-<meta charset="utf-8">
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible", content="IE=edge">
-<meta name="viewport", content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" , content="IE=edge">
+    <meta name="viewport" , content="width=device-width, initial-scale=1">
 
-  <style>
-        body{
-            background-color: whitesmoke;
+    <style>
+        body {
+            background-color: white;
         }
 
     </style>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 {% endblock %}
 
 
 {% block scripts %}
-{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+    {#    only include css  files needed for thi page bootstap and other libs are add in base template #}
 
 {% endblock %}
 
 
 {% block content %}
 
-<main>
+    <main>
 
 
+        <div class="container">
 
-    <div class="container">
-        <div class="row justify-content-center align-items-center">
+            <div class="row justify-content-center align-items-center">
 
+                <div class="col-md-7">
+                    <h1>eskina</h1>
+                    <h2>Venda online com Eskina</h2>
+                    <p>Eskina é uma solução de comércio eletrônico completa e acessível que inclui lojas na web, móveis e sociais.</p>
 
-            <div class="sigin">
-                <form action="signup" method="post">
-                    <h1 class="logo"><a><img class="logo" src="{% static "img/logo.png" %}" alt="preco logo"></a></h1>
-                    {% csrf_token %}
-                    <input type="hidden" name="next" value="{{ next }}">
-                    <div class="row">
-                        <div class="col-6">
-                            {{ form.first_name|as_crispy_field }}
-                        </div>
-                        <div class="col-6">
-                            {{ form.last_name|as_crispy_field }}
-                        </div>
-                    </div>
+                    <img src="{% static "img/bg.png" %}" alt="background image">
+                </div>
 
-                    {{ form.phone_number|as_crispy_field }}    
-                    {{ form.email|as_crispy_field }} 
-                    <div class="row">
+                <div class="col-md-5">
+
+                    <form action="signup" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ next }}">
+                        <div class="row">
                             <div class="col-6">
-                              {{ form.password1|as_crispy_field }}
+                                {{ form.first_name|as_crispy_field }}
                             </div>
                             <div class="col-6">
-                              {{ form.password2|as_crispy_field }}
+                                {{ form.last_name|as_crispy_field }}
                             </div>
-                          </div>
-                          
-            
-                    
-                     <button type="submit" class="btn btn-primary">Criar conta</button>
+                        </div>
 
-                    <a href="{% url 'signin' %}">ou iniciar sessao</a>
+                        {{ form.phone_number|as_crispy_field }}
+                        {{ form.email|as_crispy_field }}
+                        <div class="row">
+                            <div class="col-6">
+                                {{ form.password1|as_crispy_field }}
+                            </div>
+                            <div class="col-6">
+                                {{ form.password2|as_crispy_field }}
+                            </div>
+                        </div>
 
-                </form>
+
+                        <button type="submit" class="btn">Criar conta</button>
+
+                        <a href="{% url 'signin' %}">ou iniciar sessao</a>
+
+                    </form>
+                </div>
             </div>
 
         </div>
 
-    </div>
-    <form>
-
-</main>
+    </main>
 
 
 {% endblock %}

@@ -43,13 +43,20 @@
 
     <div class="container">
         <div class="row justify-content-center align-items-center">
+                <div class="row justify-content-center align-items-center">
 
+                <div class="col-md-7">
+                    <h1>eskina</h1>
+                    <h2>Venda online com Eskina</h2>
+                    <p>Eskina é uma solução de comércio eletrônico completa e acessível que inclui lojas na web, móveis e sociais.</p>
 
-                <div class="sigin">
+                    <img src="{% static "img/bg.png" %}" alt="background image">
+                </div>
+
+                <div class="col-md-5">
                 <form  action="signin" method="post" >
                         {% csrf_token %}
 
-                    <h1 class="logo"><a><img class="logo" src="{% static "img/logo.png" %}" alt="preco logo"></a></h1>
                 <div class="form-group">
                     <label for="Email">Email</label>
                     <input type="email" class="form-control" name="username" id="Email" aria-describedby="email" placeholder="Email">

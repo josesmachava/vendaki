@@ -20,7 +20,7 @@ from django.urls import path,include
 from . import views
 
 urlpatterns = [
-    path('purchase/<int:pk>', views.purchase, name="purchase"),
+
 
 ]
 

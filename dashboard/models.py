@@ -32,7 +32,7 @@ class Product(models.Model):
 
 
 class OrderProduct(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    store = models.ForeignKey(Store, on_delete=models.CASCADE)
     ordered = models.BooleanField(default=False)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
@@ -48,7 +48,7 @@ class OrderProduct(models.Model):
 
 
 class Order(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    store = models.ForeignKey(Store, on_delete=models.CASCADE)
     product = models.ManyToManyField(OrderProduct)
     start_date = models.DateTimeField(auto_now_add=True)
     ordered = models.BooleanField(default=False)

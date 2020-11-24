@@ -3,28 +3,9 @@ from django.db import models
 # Create your models here.
 from account.models import User
 from django.core.validators import RegexValidator
-from tinymce import models as tinymce_models
 
 
-class Donation(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=255, null=False)
-    price = models.CharField(max_length=255, null=False)
-    description = tinymce_models.HTMLField()
-    created_date = models.DateTimeField(auto_now_add=True)
-    uploaded_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f'{self.name}'
-
-
-class Order(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    ordered = models.BooleanField(default=False)
-    donation = models.ForeignKey(Donation, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f'{self.user.first_name}'
+from dashboard.models import Order
 
 
 class Payment(models.Model):

@@ -19,7 +19,6 @@ from . import views
 
 urlpatterns = [
    path("", views.index, name="dashboard"),
-   path("companies/", views.CompanyListView.as_view(), name="companies"),
    path("user/", views.UserListView.as_view(), name="user-list"),
    path('user/<int:pk>/update', views.UserUpdateView.as_view(),
          name='user-update'),
@@ -34,11 +33,6 @@ urlpatterns = [
          name='product-delete'),
    path('product/list', views.ProductListView.as_view(),
         name='product-list'),
-   path("editar_empresas/", views.editar_empresas, name="editar_empresas"),
-   path('order/<int:pk>', views.OrderDetailView.as_view(),
-                       name='order-detail'),
-   path('complete/<int:order_pk>/<int:user_pk>', views.complete_order,
-                       name='complete-order'),
 
    
 ]

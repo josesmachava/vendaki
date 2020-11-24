@@ -9,14 +9,12 @@ from .forms import ProductForm
 from .models import Product, Order
 
 # Create your views here.
-from account.models import Company, User
+from account.models import  User
 
 
 def index(request):
-    company = Company.objects.all().count()
-    product = Product.objects.all().count()
-    order = Order.objects.all().count()
-    return render(request, "dashboard/index.jade", {'product': product, 'company': company, 'order': order})
+
+    return render(request, "dashboard/index.jade")
 
 
 # @method_decorator(login_required, name='dispatch')
@@ -128,49 +126,3 @@ class UserDeleteView(DeleteView):
     success_url = reverse_lazy('user-list')
 
 
-class CompanyListView(ListView):
-    model = Company
-    template_name = 'dashboard/company/list.jade'
-    context_object_name = 'companies'
-    paginate_by = 13
-
-    def get_context_data(self, **kwargs):
-        context = super(CompanyListView, self).get_context_data(**kwargs)
-        companies = self.get_queryset()
-        page = self.request.GET.get('page')
-        paginator = Paginator(companies, self.paginate_by)
-        try:
-            users = paginator.page(page)
-        except PageNotAnInteger:
-            users = paginator.page(1)
-        except EmptyPage:
-            products = paginator.page(paginator.num_pages)
-        context['companies'] = companies
-        return context
-
-
-@method_decorator(login_required, name='dispatch')
-class OrderDetailView(DetailView):
-    model = Order
-    template_name = 'dashboard/order/details.jade'
-    context_object_name = 'order'
-
-
-def companies(request):
-    companies = Company.objects.all()
-    return render(request, "dashboard/company/list.jade", {'companies': companies})
-
-
-def complete_order(request, order_pk, user_pk):
-    order = Order.objects.get(id=order_pk, user=user_pk)
-    for order in order.product.all():
-        referral = ReferralLink.objects.filter(product=order.product.id, user=user_pk)
-        for referral in referral:
-            referral.active = True
-            referral.save()
-
-    return redirect('order')
-
-
-def editar_empresas(request):
-    return render(request, "dashboard/company/edit.html")

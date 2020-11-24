@@ -20,6 +20,7 @@ from django.conf.urls.static import static # new
     
 from price import settings
 from . import views
+from dashboard.views import store
 from django.conf.urls import handler404, handler500, url
 
 urlpatterns = [
@@ -29,6 +30,7 @@ urlpatterns = [
     url(r'^s3direct/', include('s3direct.urls')),
     path('tinymce/', include('tinymce.urls')),
 
+    path('<str:slug>', store, name="store"),
     path("", views.index, name="index"),
     path("dashboard/", include("dashboard.urls")),
 

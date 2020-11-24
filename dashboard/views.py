@@ -9,11 +9,10 @@ from .forms import ProductForm
 from .models import Product, Order
 
 # Create your views here.
-from account.models import  User
+from account.models import User, Store
 
 
 def index(request):
-
     return render(request, "dashboard/index.jade")
 
 
@@ -126,3 +125,9 @@ class UserDeleteView(DeleteView):
     success_url = reverse_lazy('user-list')
 
 
+def store(request, slug):
+    store = Store.objects.get(slug=slug)
+
+    products = Product.objects.filter(store=store)
+
+    return render(request, 'dashboard/store/index.jade', {'products': products})

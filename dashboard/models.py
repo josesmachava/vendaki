@@ -1,5 +1,5 @@
 # Create your models here.
-from account.models import User
+from account.models import User, Store
 from price import settings
 from tinymce import models as tinymce_models
 from s3direct.fields import S3DirectField
@@ -17,7 +17,7 @@ class Product(models.Model):
     price = models.CharField(max_length=30, blank=True)
     description = tinymce_models.HTMLField()
     created_date = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    store = models.ForeignKey(Store, on_delete=models.CASCADE)
     visible = models.BooleanField(default=False)
     file = S3DirectField(dest='pdf')
 

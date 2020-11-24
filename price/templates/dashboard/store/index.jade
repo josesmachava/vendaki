@@ -32,11 +32,14 @@ link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/a
 {% block content %}
 
 main
-    .container-fluid
+    .container
         .row
+            {% for product in products %}
             .col-md-3
-
+                {{ product.name }}
+                img(src="{{ product.image }}", alt="{{ product.name }}")
             .col-md-6
+            {% endfor %}
 
 
 

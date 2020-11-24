@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Company, User, Type
+from .models import User
 
 
 # Register your models here.
@@ -24,9 +24,5 @@ class ReferralLinkAdmin(admin.ModelAdmin):
     list_display = ['link']
 
 
-admin.site.register(Type)
-
-
-admin.site.register(Company, CompanyAdmin)
 admin.site.register(User, UserAdmin)
 

@@ -24,6 +24,10 @@ html, body {
     cursor: default;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
+.product-list-image{
+    width: 60px;
+
+}
 ul li {
     padding: 0;
     list-style: none;

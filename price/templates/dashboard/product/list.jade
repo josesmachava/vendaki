@@ -1,21 +1,34 @@
 {% extends "price/layout/base.html" %}
-{% load staticfiles %}
+{% load static %}
+
 {% comment %}
+
 {% endcomment %}
-{% load staticfiles %}
+{% load static %}
+{% load crispy_forms_tags %}
+
 {# overide the tile of the page #}
 {% block title %}
 <title>Price</title>
 {% endblock %}
 {% block styles %}
 {#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+
 link(rel="stylesheet",   href="{% static 'stylesheet/dashboard.css' %}")
+
 link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous")
+
+
+
 {% endblock %}
+
+
 {% block scripts %}
 {#    only include css  files needed for thi page bootstap and other libs are add in base template #}
 
 {% endblock %}
+
 
 
 {% block content %}
@@ -24,64 +37,44 @@ main
     .container-fluid
         .row
             .col-md-2.aside
-                {% include "dashboard/layout/aside.jade" %}
+                 {% include "dashboard/layout/aside.jade" %}
 
             .col-md-10
                 {% include "dashboard/layout/menu.jade" %}
+                .col-md-12
+
+                {% for product in products %}
+                .card-content
+                    .row
+
+                        .col-md-11
+                            img(src="{{ product.image }}", class="product-list-image")
+                            {{ product.id }}
+                            {{ product.name }}
+                            {{ product.price }}
 
 
-                .layout-content
-                   table.mtn-table
-                        thead.mtn-table-thead
-
-                            tr
-                                th
-                                    span.mtn-table-header-column #
-                                th
-                                    span.mtn-table-header-column Nome
-                                th
-                                    span.mtn-table-header-column Preço
-                                th
-                                    span.mtn-table-header-column Empresa
-                                th
-                                    span.mtn-table-header-column Categoria
+                        .col-md-1
+                            a(href="{% url 'product-update' product.id   %}")
+                                i.fas.fa-edit
 
 
-                                th
-                                    span.mtn-table-header-column Editar
-                                th
-                                    span.mtn-table-header-column Deletar
-
-
-                        {% for product in products %}
-                        tbody.mtn-table-tbody
-                            tr
-                                td {{ product.id }}
-                                td {{ product.name }}
-                                td {{ product.price }}
-                                td {{ product.company.commercial_name }}
-                                td {{ product.categories.name }}
+                            a(href="{% url 'product-delete' product.id   %}")
+                                i.far.fa-trash-alt
 
 
 
-                                td
-                                    a(href="{% url 'product-update' product.id   %}")
-                                        i.fas.fa-edit
+                {% endfor %}
+                {% if is_paginated %}
+                {% include "price/layout/pagination.html" %}
+                {% endif %}
 
-                                td
-                                    a(href="{% url 'product-delete' product.id   %}")
-                                        i.far.fa-trash-alt
-
+        {% include "dashboard/layout/footer.jade" %}
 
 
-                        {% endfor %}
-                   {% if is_paginated %}
-                   {% include "price/layout/pagination.html" %}
-                   {% endif %}
-                 .layout-footer
-                        {% include "dashboard/layout/footer.jade" %}
 
 {% endblock %}
+
 
 
 

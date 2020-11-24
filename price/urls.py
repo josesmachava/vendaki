@@ -30,24 +30,7 @@ urlpatterns = [
     path('tinymce/', include('tinymce.urls')),
 
     path("", views.index, name="index"),
-    path("products/<int:id>", views.products, name="products"),
-    path("product/", views.product, name="product"),
-    path("showlinks/", views.create_referral, name="showlinks"),
     path("dashboard/", include("dashboard.urls")),
-    path('categories/<int:id>', views.categories, name="categories"),
-    path('add_to_cart/<int:id>', views.add_to_cart, name="add_to_cart"),
-    path('add_to_cart_referral/<int:id>/<str:referral>/', views.add_to_cart_referral, name="add_to_cart_referral"),
-    path('product/<str:referral>/<int:pk>', views.ProductDetailView.as_view(),
-         name='product-detail'),
-    path("referrals/", views.referrallist, name="referrals"),
-
-                  path('remove_from_cart/<int:id>', views.remove_from_cart, name="remove_from_cart"),
-    path('order_summary', views.OrderSummary.as_view(),
-         name='order-summary'),
-    path('referallink', views.RefereLink.as_view(),
-                       name='referallink'),
-    path("myorders/", views.MyOrderstListView.as_view(), name="myorders"),
-    path('myorders/<int:pk>', views.MyOrdersDetailView, name="myorders"),
 
 ]
 

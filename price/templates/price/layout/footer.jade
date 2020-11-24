@@ -1,0 +1,56 @@
+footer
+
+    {% if user.is_authenticated %}
+    .desktop-footer
+        .container
+            .row
+
+
+
+                .col-md-12
+                    ul
+                        li
+                            a(href="{% url 'security' %}") Segurança
+                        li
+                            a(href="{% url 'policies' %}") Políticas e privacidade
+                        li
+                            a(href="{% url 'terms' %}") Termos e condições
+
+                .col-md-12
+
+                    p.text-center &copy; {% now 'Y' %} Eskina
+
+    {% else %}
+
+    .container
+        .row
+            .col-md-12
+                ul
+                    li
+                        a(href="#")  <i class="fab fa-facebook-f"></i>
+                    li
+                        a(href="#")  <i class="fab fa-instagram"></i>
+                    li
+                        a(href="#")  <i class="fab fa-twitter"></i>
+                    li
+                        a(href="#")  <i class="fab fa-youtube"></i>
+            .col-md-12
+                ul
+                    li
+                        a(href="{% url 'security' %}") Segurança
+                    li
+                        a(href="{% url 'policies' %}") Políticas e Privacidade
+                    li
+                        a(href="{% url 'terms' %}") Termos e condições
+
+                    li
+                        a(href="{% url 'terms' %}") Sobre Nós
+
+            .col-md-12
+                p.text-center &copy; {% now 'Y' %} Eskina
+
+
+    {% endif %}
+
+
+

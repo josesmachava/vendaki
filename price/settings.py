@@ -61,7 +61,6 @@ INSTALLED_APPS = [
 
     'about',
     'account',
-    'dashboard',
     'price',
 
 ]

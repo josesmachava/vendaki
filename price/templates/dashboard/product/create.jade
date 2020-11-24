@@ -1,10 +1,12 @@
 {% extends "price/layout/base.html" %}
-{% load staticfiles %}
+{% load static %}
 
 {% comment %}
 
 {% endcomment %}
-{% load staticfiles %}
+{% load static %}
+{% load crispy_forms_tags %}
+
 {# overide the tile of the page #}
 {% block title %}
 <title>Price</title>
@@ -39,7 +41,29 @@ main
 
             .col-md-10
                 {% include "dashboard/layout/menu.jade" %}
+                .col-md-12
+                    form(method="post")
+                        .row
+
+
+                            .col-md-6
+                                .card.card-content
+                                    {% csrf_token %}
+                                    {{ form.image }}
+                                    {{ form.name|as_crispy_field }}
+                                    {{ form.description|as_crispy_field }}
+
+                                    {{ form.file|as_crispy_field }}
+
+                            .col-md-3
+                                .card.card-content
+                                    {{ form.price|as_crispy_field }}
+
+                            .col-md-12
+                                <button type="submit" class="btn btn-success">Create Product</button>
 
 
 
 {% endblock %}
+
+

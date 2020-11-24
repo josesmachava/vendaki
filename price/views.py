@@ -10,7 +10,7 @@ from django.http import Http404
 from django.template import RequestContext
 from django.core.files.base import ContentFile
 
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, render_to_response
 from django.utils.decorators import method_decorator
 from django.views.generic import View, DeleteView, DetailView, ListView
 import qrcode
@@ -236,25 +236,6 @@ def create_referral(request):
     return render(request, 'referral.html', {'referral_link': referral_links})
 
 
-class ReferralLinkListView(ListView):
-    model = ReferralLink
-    template_name = 'referral/list.html'
-    context_object_name = 'referrals'
-    paginate_by = 10
-
-    def get_context_data(self, **kwargs):
-        context = super(ReferralLinkListView, self).get_context_data(**kwargs)
-        referrals = self.get_queryset()
-        page = self.request.GET.get('page')
-        paginator = Paginator(referrals, self.paginate_by)
-        try:
-            products = paginator.page(page)
-        except PageNotAnInteger:
-            products = paginator.page(1)
-        except EmptyPage:
-            products = paginator.page(paginator.num_pages)
-        context['referrals'] = referrals
-        return context
 
 
 def referrallist(request):

@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #222;
-    --base-color: #fff;
+    --primaryColor: #222;
+    --baseColor: #fff;
     --link-color:#068eef;
 }
 
@@ -10,33 +10,46 @@ html, body {
     box-sizing: border-box;
 
 }
-
+.card-content{
+    padding: 30px 20px;
+    background-color: white;
+    box-sizing: border-box;
+    height: auto;
+    border: 1px solid #cdd4db;
+    border-radius: 4px;
+    background-color: white;
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+    transition: transform 0s ease-out .2s, opacity .2s ease-out 0s, visibility .2s ease-out 0s, max-width 0s linear .2s, max-height 0s linear .2s;
+    cursor: default;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
 ul li {
+    padding: 0;
     list-style: none;
-    padding: 5px 25px;
     font-weight: bold;
 
 }
 ul li a {
-    color: var(--primary-color)
+    color: var(--primaryColor)
 
 }
 
 a {
-    color: var(--primary-color)
+    color: var(--primaryColor)
 
 
 }
 
 a:hover {
-    color: var(--primary-color)
+    color: var(--primaryColor)
 
 }
 
 
 a:hover {
     text-decoration: none;
-    color: var(--primary-color);
+    color: var(--primaryColor);
 }
 
 header {
@@ -45,9 +58,19 @@ header {
     align-items: center;
 
 }
-
+header nav ul li{
+    padding: 0 25px;
+}
+header nav ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header nav ul li span{
+    font-size: 30px;
+}
 .aside{
-    background-color:var(--primary-color);
+    background-color:var(--primaryColor);
     height: 100vh;
 }
 .aside ul{
@@ -55,13 +78,18 @@ header {
 }
 .aside ul li{
     margin: 10px;
+    font-size: 14px;
     text-transform: capitalize;
 }
+.aside ul{
+    margin-top: 40px;
+}
+
 .aside ul li a{
-    color:var(--base-color);
+    color:var(--baseColor);
 }
 .aside ul li  span{
-    color:var(--base-color);
+    color:var(--baseColor);
     display: inline-block;
     padding-right: 20px;
 }
@@ -73,9 +101,38 @@ header nav {
 header nav ul li {
     display: inline-block;
 }
+header .dropdown{
+    position: absolute;
+    box-sizing: border-box;
+     height: auto;
+    top:10px;
+    width: 320px;
+    margin-top: 30px;
+    border: 1px solid #cdd4db;
+    border-radius: 4px;
+    background-color: white;
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+    transition: transform 0s ease-out .2s, opacity .2s ease-out 0s, visibility .2s ease-out 0s, max-width 0s linear .2s, max-height 0s linear .2s;
+    cursor: default;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+.dropdown nav ul li{
+    display: block;
+    text-transform: capitalize;
+}
+.dropdown nav:nth-child(2) ul li{
 
+    display: inline-block;
+    text-transform: capitalize;
+}
+
+.dropdown nav ul{
+
+    display: block;
+}
 .eka-button {
-    background-color: var(--primary-color);
+    background-color: var(--primaryColor);
     width: 150px;
     color: white;
     text-align: center;
@@ -83,7 +140,7 @@ header nav ul li {
     height: 40px;
     display: block;
     padding: 5px;
-    color: var(--base-color);
+    color: var(--baseColor);
 
 }
 

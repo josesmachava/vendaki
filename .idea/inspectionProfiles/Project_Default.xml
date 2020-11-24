@@ -6,6 +6,16 @@
         <language minSize="50" name="Python" />
       </Languages>
     </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="2">
+            <item index="0" class="java.lang.String" itemvalue="django-s3direct" />
+            <item index="1" class="java.lang.String" itemvalue="django-tinymce" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
     <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredIdentifiers">
         <list>

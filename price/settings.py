@@ -51,18 +51,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'crispy_forms',
-
-    'phonenumber_field',
-
+    'tinymce',
+    's3direct',
+    'rest_framework',
     "corsheaders",
     "sass_processor",
+
     'about',
     'account',
-    'price',
     'dashboard',
-    'api',
-    'rest_framework',
+    'price',
 
 ]
 SITE_ID = 1
@@ -199,5 +199,188 @@ EMAIL_HOST_USER = 'conta@preco.co.mz'
 EMAIL_HOST_PASSWORD = '849394995Jose'
 EMAIL_USE_TLS = True
 
+
+
+
+AWS_ACCESS_KEY_ID = 'AKIA4Y4LY4AEPAH4TGNG'
+AWS_SECRET_ACCESS_KEY = 'AA7o9jSak7Jl9ee+jrZNk24oRJn/uOYDkuTsKsnx'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+
+
+
+
+
+# The endpoint of your bucket, more info:
+# http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
+AWS_STORAGE_BUCKET_NAME = 'editora2'
+
+# The region of your bucket, more info:
+# http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
+AWS_S3_REGION_NAME = 'eu-west-1'
+
+# The endpoint of your bucket, more info:
+# http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
+AWS_S3_ENDPOINT_URL = 'https://s3-eu-west-1.amazonaws.com'
+S3DIRECT_DESTINATIONS = {
+    'images': {
+        # "key" [required] The location to upload file
+        #       1. String: folder path to upload to
+        #       2. Function: generate folder path + filename using a function
+        'key': 'uploads/images',
+
+        # "auth" [optional] Limit to specfic Django users
+        #        Function: ACL function
+        'auth': lambda u: u.is_staff,
+
+        # "allowed" [optional] Limit to specific mime types
+        #           List: list of mime types
+        'allowed': ['image/jpeg', 'image/png', 'video/mp4'],
+
+        # "bucket" [optional] Bucket if different from AWS_STORAGE_BUCKET_NAME
+        #          String: bucket name
+       # 'bucket': 'custom-bucket',
+
+        # "endpoint" [optional] Endpoint if different from AWS_S3_ENDPOINT_URL
+        #            String: endpoint URL
+      #  'endpoint': 'custom-endpoint',
+
+        # "region" [optional] Region if different from AWS_S3_REGION_NAME
+        #          String: region name
+       # 'region': 'custom-region', # Default is 'AWS_S3_REGION_NAME'
+
+        # "acl" [optional] Custom ACL for object, default is 'public-read'
+        #       String: ACL
+        'acl': 'private',
+
+        # "cache_control" [optional] Custom cache control header
+        #                 String: header
+        'cache_control': 'max-age=2592000',
+
+        # "content_disposition" [optional] Custom content disposition header
+        #                       String: header
+        'content_disposition': lambda x: 'attachment; filename="{}"'.format(x),
+
+        # "content_length_range" [optional] Limit file size
+        #                        Tuple: (from, to) in bytes
+        'content_length_range': (1000, 120000000),
+
+        # "server_side_encryption" [optional] Use serverside encryption
+        #                          String: encrytion standard
+        'server_side_encryption': 'AES256',
+
+        # "allow_existence_optimization" [optional] Checks to see if file already exists,
+        #                                returns the URL to the object if so (no upload)
+        #                                Boolean: True, False
+        'allow_existence_optimization': False,
+    },
+     'pdf': {
+        # "key" [required] The location to upload file
+        #       1. String: folder path to upload to
+        #       2. Function: generate folder path + filename using a function
+        'key': 'uploads/files',
+
+        # "auth" [optional] Limit to specfic Django users
+        #        Function: ACL function
+        'auth': lambda u: u.is_staff,
+
+        # "allowed" [optional] Limit to specific mime types
+        #           List: list of mime types
+        'allowed': ['application/pdf'],
+
+        # "bucket" [optional] Bucket if different from AWS_STORAGE_BUCKET_NAME
+        #          String: bucket name
+       # 'bucket': 'custom-bucket',
+
+        # "endpoint" [optional] Endpoint if different from AWS_S3_ENDPOINT_URL
+        #            String: endpoint URL
+      #  'endpoint': 'custom-endpoint',
+
+        # "region" [optional] Region if different from AWS_S3_REGION_NAME
+        #          String: region name
+       # 'region': 'custom-region', # Default is 'AWS_S3_REGION_NAME'
+
+        # "acl" [optional] Custom ACL for object, default is 'public-read'
+        #       String: ACL
+        'acl': 'private',
+
+        # "cache_control" [optional] Custom cache control header
+        #                 String: header
+        'cache_control': 'max-age=2592000',
+
+        # "content_disposition" [optional] Custom content disposition header
+        #                       String: header
+        'content_disposition': lambda x: 'attachment; filename="{}"'.format(x),
+
+        # "content_length_range" [optional] Limit file size
+        #                        Tuple: (from, to) in bytes
+        'content_length_range': (1000, 120000000),
+
+        # "server_side_encryption" [optional] Use serverside encryption
+        #                          String: encrytion standard
+        'server_side_encryption': 'AES256',
+
+        # "allow_existence_optimization" [optional] Checks to see if file already exists,
+        #                                returns the URL to the object if so (no upload)
+        #                                Boolean: True, False
+        'allow_existence_optimization': False,
+    },
+    'audio': {
+        # "key" [required] The location to upload file
+        #       1. String: folder path to upload to
+        #       2. Function: generate folder path + filename using a function
+        'key': 'uploads/files',
+
+        # "auth" [optional] Limit to specfic Django users
+        #        Function: ACL function
+        'auth': lambda u: u.is_staff,
+
+        # "allowed" [optional] Limit to specific mime types
+        #           List: list of mime types
+        'allowed': ['audio/mpeg', 'audio/mp3'],
+
+        # "bucket" [optional] Bucket if different from AWS_STORAGE_BUCKET_NAME
+        #          String: bucket name
+        # 'bucket': 'custom-bucket',
+
+        # "endpoint" [optional] Endpoint if different from AWS_S3_ENDPOINT_URL
+        #            String: endpoint URL
+        #  'endpoint': 'custom-endpoint',
+
+        # "region" [optional] Region if different from AWS_S3_REGION_NAME
+        #          String: region name
+        # 'region': 'custom-region', # Default is 'AWS_S3_REGION_NAME'
+
+        # "acl" [optional] Custom ACL for object, default is 'public-read'
+        #       String: ACL
+        'acl': 'private',
+
+        # "cache_control" [optional] Custom cache control header
+        #                 String: header
+        'cache_control': 'max-age=2592000',
+
+        # "content_disposition" [optional] Custom content disposition header
+        #                       String: header
+        'content_disposition': lambda x: 'attachment; filename="{}"'.format(x),
+
+        # "content_length_range" [optional] Limit file size
+        #                        Tuple: (from, to) in bytes
+        'content_length_range': (1000, 120000000),
+
+        # "server_side_encryption" [optional] Use serverside encryption
+        #                          String: encrytion standard
+        'server_side_encryption': 'AES256',
+
+        # "allow_existence_optimization" [optional] Checks to see if file already exists,
+        #                                returns the URL to the object if so (no upload)
+        #                                Boolean: True, False
+        'allow_existence_optimization': False,
+    },
+    'example_destination_two': {
+        'key': lambda filename, args: args + '/' + filename,
+    	'key_args': 'uploads/images',
+    }
+}
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

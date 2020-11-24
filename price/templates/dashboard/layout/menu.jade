@@ -8,6 +8,22 @@ header
                 a(href="{% url 'product-create' %}", class="eka-button") Mudar Pacote
 
             li
-                a(href="{% url 'logout' %"})
-                    <i class="fas fa-user-circle"></i>
+               span <i class="fas fa-user-circle"></i>
 
+    div.dropdown
+        nav
+            ul
+                li {{ request.user.first_name }}  {{ request.user.last_name }}
+                li {{ request.user.email }}
+        nav
+            ul
+                li
+                    a(href="{% url 'product-create' %}" class="link") Perfil
+
+                li
+                    a(href="{% url 'product-create' %}" class="link") Facturas & Planos
+
+        nav
+            ul
+                li
+                    a(href="{% url 'logout' %}", class='link') sair

@@ -18,6 +18,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" , content="IE=edge">
 
+    <link rel="stylesheet" href="{% static 'stylesheet/main.css' %}">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -40,6 +41,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+
                     <div class="hero-content">
 
                         <h1 class="hero-title text-center">Lojas online para pequenos negócio</h1>
@@ -49,10 +51,47 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
 
+        <div class="container">
+            <div class="row">
+    
+                <div class="col-md-4">
+                    <article>
+                        <ul>
+                            <li>lorem</li>
+                            <li>lorem</li>
+                            <li>lorem</li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="col-md-4">
+                    <article>
+                        <ul>
+                            <li>lorem</li>
+                            <li>lorem</li>
+                            <li>lorem</li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="col-md-4">
+                    <article>
+
+                        <ul>
+                            <li>lorem</li>
+                            <li>lorem</li>
+                            <li>lorem</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
                 <p class="text-center">Não cobramos comissões nem cobramos muitas taxas. Basta escolher um de nossos
                     planos mensais acessíveis para atender às suas necessidades e orçamento.</p>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <article class="price">
                         <p>5 productos</p>
                         <h1>Gratis</h1>
@@ -64,7 +103,7 @@
                         </ul>
                     </article>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <article class="price">
                         <p>50 productos</p>
                         <h1>Startup</h1>
@@ -75,24 +114,11 @@
                             <li>here</li>
                         </ul>
                     </article>
-                    =
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <article class="price">
                         <p>250 productos </p>
                         <h1>Business</h1>
-                        <p>sem comissões</p>
-                        <button>criar conta</button>
-
-                        <ul>
-                            <li>here</li>
-                        </ul>
-                    </article>
-                </div>
-                <div class="col-md-3">
-                    <article class="price">
-                        <p>500 productos</p>
-                        <h1>Empresas</h1>
                         <p>sem comissões</p>
                         <button>criar conta</button>
 
@@ -108,6 +134,7 @@
 
 
         </div>
+
     </main>
     {% include "price/layout/footer.jade" %}
 

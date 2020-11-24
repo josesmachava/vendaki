@@ -5,7 +5,8 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 
-from .models import Product, Order, ReferralLink
+from .forms import ProductForm
+from .models import Product, Order
 
 # Create your views here.
 from account.models import Company, User
@@ -20,10 +21,16 @@ def index(request):
 
 # @method_decorator(login_required, name='dispatch')
 class ProductCreateView(CreateView):
-    model = Product
-    template_name = 'dashboard/product/create.html'
-    fields = '__all__'
+    form_class = ProductForm
+
+    template_name = 'dashboard/product/create.jade'
     success_url = reverse_lazy('product-list')
+
+    def form_valid(self, form):
+        print(form)
+        form.instance.user = self.request.user
+        print(form.instance.user)
+        return super().form_valid(form)
 
 
 class ProductListView(ListView):

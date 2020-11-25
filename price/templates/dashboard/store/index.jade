@@ -35,7 +35,6 @@ link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/a
 main
     .container
         .row
-           {% for product in products  %}
            .col-md-7
                 img(src="{{ product.image }}", class="product-image")
            .col-md-4
@@ -54,7 +53,6 @@ main
                         button.btn.btn-primary Comprar
 
 
-           {% endfor %}
 
 
 

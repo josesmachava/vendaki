@@ -131,14 +131,14 @@ class UserDeleteView(DeleteView):
 def store(request, slug,pk):
     stores = Store.objects.get(slug="guidione")
     print(stores)
-    products = Product.objects.get(store=stores, pk=pk)
-    print(products)
-    print(products)
+    product = Product.objects.get(store=stores, pk=pk)
+    print(product)
+    print(product)
     if request.method == "POST":
 
         form = PaymentForm(request.POST)
         if form.is_valid():
-            order_product, created = OrderProduct.objects.get_or_create(store=stores, product=products, ordered=False)
+            order_product, created = OrderProduct.objects.get_or_create(store=stores, product=product, ordered=False)
             order, created = Order.objects.get_or_create(store=stores,  ordered=False)
             order.save()
             order.product.add(order_product)
@@ -151,7 +151,7 @@ def store(request, slug,pk):
             data = {
 
                 'phone_number': payment.número_de_telefone,
-                'amount': request.POST.get('price'),
+                'amount': product.price,
                 'api_key': 'a0a9fe0bf9178657835ab0ad4b033f9f',
 
             }
@@ -182,6 +182,6 @@ def store(request, slug,pk):
     else:
         form = PaymentForm()
 
-    return render(request, 'dashboard/store/index.jade', {'products': products, 'form': form, })
+    return render(request, 'dashboard/store/index.jade', {'product': product, 'form': form, })
 
 

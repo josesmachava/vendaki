@@ -129,15 +129,16 @@ class UserDeleteView(DeleteView):
 
 
 def store(request, slug):
-    stores = Store.objects.get(slug="guidione")
-
+    stores = Store.objects.get(slug=slug)
+    print(stores)
     products = Product.objects.filter(store=stores)
-
+    print(products)
     if request.method == "POST":
 
         form = PaymentForm(request.POST)
         if form.is_valid():
-            order, created = Order.objects.get_or_create(user=creator.user, donation=donation, ordered=False)
+            order_product, created = OrderProduct.objects.get_or_create(store=store, product=products, ordered=False)
+            order, created = Order.objects.get_or_create(store=store, product=order_product, ordered=False)
             payment = form.save(commit=False)
             payment.name = request.POST.get('name')
             payment.número_de_telefone = request.POST.get('número_de_telefone')
@@ -160,9 +161,12 @@ def store(request, slug):
 
             if status_code == 201 or status_code == 200:
 
-                payment.save()
+                order_product.ordered = True
+                order.ordered = True
+                order_product.save()
+                order.save()
 
-                return redirect('thanks')
+                payment.save()
 
             else:
                 error_message = data['transaction_status']
@@ -175,7 +179,7 @@ def store(request, slug):
     else:
         form = PaymentForm()
 
-    return render(request, 'account/perfil.html', {'creator': creator, 'form': form, 'donation': donation})
+    return render(request, 'dashboard/store/index.jade', {'products': products, 'form': form, })
 
 
 def stores(request, slug):

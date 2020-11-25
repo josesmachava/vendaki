@@ -146,7 +146,7 @@ def store(request, slug, slug_product):
             data = {
 
                 'phone_number': payment.número_de_telefone,
-                'amount':1,
+                'amount': product.price,
                 'api_key': 'a0a9fe0bf9178657835ab0ad4b033f9f',
 
             }

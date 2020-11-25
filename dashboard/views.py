@@ -128,10 +128,10 @@ class UserDeleteView(DeleteView):
     success_url = reverse_lazy('user-list')
 
 
-def store(request, slug,pk):
-    stores = Store.objects.get(slug="guidione")
+def store(request, slug, slug_product):
+    stores = Store.objects.get(slug=slug)
     print(stores)
-    product = Product.objects.get(store=stores, pk=pk)
+    product = Product.objects.get(store=stores, slug=slug_product)
     print(product)
     print(product)
     if request.method == "POST":
@@ -172,7 +172,7 @@ def store(request, slug,pk):
                 payment.save()
 
             else:
-                error_message = data['transaction_status']
+                error_message = response['transaction_status']
 
                 messages.error(request, error_message)
 

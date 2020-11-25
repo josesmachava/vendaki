@@ -4,6 +4,7 @@ from price import settings
 from tinymce import models as tinymce_models
 from s3direct.fields import S3DirectField
 from django.db import models
+from django.template.defaultfilters import slugify
 
 
 class SocialMedia(models.Model):
@@ -20,15 +21,14 @@ class Product(models.Model):
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
     visible = models.BooleanField(default=False)
     file = S3DirectField(dest='pdf')
-
+    slug = models.SlugField(unique=True)
     def __str__(self):
         return f'{self.name}'
 
-    def get_absolute_url(self):
-        return '%s' % self.id
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Product, self).save(*args, **kwargs)
 
-    def get_discount_price_per_click(self):
-        return self.price / self.total_number_of_click
 
 
 class OrderProduct(models.Model):

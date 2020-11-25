@@ -11,7 +11,7 @@ from dashboard.models import Order
 class Payment(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     name = models.CharField(max_length=255, null=False)
-
+    status_code = models.CharField(max_length=255, null=False)
     phone_regex = RegexValidator(regex=r'^\+?84?\d{8,8}$',
                                  message="O número de telefone deve ser digitado no formato: '841234567'. São permitidos até 9 dígitos.")
     número_de_telefone = models.CharField(validators=[phone_regex], max_length=9, blank=True,
@@ -21,4 +21,4 @@ class Payment(models.Model):
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.order.user.first_name}, {self.order.donation.price}'
+        return f'{self.name}, {self.número_de_telefone}'

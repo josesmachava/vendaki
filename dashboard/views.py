@@ -151,7 +151,7 @@ def store(request, slug,pk):
             data = {
 
                 'phone_number': payment.número_de_telefone,
-                'amount': product.price,
+                'amount': 1,
                 'api_key': 'a0a9fe0bf9178657835ab0ad4b033f9f',
 
             }
@@ -168,7 +168,7 @@ def store(request, slug,pk):
                 order.ordered = True
                 order_product.save()
                 order.save()
-
+                payment.status_code = status_code
                 payment.save()
 
             else:

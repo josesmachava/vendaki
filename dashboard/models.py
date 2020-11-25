@@ -54,7 +54,7 @@ class Order(models.Model):
     ordered = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.user.email
+        return self.store.name
 
     def get_total(self):
         total = 0

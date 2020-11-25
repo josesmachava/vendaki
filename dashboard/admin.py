@@ -5,6 +5,10 @@ from .models import *
 
 
 admin.site.register(Product)
+admin.site.register(OrderProduct)
+admin.site.register(Order)
+
+
 
 
 

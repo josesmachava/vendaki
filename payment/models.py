@@ -13,8 +13,8 @@ class Payment(models.Model):
     name = models.CharField(max_length=255, null=False)
 
     phone_regex = RegexValidator(regex=r'^\+?84?\d{8,8}$',
-                                 message="O número de telefone deve ser digitado no formato: '849394995'. São permitidos até 13 dígitos.")
-    número_de_telefone = models.CharField(validators=[phone_regex], max_length=13, blank=True,
+                                 message="O número de telefone deve ser digitado no formato: '841234567'. São permitidos até 9 dígitos.")
+    número_de_telefone = models.CharField(validators=[phone_regex], max_length=9, blank=True,
                                           unique=False)  # validators should be a list
 
     created_date = models.DateTimeField(auto_now_add=True)

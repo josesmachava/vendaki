@@ -1,9 +1,7 @@
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect, HttpResponse
 from django.urls import reverse_lazy
-from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 
 from payment.forms import PaymentForm
@@ -148,7 +146,7 @@ def store(request, slug, slug_product):
             data = {
 
                 'phone_number': payment.número_de_telefone,
-                'amount': product.price,
+                'amount':1,
                 'api_key': 'a0a9fe0bf9178657835ab0ad4b033f9f',
 
             }

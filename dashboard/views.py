@@ -130,10 +130,7 @@ class UserDeleteView(DeleteView):
 
 def store(request, slug, slug_product):
     stores = Store.objects.get(slug=slug)
-    print(stores)
     product = Product.objects.get(store=stores, slug=slug_product)
-    print(product)
-    print(product)
     if request.method == "POST":
 
         form = PaymentForm(request.POST)

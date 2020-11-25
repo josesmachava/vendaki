@@ -26,6 +26,9 @@
     font-size: 20px;
     font-weight: bold;
 }
+button a{
+    color: white !important;
+}
 @media (min-width: 1281px) {
 
 

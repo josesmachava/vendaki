@@ -1,10 +1,14 @@
+import os
+
 from django.contrib import messages
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect, HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
+from django.views.static import serve
 
 from payment.forms import PaymentForm
+from payment.models import Payment
 from .forms import ProductForm
 from .models import Product, Order, OrderProduct
 import requests
@@ -165,6 +169,7 @@ def store(request, slug, slug_product):
                 order.save()
                 payment.status_code = status_code
                 payment.save()
+                redirect('download', payment.número_de_telefone, product.id)
 
             else:
                 error_message = response['transaction_status']
@@ -180,3 +185,10 @@ def store(request, slug, slug_product):
     return render(request, 'dashboard/store/index.jade', {'product': product, 'form': form, })
 
 
+def download(request, number, pk):
+    payment = Payment.objects.get(número_de_telefone=number, order__product=pk, status_code="201")
+    payment_id = payment.order.id
+    order = OrderProduct.objects.get(id=payment_id, ordered=True)
+    product = order.product
+
+    return  render(request, 'dashboard/store/download.jade', {"product":product})

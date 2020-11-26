@@ -5,6 +5,7 @@ from tinymce import models as tinymce_models
 from s3direct.fields import S3DirectField
 from django.db import models
 from django.template.defaultfilters import slugify
+from django.core.validators import RegexValidator
 
 
 class SocialMedia(models.Model):
@@ -34,9 +35,13 @@ class Product(models.Model):
 class OrderProduct(models.Model):
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
     ordered = models.BooleanField(default=False)
+    name = models.CharField(max_length=255, null=False)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
-
+    phone_regex = RegexValidator(regex=r'^\+?84?\d{8,8}$',
+                                 message="O número de telefone deve ser digitado no formato: '841234567'. São permitidos até 9 dígitos.")
+    número_de_telefone = models.CharField(validators=[phone_regex], max_length=9, blank=True,
+                                          unique=False)
     def __str__(self):
         return f"{self.quantity} of {self.product.name}"
 
@@ -49,10 +54,14 @@ class OrderProduct(models.Model):
 
 class Order(models.Model):
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255, null=False)
     product = models.ManyToManyField(OrderProduct)
     start_date = models.DateTimeField(auto_now_add=True)
     ordered = models.BooleanField(default=False)
-
+    phone_regex = RegexValidator(regex=r'^\+?84?\d{8,8}$',
+                                 message="O número de telefone deve ser digitado no formato: '841234567'. São permitidos até 9 dígitos.")
+    número_de_telefone = models.CharField(validators=[phone_regex], max_length=9, blank=True,
+                                          unique=False)
     def __str__(self):
         return self.store.name
 

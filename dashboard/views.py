@@ -140,10 +140,12 @@ def store(request, slug, slug_product):
             order_product, created = OrderProduct.objects.get_or_create(store=stores, product=product, ordered=False)
             order, created = Order.objects.get_or_create(store=stores,  ordered=False)
             order.save()
+            name =  request.POST.get('name')
+            número_de_telefone = request.POST.get('número_de_telefone')
             order.product.add(order_product)
             payment = form.save(commit=False)
-            payment.name = request.POST.get('name')
-            payment.número_de_telefone = request.POST.get('número_de_telefone')
+            payment.name = name
+            payment.número_de_telefone = número_de_telefone
             payment.order = order
 
             API_ENDPOINT = "https://development-xindiri.herokuapp.com/v1/payments/"
@@ -164,8 +166,12 @@ def store(request, slug, slug_product):
             if status_code == 201 or status_code == 200:
 
                 order_product.ordered = True
-                order.ordered = True
+                order_product.name = name
+                order_product.número_de_telefone = número_de_telefone
                 order_product.save()
+                order.name = name
+                order.número_de_telefone = número_de_telefone
+                order.ordered = True
                 order.save()
                 payment.status_code = status_code
                 payment.save()
@@ -173,9 +179,16 @@ def store(request, slug, slug_product):
 
             else:
                 error_message = response['transaction_status']
+                order_product.name = name
+                order_product.número_de_telefone = número_de_telefone
 
+                order_product.save()
+
+                order.name = name
+                order.número_de_telefone = número_de_telefone
+                order.save()
+                payment.save()
                 messages.error(request, error_message)
-
                 form = PaymentForm()
 
         #  return redirect('post_detail', pk=post.pk)
@@ -186,9 +199,7 @@ def store(request, slug, slug_product):
 
 
 def download(request, number, pk):
-    payment = Payment.objects.get(número_de_telefone=number, order__product=pk, status_code="201")
-    payment_id = payment.order.id
-    order = OrderProduct.objects.get(id=payment_id, ordered=True)
-    product = order.product
+    payment = OrderProduct.objects.get(número_de_telefone=number, product=pk, ordered=True)
+    product = Product.objects.get(pk=payment.product.pk)
 
     return  render(request, 'dashboard/store/download.jade', {"product":product})

@@ -169,7 +169,7 @@ def store(request, slug, slug_product):
                 order.save()
                 payment.status_code = status_code
                 payment.save()
-                redirect('download', payment.número_de_telefone, product.id)
+                return redirect('download', payment.número_de_telefone, product.id)
 
             else:
                 error_message = response['transaction_status']

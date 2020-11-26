@@ -8,7 +8,7 @@
 {% load sass_tags %}
 {# overide the tile of the page #}
 {% block title %}
-    <title>Price</title>
+    <title>Eskina</title>
 {% endblock %}
 
 {% block styles %}
@@ -21,6 +21,8 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'stylesheet/main.css' %}">
 {% endblock %}
 
 
@@ -33,8 +35,6 @@
 {% block content %}
 
     <main>
-
-        {% include "price/layout/navegation.html" %}
 
 
         <div class="container">
@@ -54,51 +54,37 @@
                     planos mensais acessíveis para atender às suas necessidades e orçamento.</p>
                 <div class="col-md-3">
                     <article class="price">
-                        <p>5 productos</p>
-                        <h1>Gratis</h1>
-                        <p>sem comissões</p>
-                        <button>criar conta</button>
+                        <h1>Free</h1>
+                        <h2>0</h2>
 
-                        <ul>
-                            <li>here</li>
-                        </ul>
+                        <p>sem comissões</p>
+
+
                     </article>
                 </div>
                 <div class="col-md-3">
                     <article class="price">
-                        <p>50 productos</p>
+                        <h1>Starter</h1>
+                        <h2>599 MT</h2>
+                        <p>sem comissões</p>
+
+                    </article>
+                </div>
+                <div class="col-md-3">
+                    <article class="price">
                         <h1>Startup</h1>
+                        <h2>1899 MT</h2>
                         <p>sem comissões</p>
-                        <button>criar conta</button>
 
-                        <ul>
-                            <li>here</li>
-                        </ul>
                     </article>
-                    =
                 </div>
                 <div class="col-md-3">
                     <article class="price">
-                        <p>250 productos </p>
                         <h1>Business</h1>
-                        <p>sem comissões</p>
-                        <button>criar conta</button>
+                        <h2>3499 MT</h2>
 
-                        <ul>
-                            <li>here</li>
-                        </ul>
-                    </article>
-                </div>
-                <div class="col-md-3">
-                    <article class="price">
-                        <p>500 productos</p>
-                        <h1>Empresas</h1>
                         <p>sem comissões</p>
-                        <button>criar conta</button>
 
-                        <ul>
-                            <li>here</li>
-                        </ul>
                     </article>
                 </div>
 
@@ -109,7 +95,6 @@
 
         </div>
     </main>
-    {% include "price/layout/footer.jade" %}
 
 
 {% endblock %}

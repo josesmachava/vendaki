@@ -131,19 +131,17 @@ class UserDeleteView(DeleteView):
 
 
 def store(request, slug, slug_product):
-    stores = Store.objects.get(slug=slug)
-    product = Product.objects.get(store=stores, slug=slug_product)
+    store = Store.objects.get(slug=slug)
+    product = Product.objects.get(store=store, slug=slug_product)
     if request.method == "POST":
 
         form = PaymentForm(request.POST)
         if form.is_valid():
 
-
-
-            order_product, created = OrderProduct.objects.get_or_create(store=stores, product=product, ordered=False)
-            order, created = Order.objects.get_or_create(store=stores,  ordered=False)
+            order_product, created = OrderProduct.objects.get_or_create(store=store, product=product, ordered=False)
+            order, created = Order.objects.get_or_create(store=store, ordered=False)
             order.save()
-            name =  request.POST.get('name')
+            name = request.POST.get('name')
             número_de_telefone = request.POST.get('número_de_telefone')
             order.product.add(order_product)
             payment = form.save(commit=False)
@@ -199,11 +197,12 @@ def store(request, slug, slug_product):
     else:
         form = PaymentForm()
 
-    return render(request, 'dashboard/store/index.jade', {'product': product, 'form': form, })
+    return render(request, 'dashboard/store/index.jade', {'product': product, 'form': form, 'store':store  })
+
 
 
 def download(request, number, pk):
     payment = OrderProduct.objects.get(número_de_telefone=number, product=pk, ordered=True)
     product = Product.objects.get(pk=payment.product.pk)
 
-    return  render(request, 'dashboard/store/download.jade', {"product":product})
+    return render(request, 'dashboard/store/download.jade', {"product": product})

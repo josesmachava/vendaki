@@ -18,6 +18,9 @@
     cursor: default;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
+.store-logo{
+    width: 100px;
+}
 .product-name{
     font-size: 20px;
     font-weight: bold;

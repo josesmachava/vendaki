@@ -35,7 +35,10 @@ link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/a
 main
     .container
         .row
-           .col-md-7
+            .col-md-12
+                img(src="{{ store.logo }}", alt="{{ store.name }}", class="store-logo")
+
+            .col-md-7
                 img(src="{{ product.image }}", alt="{{ product.name }}", class="product-image")
            .col-md-4
                 h1.product-name.text-center.text-capitalize {{ product.name }}

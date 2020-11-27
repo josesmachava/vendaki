@@ -18,24 +18,36 @@
     cursor: default;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
-.store-logo{
-    width:40px;
+
+.store-logo {
+    width: 40px;
     display: block;
     margin-left: 20px;
     margin-top: 10px;
     margin-bottom: 50px;
 }
-.product-name{
+
+.product-image {
+    display: block;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.product-name {
     font-size: 20px;
     font-weight: bold;
 }
-.product-price{
+
+.product-price {
     font-size: 20px;
     font-weight: bold;
 }
-button a{
+
+button a {
     color: white !important;
 }
+
 @media (min-width: 1281px) {
 
 
@@ -86,21 +98,23 @@ Screen = B/w 481px to 767px
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
-    .product-name{
-        margin-top:10px;
+    .product-name {
+        margin-top: 10px;
         font-size: 16px;
         font-weight: bold;
 
     }
+
     .product-image {
         display: block;
         width: 250px;
         margin: 0 auto;
         margin-top: 20px;
     }
-    .product-price{
-            font-size: 22px;
-            font-weight: bold;
+
+    .product-price {
+        font-size: 22px;
+        font-weight: bold;
     }
 
 }

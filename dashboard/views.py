@@ -190,6 +190,7 @@ def store(request, slug, slug_product):
                 order.name = name
                 order.número_de_telefone = número_de_telefone
                 order.save()
+                payment.status_code = status_code
                 payment.save()
                 messages.error(request, error_message)
                 form = PaymentForm()

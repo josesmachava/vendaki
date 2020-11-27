@@ -137,6 +137,9 @@ def store(request, slug, slug_product):
 
         form = PaymentForm(request.POST)
         if form.is_valid():
+
+
+
             order_product, created = OrderProduct.objects.get_or_create(store=stores, product=product, ordered=False)
             order, created = Order.objects.get_or_create(store=stores,  ordered=False)
             order.save()

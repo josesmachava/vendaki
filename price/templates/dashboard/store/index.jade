@@ -42,6 +42,9 @@ main
                 {{ product.description|safe }}
                 h2.product-price.text-center.text-capitalize {{ product.price }} MT
                 .card-content.card
+                    .tip-message
+
+                        p Uma notificação ussd da vodacom foi enviada para o seu número .  Insira seu pin Mpesa para autorizar a transação de pagamento .
                     {% for message in messages %}
                     <div class="container-fluid p-0">
                     <div class="alert {{ message.tags }} alert-dismissible" role="alert" >
@@ -65,7 +68,22 @@ main
 
 
 
+script().
+    $(document).ready(function () {
+        $('.tip-message').hide()
+        $("form").submit(function (event) {
+            var phone_number = $("#id_número_de_telefone").val()
+            var phone_number_regExp = new RegExp(/^(84)+([0-9]{7})/);    // regular expression pattern
 
+            if($("#id_name").val() && phone_number_regExp.test(phone_number)){
+                $('form').hide();
+                $('.tip-message').show()
+            }
+
+        });
+
+
+    });
 
 
 {% endblock %}

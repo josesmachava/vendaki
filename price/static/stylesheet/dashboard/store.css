@@ -19,7 +19,11 @@
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 .store-logo{
-    width: 100px;
+    width:40px;
+    display: block;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 50px;
 }
 .product-name{
     font-size: 20px;

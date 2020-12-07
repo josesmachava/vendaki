@@ -197,7 +197,7 @@ def store(request, slug, slug_product):
     else:
         form = PaymentForm()
 
-    return render(request, 'dashboard/store/index.jade', {'product': product, 'form': form, 'store':store  })
+    return render(request, 'store/product.jade', {'product': product, 'form': form, 'store':store})
 
 
 
@@ -205,4 +205,4 @@ def download(request, number, pk):
     payment = OrderProduct.objects.get(número_de_telefone=number, product=pk, ordered=True)
     product = Product.objects.get(pk=payment.product.pk)
 
-    return render(request, 'dashboard/store/download.jade', {"product": product})
+    return render(request, 'store/download.jade', {"product": product})

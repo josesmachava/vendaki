@@ -37,16 +37,17 @@ main
         .row
             .col-md-12
                 {% if store.logo %}
-                h1
+                h1.text-center
                     a(href="{% url 'index' store.name %}")
                         img(src="{{ store.logo }}", alt="{{ store.name }}", class="store-logo")
 
                 {% else %}
-                h1
+                h1.text-center
                     a(href="{% url 'index' store.name %}") {{ store.name }}
                 {% endif %}
+            .col-md-12
                 nav
-                    ul
+                    ul.text-center
                         li
                             a(href="{% url 'index' store.name %}")  página inicial
                         li

@@ -18,13 +18,29 @@
     cursor: default;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
-
+header{
+    background-color: whitesmoke;
+    height: 50vh;
+    padding-top: 100px;
+}
 .store-logo {
     width: 40px;
     display: block;
-    margin-left: 20px;
-    margin-top: 10px;
-    margin-bottom: 50px;
+     margin: 25px auto;
+
+}
+
+nav ul li{
+    display: inline;
+    text-transform: capitalize;
+    margin: 0 20px;
+}
+nav ul li a{
+    color: black;
+    font-weight: bold;
+}
+nav ul li a:hover{
+    text-decoration: none;
 }
 
 .product-image {
@@ -39,6 +55,9 @@
     font-weight: bold;
 }
 
+.products .product-image{
+    width: 200px;
+}
 .product-price {
     font-size: 20px;
     font-weight: bold;

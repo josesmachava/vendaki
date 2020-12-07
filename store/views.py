@@ -22,9 +22,9 @@ from payment.forms import PaymentForm
 
 def index(request, slug):
     store = Store.objects.get(slug=slug)
-    product = Product.objects.filter(store=store)
+    products = Product.objects.filter(store=store)
 
-    return render(request, 'store/index.jade', {'product': product, 'store': store})
+    return render(request, 'store/index.jade', {'products': products, 'store': store})
 
 
 def store(request, slug, slug_product):

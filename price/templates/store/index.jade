@@ -8,7 +8,7 @@
 {% load crispy_forms_tags %}
 {# overide the tile of the page #}
 {% block title %}
-<title>Eskina </title>
+<title>{{ store.name|title }} </title>
 {% endblock %}
 {% block styles %}
 {#    only include css  files needed for thi page bootstap and other libs are add in base template #}
@@ -46,12 +46,24 @@ main
                     a(href="{% url 'index' store.name %}") {{ store.name }}
 
                 {% endif %}
+                nav
+                    ul
+                        li
+                            a(href="{% url 'index' store.name %}")  página inicial
+                        li
+                            a(href="{% url 'index' store.name %}")  Productos
     .container
         .row
 
            .col-md-7
                 img(src="{{ product.image }}", alt="{{ product.name }}", class="product-image")
 
+
+
+
+
+          .col-md-12
+                 {% include "store/layout/footer.jade" %}
 
 
 

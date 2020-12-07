@@ -45,6 +45,13 @@ main
                 h1
                     a(href="{% url 'index' store.name %}") {{ store.name }}
                 {% endif %}
+                nav
+                    ul
+                        li
+                            a(href="{% url 'index' store.name %}")  página inicial
+                        li
+                            a(href="{% url 'index' store.name %}")  Productos
+
 
     .container
         .row
@@ -80,6 +87,8 @@ main
                         button.btn.btn-primary Comprar
 
 
+        .col-md-12
+            {% include "store/layout/footer.jade" %}
 
 
 script().

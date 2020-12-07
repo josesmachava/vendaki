@@ -36,7 +36,15 @@ main
     .container-fluid
         .row
             .col-md-12
-                img(src="{{ store.logo }}", alt="{{ store.name }}", class="store-logo")
+                {% if store.logo %}
+                h1
+                    a(href="{% url 'index' store.name %}")
+                        img(src="{{ store.logo }}", alt="{{ store.name }}", class="store-logo")
+
+                {% else %}
+                h1
+                    a(href="{% url 'index' store.name %}") {{ store.name }}
+                {% endif %}
 
     .container
         .row

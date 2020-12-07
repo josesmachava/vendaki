@@ -71,7 +71,7 @@ INSTALLED_APPS = [
     'account',
     'price',
     'dashboard',
-
+    'store',
     'payment',
 
 ]

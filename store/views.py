@@ -8,6 +8,25 @@ from dashboard.models import OrderProduct, Product, Order
 from payment.forms import PaymentForm
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+def index(request, slug):
+    store = Store.objects.get(slug=slug)
+    product = Product.objects.filter(store=store)
+
+    return render(request, 'store/index.jade', {'product': product, 'store': store})
+
+
 def store(request, slug, slug_product):
     store = Store.objects.get(slug=slug)
     product = Product.objects.get(store=store, slug=slug_product)
@@ -76,6 +95,8 @@ def store(request, slug, slug_product):
         form = PaymentForm()
 
     return render(request, 'store/product.jade', {'product': product, 'form': form, 'store': store})
+
+
 
 
 def download(request, number, pk):

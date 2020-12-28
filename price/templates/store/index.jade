@@ -68,7 +68,8 @@ main
                 img(src="{{ product.image }}", alt="{{ product.name }}", class="product-image")
                 p.text-center {{ product.name }}
                 p.text-center {{ product.price }} MT
-                a
+                div.d-flex.justify-content-center
+
                     button.btn.btn-primary.text-center
                         a(href="{% url 'store' store.name  product.slug %}") Comprar
             {% endfor %}

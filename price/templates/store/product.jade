@@ -61,7 +61,8 @@ main
                 img(src="{{ product.image }}", alt="{{ product.name }}", class="product-image")
            .col-md-4
                 h1.product-name.text-center.text-capitalize {{ product.name }}
-                {{ product.description|safe }}
+                div.text-center
+                    {{ product.description|safe }}
                 h2.product-price.text-center.text-capitalize {{ product.price }} MT
                 .card-content.card
                     .tip-message
@@ -85,7 +86,8 @@ main
                         <small id="emailHelp" class="form-text text-muted">Digite o seu número 84 para efectuar o pagamento.</small>
 
                         {{ form.número_de_telefone|as_crispy_field }}
-                        button.btn.btn-primary Comprar
+                        div.d-flex.justify-content-center
+                            button.btn.btn-primary Comprar
 
 
         .col-md-12

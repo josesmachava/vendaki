@@ -68,7 +68,9 @@ main
                 img(src="{{ product.image }}", alt="{{ product.name }}", class="product-image")
                 p {{ product.name }}
                 p {{ product.price }}
-
+                a
+                    button.btn.btn-primary
+                        a(href="#") Comprar
             {% endfor %}
 
 

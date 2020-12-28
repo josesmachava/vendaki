@@ -70,7 +70,7 @@ main
                 p {{ product.price }}
                 a
                     button.btn.btn-primary
-                        a(href="#") Comprar
+                        a(href="{% url 'store' store.name  product.slug %}") Comprar
             {% endfor %}
 
 

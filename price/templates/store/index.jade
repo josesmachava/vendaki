@@ -66,10 +66,10 @@ main
            {% for product in products %}
            .col-md-3.products
                 img(src="{{ product.image }}", alt="{{ product.name }}", class="product-image")
-                p {{ product.name }}
-                p {{ product.price }}
+                p.text-center {{ product.name }}
+                p.text-center {{ product.price }} MT
                 a
-                    button.btn.btn-primary
+                    button.btn.btn-primary.text-center
                         a(href="{% url 'store' store.name  product.slug %}") Comprar
             {% endfor %}
 

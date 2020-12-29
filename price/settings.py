@@ -298,7 +298,7 @@ S3DIRECT_DESTINATIONS = {
 
         # "allowed" [optional] Limit to specific mime types
         #           List: list of mime types
-        'allowed': ['application/pdf', 'application/zip'],
+        'allowed': ['application/pdf', 'application/zip', 'audio/mpeg'],
 
         # "bucket" [optional] Bucket if different from AWS_STORAGE_BUCKET_NAME
         #          String: bucket name

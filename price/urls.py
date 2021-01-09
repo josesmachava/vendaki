@@ -5,7 +5,6 @@ The `urlpatterns` list routes URLs to views. For more information please see:
 Examples:
 Function views
     1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
 Class-based views
     1. Add an import:  from other_app.views import Home
     2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
@@ -32,7 +31,7 @@ urlpatterns = [
 
     path('<str:slug>/<str:slug_product>', views.store, name="store"),
     path('<str:slug>/', views.index, name="index"),
-
+    path('', include("store.urls")),
     path("", views.index, name="index"),
     path("dashboard/", include("dashboard.urls")),
 

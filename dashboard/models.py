@@ -1,12 +1,11 @@
 # Create your models here.
 from account.models import User, Store
 from price import settings
-from tinymce import models as tinymce_models
 from s3direct.fields import S3DirectField
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.core.validators import RegexValidator
-
+from tinymce import models as tinymce_models
 
 class SocialMedia(models.Model):
     name = models.CharField(max_length=30, blank=True)
@@ -16,12 +15,12 @@ class SocialMedia(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=30, blank=True)
     image = S3DirectField(dest='images')
-    price = models.CharField(max_length=30, blank=True)
     description = tinymce_models.HTMLField()
     created_date = models.DateTimeField(auto_now_add=True)
     store = models.ForeignKey(Store, on_delete=models.CASCADE)
     visible = models.BooleanField(default=False)
     file = S3DirectField(dest='pdf')
+    store = models.ForeignKey(Store, on_delete=models.CASCADE)
     slug = models.SlugField(unique=True)
     def __str__(self):
         return f'{self.name}'

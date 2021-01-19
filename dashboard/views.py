@@ -28,9 +28,7 @@ class ProductCreateView(CreateView):
     success_url = reverse_lazy('product-list')
 
     def form_valid(self, form):
-        print(form)
-        form.instance.user = self.request.user
-        print(form.instance.user)
+        form.instance.created_by = self.request.user
         return super().form_valid(form)
 
 

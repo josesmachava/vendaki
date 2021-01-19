@@ -16,10 +16,11 @@
 
 
 link(rel="stylesheet",   href="{% static 'stylesheet/dashboard/dashboard.css' %}")
-
+script(src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js", referrerpolicy="origin")
 link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous")
 
-
+script().
+    tinymce.init({selector: 'textarea'});
 
 {% endblock %}
 
@@ -46,22 +47,23 @@ main
                         .row
 
 
-                            .col-md-6
+                            .col-md-12
                                 .card.card-content
                                     {% csrf_token %}
                                     {{ form.image }}
-                                    {{ form.name|as_crispy_field }}
+                                    .row
+                                        .col-md-9
+                                            {{ form.name|as_crispy_field }}
+                                        .col-md-3
+                                            {{ form.price|as_crispy_field }}
+
                                     {{ form.description|as_crispy_field }}
 
                                     {{ form.file|as_crispy_field }}
 
-                            .col-md-3
-                                .card.card-content
-                                    {{ form.price|as_crispy_field }}
 
-                            .col-md-12
-                                <button type="submit" class="btn btn-success">Create Product</button>
 
+                                <button type="submit" class="btn btn-success">Salvar</button>
 
 
 {% endblock %}

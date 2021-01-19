@@ -10,6 +10,7 @@
 {# overide the tile of the page #}
 {% block title %}
 <title>Price</title>
+{{ form.media }}
 {% endblock %}
 {% block styles %}
 {#    only include css  files needed for thi page bootstap and other libs are add in base template #}
@@ -18,6 +19,7 @@
 link(rel="stylesheet",   href="{% static 'stylesheet/dashboard/dashboard.css' %}")
 script(src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js", referrerpolicy="origin")
 link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous")
+
 
 script().
     tinymce.init({selector: 'textarea'});
@@ -43,6 +45,7 @@ main
             .col-md-10
                 {% include "dashboard/layout/menu.jade" %}
                 .col-md-12
+
                     form(method="post")
                         .row
 
@@ -50,7 +53,8 @@ main
                             .col-md-12
                                 .card.card-content
                                     {% csrf_token %}
-                                    {{ form.image }}
+
+                                    {{ form.image|as_crispy_field }}
                                     .row
                                         .col-md-9
                                             {{ form.name|as_crispy_field }}

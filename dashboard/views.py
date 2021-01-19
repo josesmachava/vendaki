@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect, HttpResponse
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView, FormView
 from django.views.static import serve
 
 from payment.forms import PaymentForm
@@ -28,8 +28,8 @@ class ProductCreateView(CreateView):
     success_url = reverse_lazy('product-list')
 
     def form_valid(self, form):
-        form.instance.created_by = self.request.user
-        return super().form_valid(form)
+        #form.instance.created_by = self.request.user
+        return super(ProductCreateView, self).form_valid(form)
 
 
 class ProductListView(ListView):

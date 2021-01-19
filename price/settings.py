@@ -115,6 +115,7 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, 'price/templates')
         ],
+
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',

@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+from django.conf.urls import url
 
 urlpatterns = [
    path("", views.index, name="dashboard"),
@@ -33,6 +34,7 @@ urlpatterns = [
          name='product-delete'),
    path('product/list', views.ProductListView.as_view(),
         name='product-list'),
+   url(r'^s3direct/', include('s3direct.urls')),
 
 
    

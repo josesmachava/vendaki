@@ -6,17 +6,9 @@ import json
 from account.models import Store
 from dashboard.models import OrderProduct, Product, Order
 from payment.forms import PaymentForm
-
-
-
-
-
-
-
-
-
-
-
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView, FormView
+from .forms import StoreForm
+from django.urls import reverse_lazy
 
 
 
@@ -26,6 +18,17 @@ def index(request, slug):
 
     return render(request, 'store/index.jade', {'products': products, 'store': store})
 
+
+
+class StoreCreateView(CreateView):
+    form_class = StoreForm
+
+    template_name = 'store/create.jade'
+    success_url = reverse_lazy('product-list')
+
+    def form_valid(self, form):
+        #form.instance.created_by = self.request.user
+        return super(ProductCreateView, self).form_valid(form)
 
 def store(request, slug, slug_product):
     store = Store.objects.get(slug=slug)

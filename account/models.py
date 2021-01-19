@@ -58,16 +58,27 @@ class User(AbstractUser):
     objects = UserManager()
 
 
+
+
+
 class Store(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=30, blank=False, unique=False)
     description = tinymce_models.HTMLField()
     logo = S3DirectField(dest='images')
     slug = models.SlugField(unique=True)
-    address = models.CharField(max_length=300, blank=True)
+    city = models.CharField(max_length=30, blank=True, unique=False)
+    street_address = models.CharField(max_length=30, blank=True, unique=False)
+    province = models.CharField(max_length=30, blank=True, unique=False)
+    phone_regex = RegexValidator(regex=r'^\+?258?\d{9,13}$',
+                                 message="O número de telefone deve ser digitado no formato: '+258849293949'. São permitidos até 13 dígitos.")
+    phone_number = models.CharField(validators=[phone_regex], max_length=13, blank=True)  # validators should be a list
+    facebook = models.URLField(max_length=300, blank=True)
+    twitter = models.URLField(max_length=300, blank=True)
+    instagram = models.URLField(max_length=300, blank=True)
     created_date = models.DateTimeField(default=timezone.now)
     uploaded_at = models.DateTimeField(blank=True, null=True)
-
+    
     def __str__(self):
         return str(self.user)
 

@@ -47,28 +47,62 @@ main
         .row.justify-content-center.align-items-center
             .col-md-12
                 form(method="post")
+                
                     .card
                         .card-body
 
-                            h1 Adicionar novo produto digital
-
+                            h1 Detalhes da loja
                             {% csrf_token %}
                             .row
                                 .col-md-12
 
-                                    {{ form.image|as_crispy_field }}
+                                    {{ form.logo|as_crispy_field }}
 
-                            .row
-                                .col-md-9
-                                    {{ form.name|as_crispy_field }}
-                                .col-md-3
-                                    {{ form.price|as_crispy_field }}
-
-                            {{ form.description|as_crispy_field }}
                             .row
                                 .col-md-12
-                                    {{ form.file|as_crispy_field }}
+                                    {{ form.name|as_crispy_field }}
+                                .col-md-12
+                                    
 
+                            {{ form.description|as_crispy_field }}
+
+                    .card
+                        .card-body
+
+                            .row
+                                .col-md-12
+
+                                    {{ form.street_address|as_crispy_field }}
+
+                            .row
+                                .col-md-12
+                                    {{ form.province|as_crispy_field }}
+                                .col-md-12
+                                    {{ form.city|as_crispy_field }}
+
+                                .col-md-12
+                                    {{ form.phone_number|as_crispy_field }}
+
+
+                                 
+                    .card
+                        .card-body
+
+                            .row
+                                .col-md-12
+
+                                    {{ form.twitter|as_crispy_field }}
+
+                            .row
+                                .col-md-12
+                                    {{ form.facebook|as_crispy_field }}
+                                .col-md-12
+                                    {{ form.instagram|as_crispy_field }}
+
+
+                  
+                            
+                                   
                             <button type="submit" class="btn btn-success">Salvar</button>
 
 

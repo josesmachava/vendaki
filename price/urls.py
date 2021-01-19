@@ -34,6 +34,7 @@ urlpatterns = [
 
     path("", views.index, name="index"),
     path("dashboard/", include("dashboard.urls")),
+    path("store/", include("store.urls")),
 
 ]
 

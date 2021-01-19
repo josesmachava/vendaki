@@ -40,7 +40,7 @@ def signup(request):
 
 
 def profile(request):
-    return render(request, 'account/profile.html')
+    return render(request, 'account/profile.jade')
 
 
 def confirm(request):

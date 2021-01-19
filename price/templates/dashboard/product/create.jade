@@ -39,33 +39,29 @@ script().
 main
     .container-fluid
         .row
-            .col-md-2.aside
+            .col-md-12.aside
                  {% include "dashboard/layout/aside.jade" %}
+                 {% include "dashboard/layout/menu.jade" %}
+    .container
 
-            .col-md-10
-                {% include "dashboard/layout/menu.jade" %}
-                .col-md-12
+        .row.justify-content-center.align-items-center
+            .col-md-12
+                form(method="post")
+                            .card.card-content
 
-                    form(method="post")
-                        .row
+                                h1 Adicionar novo produto digital
 
+                                {% csrf_token %}
+                                {{ form.image|as_crispy_field }}
 
-                            .col-md-12
-                                .card.card-content
-                                    {% csrf_token %}
+                                .row
+                                    .col-md-9
+                                        {{ form.name|as_crispy_field }}
+                                    .col-md-3
+                                        {{ form.price|as_crispy_field }}
 
-                                    {{ form.image|as_crispy_field }}
-                                    .row
-                                        .col-md-9
-                                            {{ form.name|as_crispy_field }}
-                                        .col-md-3
-                                            {{ form.price|as_crispy_field }}
-
-                                    {{ form.description|as_crispy_field }}
-
-                                    {{ form.file|as_crispy_field }}
-
-
+                                {{ form.description|as_crispy_field }}
+                                {{ form.file|as_crispy_field }}
 
                                 <button type="submit" class="btn btn-success">Salvar</button>
 

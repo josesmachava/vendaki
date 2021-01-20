@@ -26,9 +26,13 @@ class ProductCreateView(CreateView):
 
     template_name = 'dashboard/product/create.jade'
     success_url = reverse_lazy('product-list')
-
+   
     def form_valid(self, form):
-        #form.instance.created_by = self.request.user
+        user = self.request.user
+        store = Store.objects.get(user=user)
+        form.instance.store = store
+        
+
         return super(ProductCreateView, self).form_valid(form)
 
 

@@ -13,6 +13,7 @@ class SocialMedia(models.Model):
 
 
 class Product(models.Model):
+    store = models.ForeignKey(Store, on_delete=models.CASCADE)
     name = models.CharField(max_length=30, blank=True)
     price = models.CharField(max_length=30, blank=True)
     image = S3DirectField(dest='images')

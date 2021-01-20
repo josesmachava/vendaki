@@ -43,6 +43,20 @@ main
                 .container
                     .row.justify-content-center.align-items-center
                         .col-md-12
+                            {% if not products %}
+                            .card
+                                .card-body
+                                    h1.text-center Adicione seu primeiro produto
+                                    span.product-icon
+                                        <i class="fas fa-tag"></i>   
+                                    .d-flex.justify-content-center
+                                            
+                                        .btn.btn-primary.font-weight-bold
+                                            
+                                            a(href="{% url 'create-product' %}").text-decoration-none.add-product-link Adicionar produto
+
+
+                            {% else %}
                             .row
                                 .col-md-10
                                     h1 Produtos
@@ -86,6 +100,8 @@ main
                                     {% if is_paginated %}
                                     {% include "price/layout/pagination.html" %}
                                     {% endif %}
+                            {% endif %}
+
 
         {% include "dashboard/layout/footer.jade" %}
 

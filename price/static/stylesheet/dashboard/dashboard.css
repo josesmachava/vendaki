@@ -80,3 +80,9 @@ nav ul li  span{
     width: 50px;
     margin: 0px 20px 10px 0;
 }
+.product-icon {
+    font-size: 85px;
+    text-align: center;
+    display: block;
+
+}

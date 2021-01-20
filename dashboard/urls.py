@@ -27,7 +27,7 @@ urlpatterns = [
          name='user-delete'),
    path("order/", views.OrdertListView.as_view(), name="order"),
    path('product/create', views.ProductCreateView.as_view(),
-        name='product-create'),
+        name='create-product'),
     path('product/<int:pk>/update', views.ProductUpdateView.as_view(),
          name='product-update'),
     path('product/<int:pk>/delete', views.ProductDeleteView.as_view(),

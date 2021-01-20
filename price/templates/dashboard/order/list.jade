@@ -33,49 +33,53 @@ link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/a
 {% block content %}
 
 main
-    .container
-
-        .row.justify-content-center.align-items-center
-
+    .container-fluid
+        .row
             .col-md-12
-                .card
-                    .card-body
+                 {% include "dashboard/layout/menu.jade" %}
+               
+            .col-md-12
+                .container
+                    .row.justify-content-center.align-items-center
+                        .col-md-12
+                            .card
+                                .card-body
 
-                        h2 Vendas Recentes
+                                    h2 Vendas Recentes
 
-                        <table class="table table-borderless">
-                        <thead>
-                        <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Número de celular</th>
-                        <th scope="col">Valor</th>
-                        <th scope="col">Estado</th>
-                        <th scope="col">Data</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>jose</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
+                                    <table class="table table-borderless">
+                                    <thead>
+                                    <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Número de celular</th>
+                                    <th scope="col">Valor</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col">Data</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td>jose</td>
+                                    </tr>
+                                    <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
 
-                        </tr>
-                        <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                        </tr>
-                        </tbody>
-                        </table>
+                                    </tr>
+                                    <tr>
+                                    <th scope="row">3</th>
+                                    <td colspan="2">Larry the Bird</td>
+                                    <td>@twitter</td>
+                                    </tr>
+                                    </tbody>
+                                    </table>
 
 
 {% endblock %}

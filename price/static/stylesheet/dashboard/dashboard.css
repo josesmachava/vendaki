@@ -6,7 +6,9 @@
 
 }
 
-
+a:hover{
+    text-decoration: none;
+}
 html, body {
     padding: 0;
     margin: 0;
@@ -17,11 +19,10 @@ html, body {
     color: #444;
 
 }
-
-.product-list-image{
-    width: 60px;
-
+.card{
+    margin: 20px 0;
 }
+
 ul li {
     padding: 0;
     list-style: none;
@@ -62,4 +63,20 @@ nav ul li  span{
     color:#333;
     display: inline-block;
     font-size: 23px;
+}
+
+
+
+.add-product-link:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.add-product-link{
+    color: white;
+}
+
+.product-list-image{
+    width: 50px;
+    margin: 0px 20px 10px 0;
 }

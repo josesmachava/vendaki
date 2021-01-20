@@ -57,7 +57,7 @@ class ProductUpdateView(UpdateView):
     model = Product
     template_name = 'dashboard/product/update.jade'
     context_object_name = 'product'
-    fields = ('name', 'description', 'price', 'discount', 'categories', 'company')
+    fields = ('name', 'description', 'price', 'file', 'image')
 
     def get_success_url(self):
         return reverse_lazy('product-list')

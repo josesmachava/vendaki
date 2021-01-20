@@ -9,7 +9,7 @@
 
 {# overide the tile of the page #}
 {% block title %}
-<title>Price</title>
+<title>Eskina - Adicionar Producto</title>
 {{ form.media }}
 {% endblock %}
 {% block styles %}
@@ -18,8 +18,8 @@
 
 link(rel="stylesheet",   href="{% static 'stylesheet/dashboard/dashboard.css' %}")
 script(src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js", referrerpolicy="origin")
-link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous")
-
+link(rel="stylesheet",   href="{% static 'stylesheet/awesome.min.css'  %}")
+script(src="{% static 'js/font.js'  %}")
 
 script().
     tinymce.init({selector: 'textarea'});
@@ -39,37 +39,37 @@ script().
 main
     .container-fluid
         .row
-            .col-md-12.aside
-                 {% include "dashboard/layout/aside.jade" %}
-                 {% include "dashboard/layout/menu.jade" %}
-    .container
-
-        .row.justify-content-center.align-items-center
             .col-md-12
-                form(method="post")
-                    .card
-                        .card-body
+                 {% include "dashboard/layout/menu.jade" %}
+               
+            .col-md-12
+                .container
+                    .row.justify-content-center.align-items-center
+                        .col-md-12
+                            form(method="post")
+                                .card
+                                    .card-body
 
-                            h1 Adicionar novo produto digital
+                                        h1 Adicionar novo produto digital
 
-                            {% csrf_token %}
-                            .row
-                                .col-md-12
+                                        {% csrf_token %}
+                                        .row
+                                            .col-md-12
 
-                                    {{ form.image|as_crispy_field }}
+                                                {{ form.image|as_crispy_field }}
 
-                            .row
-                                .col-md-9
-                                    {{ form.name|as_crispy_field }}
-                                .col-md-3
-                                    {{ form.price|as_crispy_field }}
+                                        .row
+                                            .col-md-9
+                                                {{ form.name|as_crispy_field }}
+                                            .col-md-3
+                                                {{ form.price|as_crispy_field }}
 
-                            {{ form.description|as_crispy_field }}
-                            .row
-                                .col-md-12
-                                    {{ form.file|as_crispy_field }}
+                                        {{ form.description|as_crispy_field }}
+                                        .row
+                                            .col-md-12
+                                                {{ form.file|as_crispy_field }}
 
-                            <button type="submit" class="btn btn-success">Salvar</button>
+                                        <button type="submit" class="btn btn-success">Salvar</button>
 
 
 {% endblock %}

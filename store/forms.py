@@ -30,3 +30,16 @@ class StoreForm(forms.ModelForm):
         model = Store
         fields = ( 'name', 'street_address',  'description', 'logo', "facebook",
         'twitter', 'instagram', 'city', 'province', 'phone_number',)
+
+
+
+
+
+class StoreUpdateForm(forms.ModelForm):
+    name = forms.CharField(max_length=30, label='Seu nome ou nome comercial - será usando como nome da sua loja', required=True,
+                           widget=forms.TextInput(attrs={'placeholder': 'Nome'}))
+                         
+    
+    class Meta:
+        model = Store
+        fields = ('name',)

@@ -17,8 +17,8 @@
 
 
 link(rel="stylesheet",   href="{% static 'stylesheet/dashboard/dashboard.css' %}")
-link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous")
-
+link(rel="stylesheet",   href="{% static 'stylesheet/awesome.min.css'  %}")
+script(src="{% static 'js/font.js'  %}")
 
 {% endblock %}
 
@@ -33,64 +33,69 @@ link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/a
 {% block content %}
 
 main
-    .container
-
-        .row.justify-content-center.align-items-center
-            .col-md-4
-                .card
-
-                    .card-body
-                        h1 vendas diarios
-                        h2 500 MT
-            .col-md-4
-                .card
-                    .card-body
-                        h1 vendas semanais
-                        h2 300 MT
-
-            .col-md-4
-                .card
-                    .card-body
-                        h1 vendas totais
-                        h2 400 MT
-
+    .container-fluid
+        .row
             .col-md-12
-                .card
-                    .card-body
+                {% include "dashboard/layout/menu.jade" %}
+               
+            .col-md-12
+                .container
+                    .row.justify-content-center.align-items-center
+                        .col-md-4
+                            .card
 
-                        h2 Doações recentes
+                                .card-body
+                                    h1 vendas diarios
+                                    h2 500 MT
+                        .col-md-4
+                            .card
+                                .card-body
+                                    h1 vendas semanais
+                                    h2 300 MT
 
-                    <table class="table table-borderless">
-                    <thead>
-                    <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Número de celular</th>
-                    <th scope="col">Valor</th>
-                    <th scope="col">Data</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
+                        .col-md-4
+                            .card
+                                .card-body
+                                    h1 vendas totais
+                                    h2 400 MT
 
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                    </tr>
-                    </tbody>
-                    </table>
+                        .col-md-12
+                            .card
+                                .card-body
+
+                                    h2 Doações recentes
+
+                                <table class="table table-borderless">
+                                <thead>
+                                <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Número de celular</th>
+                                <th scope="col">Valor</th>
+                                <th scope="col">Data</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+
+                                </tr>
+                                <tr>
+                                <th scope="row">3</th>
+                                <td colspan="2">Larry the Bird</td>
+                                <td>@twitter</td>
+                                </tr>
+                                </tbody>
+                                </table>
 
 
 {% endblock %}

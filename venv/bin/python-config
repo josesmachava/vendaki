@@ -1,4 +1,4 @@
-#!/home/josemachava/xindiri/price/venv/bin/python
+#!/home/josemachava/xindiri/eskina/venv/bin/python
 
 import sys
 import getopt

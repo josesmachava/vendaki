@@ -25,135 +25,41 @@ html, body {
 ul li {
     padding: 0;
     list-style: none;
-    font-weight: bold;
 
 }
-ul li a {
-    color: var(--primaryColor)
-
-}
-
-a {
-    color: var(--primaryColor)
-
-
-}
-
-a:hover {
-    color: var(--primaryColor)
-
-}
-
-
-a:hover {
-    text-decoration: none;
-    color: var(--primaryColor);
-}
-
-header {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
-}
-header nav ul li{
-    padding: 0 25px;
-}
-header nav ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-header nav ul li span{
-    font-size: 30px;
-}
-main nav{
-        display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    justify-items: center;
-
-}
-.aside{
-    background-color:var(--baseColor);
+nav{
     height: 80px;
+    background-color: white;
     border-bottom: 1px solid #eee;
+    margin-bottom: 50px;
 
 }
-.aside ul{
+nav ul{
     padding: 0;
-}
-.aside ul li{
-    margin: 30px;
-    font-size: 14px;
-    display: inline;
-    text-transform: capitalize;
-}
-.aside ul{
-    margin-top: 40px;
-}
-
-.aside ul li a{
-    display: inline;
-    color:var(--primaryColor);
-}
-.aside ul li  span{
-    color:var(--fontBaseColor);
-    display: inline-block;
-    padding-right: 5px;
-}
-header nav {
     display: flex;
+    justify-content: center;
     align-items: center;
 }
-
-header nav ul li {
-    display: inline-block;
-}
-header .dropdown{
-    position: absolute;
-    box-sizing: border-box;
-     height: auto;
-    top:10px;
-    width: 320px;
-    margin-top: 30px;
-    border: 1px solid #cdd4db;
-    border-radius: 4px;
-    background-color: white;
-    -webkit-transform: translate3d(0, 10px, 0);
-    transform: translate3d(0, 10px, 0);
-    transition: transform 0s ease-out .2s, opacity .2s ease-out 0s, visibility .2s ease-out 0s, max-width 0s linear .2s, max-height 0s linear .2s;
-    cursor: default;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
-.dropdown nav ul li{
-    display: block;
+nav ul li{
+    font-size: 15px;
     text-transform: capitalize;
+    display: inline;
+    color: #6a6d73;
+    
 }
-.dropdown nav:nth-child(2) ul li{
-
-    display: inline-block;
-    text-transform: capitalize;
-}
-
-.dropdown nav ul{
-
-    display: block;
-}
-.eka-button {
-    background-color: var(--primaryColor);
-    width: 150px;
-    color: white;
+.menu-item{
     text-align: center;
-    border-radius: 4px;
-    height: 40px;
-    display: block;
-    padding: 5px;
-    color: var(--baseColor);
-
+    margin: 10px 70px 0 0;
 }
-
-.link{
-    color: var(--link-color);
-
+nav ul li a{
+    display: block;
+    color: #333;
+    font-weight: bold;
+    font-size: 17px;
+ 
+}
+nav ul li  span{
+    color:#333;
+    display: inline-block;
+    font-size: 23px;
 }

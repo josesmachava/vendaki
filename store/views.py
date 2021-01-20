@@ -7,7 +7,7 @@ from account.models import Store
 from dashboard.models import OrderProduct, Product, Order
 from payment.forms import PaymentForm
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView, FormView
-from .forms import StoreForm
+from .forms import StoreForm, StoreUpdateForm
 from django.urls import reverse_lazy
 
 
@@ -28,7 +28,23 @@ class StoreCreateView(CreateView):
 
     def form_valid(self, form):
         #form.instance.created_by = self.request.user
-        return super(ProductCreateView, self).form_valid(form)
+        return super(StoreCreateView, self).form_valid(form)
+
+
+
+class   StoreUpdateView(UpdateView):
+    # template_name_suffix = 'account/edit.html'
+    template_name = "store/update-store-name.jade"
+    form_class = StoreUpdateForm
+    model = Store
+
+    def get_success_url(self, **kwargs):
+        return  reverse_lazy('dashboard')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
 
 def store(request, slug, slug_product):
     store = Store.objects.get(slug=slug)

@@ -66,7 +66,7 @@ class Store(models.Model):
     name = models.CharField(max_length=30, blank=False, unique=False)
     description = tinymce_models.HTMLField()
     logo = S3DirectField(dest='images')
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, blank=True)
     city = models.CharField(max_length=30, blank=True, unique=False)
     street_address = models.CharField(max_length=30, blank=True, unique=False)
     province = models.CharField(max_length=30, blank=True, unique=False)

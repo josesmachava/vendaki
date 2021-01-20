@@ -1,0 +1,67 @@
+{% extends "price/layout/base.html" %}
+{% load static %}
+
+{% comment %}
+
+{% endcomment %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{# overide the tile of the page #}
+{% block title %}
+<title>Eskina - Criar conta</title>
+{% endblock %}
+{% block styles %}
+{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+
+
+
+{% endblock %}
+
+
+{% block scripts %}
+{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+{% endblock %}
+
+
+
+{% block content %}
+main
+    .container
+
+        .row.justify-content-center.align-items-center
+            .col-md-6
+                form(method="post")
+                
+                    .card
+                        .card-body
+                            form(action="signup" method="post")
+                                {% csrf_token %}
+                                <input type="hidden" name="next" value="{{ next }}">
+                                .row
+                                    .col-6
+                                        {{ form.first_name|as_crispy_field }}
+                                    
+                                    .col-6
+                                        {{ form.last_name|as_crispy_field }}
+                                    
+                                {{ form.email|as_crispy_field }}
+                                .row
+                                    .col-6
+                                        {{ form.password1|as_crispy_field }}
+                                    
+                                    .col-6
+                                        {{ form.password2|as_crispy_field }}
+                                    
+                                
+
+                                <button type="submit" class="btn">Criar conta</button>
+
+                                <a href="{% url 'signin' %}">ou iniciar sessao</a>
+
+
+
+
+{% endblock %}

@@ -1,11 +1,9 @@
 from django.contrib.auth import login, authenticate
 from django.contrib.auth import logout
-from twilio.rest import Client
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, HttpResponse
 from .forms import  SignUpForm
-from django.core.mail import send_mail
-
+from .models import Store
 
 def signin(request):
     if request.method == 'POST':
@@ -31,11 +29,12 @@ def signup(request):
             user = authenticate(username=email, password=raw_password)
             if user is not None:
                 login(request, user)
-                return redirect('index')
+                store = Store.objects.get(user=user)
+                return redirect('store-update', store.id)
 
     else:
         form = SignUpForm()
-    return render(request, 'account/signup.html', {'form': form})
+    return render(request, 'account/signup.jade', {'form': form})
 
 
 

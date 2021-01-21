@@ -17,22 +17,23 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 from django.conf.urls import url
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
-   path("", views.index, name="dashboard"),
-   path("user/", views.UserListView.as_view(), name="user-list"),
-   path('user/<int:pk>/update', views.UserUpdateView.as_view(),
+   path("", login_required(views.index), name="dashboard"),
+   path("user/", login_required(views.UserListView.as_view()), name="user-list"),
+   path('user/<int:pk>/update', login_required(views.UserUpdateView.as_view()),
          name='user-update'),
-   path('user/<int:pk>/delete', views.UserDeleteView.as_view(),
+   path('user/<int:pk>/delete', login_required(views.UserDeleteView.as_view()),
          name='user-delete'),
-   path("order/", views.PaymentListView.as_view(), name="order"),
-   path('product/create', views.ProductCreateView.as_view(),
+   path("order/", login_required(views.PaymentListView.as_view()), name="order"),
+   path('product/create', login_required(views.ProductCreateView.as_view()),
         name='create-product'),
-    path('product/<int:pk>/update', views.ProductUpdateView.as_view(),
+    path('product/<int:pk>/update', login_required(views.ProductUpdateView.as_view()),
          name='product-update'),
-    path('product/<int:pk>/delete', views.ProductDeleteView.as_view(),
+    path('product/<int:pk>/delete', login_required(views.ProductDeleteView.as_view()),
          name='product-delete'),
-   path('product/list', views.ProductListView.as_view(),
+   path('product/list', login_required(views.ProductListView.as_view()),
         name='product-list'),
    url(r'^s3direct/', include('s3direct.urls')),
 

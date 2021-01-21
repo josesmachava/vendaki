@@ -18,5 +18,5 @@ nav
      
         li
             .menu-item
-              span <i class="fas fa-cog"></i>
-              a(href="{% url 'dashboard'%}") definições
+              <i class="fas fa-store"></i>
+              a(href="{% url 'update-store'  request.user.store.id  %}") Loja

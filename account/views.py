@@ -30,7 +30,7 @@ def signup(request):
             if user is not None:
                 login(request, user)
                 store = Store.objects.get(user=user)
-                return redirect('store-update', store.id)
+                return redirect('update-store-name', store.id)
 
     else:
         form = SignUpForm()

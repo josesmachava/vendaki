@@ -6,18 +6,31 @@ from django.shortcuts import render, redirect, HttpResponse
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView, FormView
 from django.views.static import serve
-
+from django.db.models.functions import Coalesce
+from django.db.models import Sum, Count
 from payment.forms import PaymentForm
 from payment.models import Payment
 from .forms import ProductForm
 from .models import Product, Order, OrderProduct
-
 # Create your views here.
 from account.models import User, Store
 
 
 def index(request):
-    return render(request, "dashboard/index.jade")
+    user = request.user
+    store = Store.objects.get(user=user)
+    product = OrderProduct.objects.filter(store=store.id, ordered=True)
+    total_sum = 0
+    for i in product:
+        total_sum += int(i.product.price)
+    
+    total_products = Product.objects.filter(store=store.id).count()
+    total_orders = OrderProduct.objects.filter(store=store.id, ordered=True).count()
+    
+
+    
+    
+    return render(request, "dashboard/index.jade", {'total_products': total_products, 'total_orders': total_orders, 'total_sum':total_sum})
 
 
 # @method_decorator(login_required, name='dispatch')

@@ -7,7 +7,7 @@ from account.models import Store
 from dashboard.models import OrderProduct, Product, Order
 from payment.forms import PaymentForm
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView, FormView
-from .forms import StoreForm, StoreUpdateForm
+from .forms import StoreForm, StoreUpdateForm, StoreUpdateNameForm
 from django.urls import reverse_lazy
 
 
@@ -32,9 +32,24 @@ class StoreCreateView(CreateView):
 
 
 
+class   StoreUpdateNameView(UpdateView):
+    # template_name_suffix = 'account/edit.html'
+    template_name = "store/update-name.pug"
+    form_class = StoreUpdateNameForm
+    model = Store
+
+    def get_success_url(self, **kwargs):
+        store_id = self.request.user.store.id
+        return  reverse_lazy('update-store', kwargs={'pk': store_id} )
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+
 class   StoreUpdateView(UpdateView):
     # template_name_suffix = 'account/edit.html'
-    template_name = "store/update-store-name.jade"
+    template_name = "store/update.pug"
     form_class = StoreUpdateForm
     model = Store
 

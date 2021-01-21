@@ -19,18 +19,19 @@ from account.models import User, Store
 def index(request):
     user = request.user
     store = Store.objects.get(user=user)
-    product = OrderProduct.objects.filter(store=store.id, ordered=True)
+   
+    payments = Payment.objects.filter(store=store.id, status_code=201)
     total_sum = 0
-    for i in product:
-        total_sum += int(i.product.price)
+    for i in payments:
+        total_sum += int(i.order.product.price)
     
     total_products = Product.objects.filter(store=store.id).count()
-    total_orders = OrderProduct.objects.filter(store=store.id, ordered=True).count()
     
 
     
     
-    return render(request, "dashboard/index.jade", {'total_products': total_products, 'total_orders': total_orders, 'total_sum':total_sum})
+    return render(request, "dashboard/index.jade", {'total_products': total_products, 'total_sum':total_sum,
+                                                    'payments':payments})
 
 
 # @method_decorator(login_required, name='dispatch')
@@ -86,14 +87,14 @@ class ProductDeleteView(DeleteView):
     success_url = reverse_lazy('product-list')
 
 
-class OrdertListView(ListView):
-    model = Order
+class PaymentListView(ListView):
+    model = Payment
     template_name = 'dashboard/order/list.jade'
-    context_object_name = 'order'
+    context_object_name = 'payments'
     paginate_by = 11
 
     def get_context_data(self, **kwargs):
-        context = super(OrdertListView, self).get_context_data(**kwargs)
+        context = super(PaymentListView, self).get_context_data(**kwargs)
         orders = self.get_queryset()
         page = self.request.GET.get('page')
         paginator = Paginator(orders, self.paginate_by)

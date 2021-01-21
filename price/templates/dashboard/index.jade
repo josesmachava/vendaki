@@ -51,7 +51,7 @@ main
                         .col-md-4
                             .card
                                 .card-body
-                                    h1.text-center {{ total_orders }}
+                                    h1.text-center {{ payments.count }}
                                     h2.text-center vendas 
 
                         .col-md-4
@@ -61,10 +61,25 @@ main
                                     h2.text-center produtos
                                  
                         .col-md-12
+                            {% if not payments %}
+                            .card
+                                .card-body
+                                    h1.text-center Sem nenhuma venda no momento 
+                                    p.text-center Adicione seu primeiro produto e comenca a vender
+                                    span.product-icon
+                                        <i class="fas fa-box"></i>   
+                                    .d-flex.justify-content-center
+                                            
+                                        .btn.btn-primary.font-weight-bold
+                                            
+                                            a(href="{% url 'create-product' %}").text-decoration-none.add-product-link Adicionar produto
+
+
+                            {% else %}
                             .card
                                 .card-body
 
-                                    h2 Doações recentes
+                                    h2 Vendas  recentes
 
                                 <table class="table table-borderless">
                                 <thead>
@@ -72,32 +87,30 @@ main
                                 <th scope="col">#</th>
                                 <th scope="col">Nome</th>
                                 <th scope="col">Número de celular</th>
+                            
+                                <th scope="col">Produto</th>
+                                
                                 <th scope="col">Valor</th>
                                 <th scope="col">Data</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                {% for payment in payments|slice:":10" %}
                                 <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
+                                <th scope="row">{{ payment.id }}</th>
+                                <td>{{ payment.name }}</td>
+                                <td>+258{{ payment.número_de_telefone }}</td>
+                                
+                                <td>{{ payment.order.product.name }}</td>
+                                <td>{{ payment.order.product.price }} MT</td>
+                                <td>{{ payment.created_date }}</td>
                                 </tr>
-                                <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
+                                {% endfor %}
 
-                                </tr>
-                                <tr>
-                                <th scope="row">3</th>
-                                <td colspan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                                </tr>
+                               
                                 </tbody>
                                 </table>
-
+                            {% endif %}
 
 {% endblock %}
 

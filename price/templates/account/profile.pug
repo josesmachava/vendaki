@@ -59,7 +59,7 @@ main
                                             li {{ request.user.first_name }} {{ request.user.last_name }}
                                             li {{ request.user.email }}
                                         button.btn.btn-light
-                                            a(href="{% url 'logout'  %}")  Editar
+                                            a(href="{% url 'update-user' request.user.id  %}")  Editar
                                         button.btn.btn-light
                                             a(href="{% url 'logout'  %}")  Sair
 

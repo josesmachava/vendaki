@@ -1,9 +1,10 @@
 from django.contrib.auth import login, authenticate
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView, FormView
 from django.shortcuts import render, redirect, HttpResponse
-from .forms import  SignUpForm
-from .models import Store
+from .forms import  SignUpForm, UserUpdateForm
+from .models import Store, User
 
 def signin(request):
     if request.method == 'POST':
@@ -36,6 +37,18 @@ def signup(request):
         form = SignUpForm()
     return render(request, 'account/signup.jade', {'form': form})
 
+class   UserUpdateView(UpdateView):
+    # template_name_suffix = 'account/edit.html'
+    template_name = "account/edit.pug"
+    form_class = UserUpdateForm
+    model = User
+
+    def get_success_url(self, **kwargs):
+        return  reverse_lazy('perfil')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
 
 
 def profile(request):

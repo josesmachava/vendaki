@@ -26,7 +26,7 @@ urlpatterns = [
     path("signup", views.signup, name="signup"),
     path("confirm", views.confirm, name="confirm"),
     path("logout", views.logout_view, name="logout"),
-
+    path('update/<pk>', login_required(views.UserUpdateView.as_view()), name="update-user"),
     path("profile", login_required(views.profile), name="profile"),
     path('', include('django.contrib.auth.urls')),
 

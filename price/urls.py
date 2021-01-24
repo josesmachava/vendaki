@@ -29,6 +29,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^s3direct/', include('s3direct.urls')),
     path('tinymce/', include('tinymce.urls')),
+    path('<str:slug>/<str:slug_product>', views.store, name="store"),
+    path('<str:slug>/', views.index, name="index"),
 
 
 

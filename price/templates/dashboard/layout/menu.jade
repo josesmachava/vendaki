@@ -20,3 +20,7 @@ nav.menu
             .menu-item
               <i class="fas fa-store"></i>
               a(href="{% url 'update-store'  request.user.store.id  %}") Loja
+        li
+            .menu-item
+                <i class="fas fa-store"></i>
+                a(href="{% url 'profile'  %}") Conta

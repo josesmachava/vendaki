@@ -39,7 +39,7 @@ def signup(request):
 
 
 def profile(request):
-    return render(request, 'account/profile.jade')
+    return render(request, 'account/profile.pug')
 
 
 def confirm(request):

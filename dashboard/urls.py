@@ -20,7 +20,7 @@ from django.conf.urls import url
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
-   path("", login_required(views.index), name="dashboard"),
+   path("painel/", login_required(views.index), name="dashboard"),
    path("user/", login_required(views.UserListView.as_view()), name="user-list"),
    path('user/<int:pk>/update', login_required(views.UserUpdateView.as_view()),
          name='user-update'),

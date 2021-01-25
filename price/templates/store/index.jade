@@ -1,0 +1,85 @@
+{% extends "price/layout/base.html" %}
+{% load static %}
+
+{% comment %}
+
+{% endcomment %}
+{% load crispy_forms_tags %}
+{# overide the tile of the page #}
+{% block title %}
+<title>{{ store.name|title }} </title>
+{% endblock %}
+{% block styles %}
+{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+
+link(rel="stylesheet",   href="{% static 'stylesheet/store/store.css' %}")
+
+link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous")
+
+
+
+{% endblock %}
+
+
+{% block scripts %}
+{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+{% endblock %}
+
+
+
+{% block content %}
+
+main
+    .container-fluid
+        .row
+            .col-md-12
+                {% if store.logo %}
+                h1
+                    a(href="{% url 'store' store.name %}")
+                        img(src="{{ store.logo }}", alt="{{ store.name }}", class="store-logo")
+
+                {% else %}
+                h1.store-logo
+                    a(href="{% url 'store' store.name %}") {{ store.name }}
+
+                {% endif %}
+
+            .col-md-12
+                nav
+                    ul.text-center
+                        li
+                            a(href="{% url 'store' store.name %}")  página inicial
+                        li
+                            a(href="{% url 'store' store.name %}")  Produtos
+
+    .container
+        header
+                h1.header-title.text-capitalize.text-center {{ store.name|title }}
+
+
+    .container
+
+        .row
+           {% for product in products %}
+           .col-md-3.products
+                img(src="{{ product.image }}", alt="{{ product.name }}", class="product-image")
+                p.text-center {{ product.name }}
+                p.text-center {{ product.price }} MT
+                div.d-flex.justify-content-center
+
+                    button.btn.btn-primary.text-center
+                        a(href="{% url 'product' store.name  product.slug %}") Comprar
+            {% endfor %}
+
+
+
+          .col-md-12
+                 {% include "store/layout/footer.jade" %}
+
+
+
+
+
+{% endblock %}

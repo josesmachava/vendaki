@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'^s3direct/', include('s3direct.urls')),
     path('tinymce/', include('tinymce.urls')),
     path("", views.index, name="index"),
-    path('<str:slug>/<str:slug_product>', store_product, name="store_product"),
+    path('<str:slug>/<str:slug_product>', store_product, name="product"),
     path('<str:slug>/', store, name="store"),
 
 

@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.http import Http404
 from django.shortcuts import render, redirect
 import requests
 import json
@@ -13,11 +14,14 @@ from django.urls import reverse_lazy
 
 
 def store(request, slug):
-    store = Store.objects.get(slug=slug)
-    products = Product.objects.filter(store=store)
+    try:
+        store = Store.objects.get(slug=slug)
+        products = Product.objects.filter(store=store)
+        return render(request, 'store/index.jade', {'products': products, 'store': store})
 
-    return render(request, 'store/index.jade', {'products': products, 'store': store})
 
+    except Store.DoesNotExist:
+            raise Http404
 
 
 class StoreCreateView(CreateView):

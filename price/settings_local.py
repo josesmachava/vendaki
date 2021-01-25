@@ -5,7 +5,7 @@ import  os
 
 
 if socket.gethostname() == 'josemachava':	#ensure your local machine hostname is used
-    DEBUG = False
+    DEBUG = True
     ALLOWED_HOSTS = ['*']
 
     DATABASES = {

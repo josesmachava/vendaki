@@ -23,6 +23,7 @@ class SignUpForm(UserCreationForm):
     @transaction.atomic
     def save(self):
         user = super().save(commit=False)
+        user.is_staff = True
 
 
         user.save()

@@ -19,8 +19,8 @@ from django.urls import path, include
 from django.conf.urls.static import static # new
     
 from price import settings
+from store.views import store, store_product
 from . import views
-from store import views
 from django.conf.urls import handler404, handler500, url
 
 urlpatterns = [
@@ -29,12 +29,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^s3direct/', include('s3direct.urls')),
     path('tinymce/', include('tinymce.urls')),
-  #  path('<str:slug>/<str:slug_product>', views.store, name="store"),
-  #  path('<str:slug>/', views.index, name="index"),
-
-
-
     path("", views.index, name="index"),
+    path('<str:slug>/<str:slug_product>', store_product, name="store_product"),
+    path('<str:slug>/', store, name="store"),
+
+
+
     path("dashboard/", include("dashboard.urls")),
     path("store/", include("store.urls")),
 

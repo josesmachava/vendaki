@@ -12,7 +12,7 @@ from django.urls import reverse_lazy
 
 
 
-def index(request, slug):
+def store(request, slug):
     store = Store.objects.get(slug=slug)
     products = Product.objects.filter(store=store)
 
@@ -61,7 +61,7 @@ class   StoreUpdateView(UpdateView):
         return context
 
 
-def store(request, slug, slug_product):
+def store_product(request, slug, slug_product):
     store = Store.objects.get(slug=slug)
     product = Product.objects.get(store=store, slug=slug_product)
     if request.method == "POST":

@@ -7,7 +7,8 @@ def index(request):
 
 
 def handler404(request, exception):
-    return render(request, 'error/404.jade', status=404)
+      return render(request, 'error/404.pug', status=404)
 
-def handler500(request):
+
+def handler500(request, *args, **argv):
     return render(request, 'error/500.jade', status=500)

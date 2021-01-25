@@ -1,0 +1,144 @@
+/*
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+
+.card-content {
+    padding: 30px 20px;
+    background-color: white;
+    box-sizing: border-box;
+    height: auto;
+    border: 1px solid #cdd4db;
+    border-radius: 4px;
+    background-color: white;
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+    transition: transform 0s ease-out .2s, opacity .2s ease-out 0s, visibility .2s ease-out 0s, max-width 0s linear .2s, max-height 0s linear .2s;
+    cursor: default;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+header{
+    background-color: whitesmoke;
+    height: 50vh;
+    padding-top: 100px;
+}
+.store-logo {
+    width: 40px;
+    display: block;
+     margin: 25px auto;
+
+}
+
+nav ul li{
+    display: inline;
+    text-transform: capitalize;
+    margin: 0 20px;
+}
+nav ul li a{
+    color: black;
+    font-weight: bold;
+}
+nav ul li a:hover{
+    text-decoration: none;
+}
+
+.product-image {
+    display: block;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.product-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.products .product-image{
+    width: 200px;
+}
+.product-price {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+button a {
+    color: white !important;
+}
+footer{
+    margin-top: 50px;
+}
+@media (min-width: 1281px) {
+
+
+}
+
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+
+}
+
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+
+}
+
+/*
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+
+}
+
+/*
+Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+
+}
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .product-name {
+        margin-top: 10px;
+        font-size: 16px;
+        font-weight: bold;
+
+    }
+
+    .product-image {
+        display: block;
+        width: 250px;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    nav ul{
+        padding: 0;
+    }
+
+    .product-price {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+}

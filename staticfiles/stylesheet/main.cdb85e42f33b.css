@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css?family=Mada:400,500,600,700&display=swap');
+
+:root {
+    --primaryColor: #222;
+    --baseColor: #fff;
+    --backgroudColor:#f6f9fc;
+        --navColor: #0a2540;
+    --navHoverColor: #0a2540;
+}
+
+body {
+    background-color: var(--backgroudColor);
+    color: #4b4f54 !important;
+    font-size: 15px !important;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color:var(--backgroudColor) ;
+
+}
+
+header h1{
+        font-size: 19px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+
+    color: var(--navColor);
+}
+
+nav ul li {
+    display: inline;
+    padding: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 50px;
+    text-transform: capitalize;
+}
+
+
+ul li a:hover {
+    text-decoration: none;
+    color: var(--primaryColor)
+
+}
+ul li a{
+    color: var(--navColor);
+    font-size: 16px;
+}
+
+.hero-content {
+    padding-top: 100px;
+    padding-bottom: 20px;
+}
+
+.hero-title {
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.hero-subtitle {
+
+}
+
+.price {
+    background: var(--baseColor);
+    border-radius: 0 0 4px 4px;
+    padding: 40px;
+    text-align: center;
+    border-radius: 0 0 4px 4px;
+    margin: 10px;
+    position: relative;
+}
+
+button {
+
+}
+
+.price button {
+    font-family: "Gotham A", "Gotham B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+
+    background-color: var(--primaryColor);
+    color: var(--baseColor);
+    font-size: 13px;
+    border-radius: 4px;
+    width: 99.9%;
+    max-width: 340px;
+    height: 40px;
+
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    -webkit-transition: background-color 0.2s ease-in;
+    -o-transition: background-color 0.2s ease-in;
+    transition: background-color 0.2s ease-in;
+    border: none;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+
+footer {
+    margin-top: 100px;
+    width: 100%;
+    color: #333;
+}
+
+footer ul {
+    margin-top: 20px;
+    list-style: none;
+    text-align: center;
+}
+
+footer ul li {
+    display: inline;
+    padding: 20px;
+}
+
+@media (max-width: 480px) {
+
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+
+
+}
+
+@media (min-width: 992px) {
+
+}

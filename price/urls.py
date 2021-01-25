@@ -33,14 +33,6 @@ urlpatterns = [
     path('<str:slug>/', store, name="store"),
 
 
-<<<<<<< HEAD
-    path('<str:slug>/<str:slug_product>', views.store, name="store"),
-    path('<str:slug>/', views.index, name="index"),
-    path('', include("store.urls")),
-    path("", views.index, name="index"),
-=======
-
->>>>>>> development
     path("dashboard/", include("dashboard.urls")),
     path("store/", include("store.urls")),
 

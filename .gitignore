@@ -5,7 +5,7 @@ __pycache__/
 
 # C extensions
 *.so
-
+price/settings_local.py
 # Distribution / packaging
 .Python
 env/

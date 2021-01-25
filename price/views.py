@@ -11,4 +11,4 @@ def handler404(request, exception):
 
 
 def handler500(request, *args, **argv):
-    return render(request, 'error/500.jade', status=500)
+    return render(request, 'error/500.pug', status=500)

@@ -1,29 +1,26 @@
-header
-    nav
-        ul
-            li
-                a(href="{% url 'product-create' %}", class="link") Ver Loja
+nav.menu
+    ul
+        li
+            .menu-item
+                span  <i class="fas fa-palette"></i>
+                a(href="{% url 'dashboard'%}") painel
+        li
+           .menu-item
 
-            li
-                a(href="{% url 'product-create' %}", class="eka-button") Mudar Pacote
+                span  <i class="fas fa-tag"></i>
+                a(href="{% url 'product-list'%}") produtos
+        li
+            .menu-item
+                
+                span <i class="fas fa-box"></i>
+                a(href="{% url 'order'%}") vendas
 
-            li
-               span <i class="fas fa-user-circle"></i>
-
-    div.dropdown
-        nav
-            ul
-                li {{ request.user.first_name }}  {{ request.user.last_name }}
-                li {{ request.user.email }}
-        nav
-            ul
-                li
-                    a(href="{% url 'product-create' %}" class="link") Perfil
-
-                li
-                    a(href="{% url 'product-create' %}" class="link") Facturas & Planos
-
-        nav
-            ul
-                li
-                    a(href="{% url 'logout' %}", class='link') sair
+     
+        li
+            .menu-item
+              <i class="fas fa-store"></i>
+              a(href="{% url 'update-store'  request.user.store.id  %}") Loja
+        li
+            .menu-item
+                <i class="fas fa-user"></i>
+                a(href="{% url 'profile'  %}") Conta

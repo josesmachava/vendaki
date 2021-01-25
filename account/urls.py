@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 from django.contrib.auth import views as auth_views
-
+from django.contrib.auth.decorators import login_required
 
 
 urlpatterns = [
@@ -26,8 +26,8 @@ urlpatterns = [
     path("signup", views.signup, name="signup"),
     path("confirm", views.confirm, name="confirm"),
     path("logout", views.logout_view, name="logout"),
-
-    path("profile", views.profile, name="profile"),
+    path('update/<pk>', login_required(views.UserUpdateView.as_view()), name="update-user"),
+    path("profile", login_required(views.profile), name="profile"),
     path('', include('django.contrib.auth.urls')),
 
 

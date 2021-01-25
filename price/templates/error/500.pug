@@ -1,0 +1,183 @@
+{% extends "price/layout/base.html" %}
+{% load static %}
+
+{% comment %}
+
+{% endcomment %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{# overide the tile of the page #}
+{% block title %}
+<title>Eskina - Editar Conta</title>
+{{ form.media }}
+{% endblock %}
+{% block styles %}
+{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+
+link(rel="stylesheet",   href="{% static 'stylesheet/dashboard/dashboard.css' %}")
+script(src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js", referrerpolicy="origin")
+link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous")
+
+
+script().
+    tinymce.init({selector: 'textarea'});
+
+{% endblock %}
+
+
+{% block scripts %}
+{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+{% endblock %}
+
+
+
+{% block content %}
+
+main
+                 
+    .container
+
+        .row.justify-content-center.align-items-center
+            .col-md-6
+                form(method="post")
+                    
+                    .card
+                        .card-body
+                            h1.text-center 404
+                            p.text-center Erro: Página não encontrada
+                            p.text-center A página que procura deve ter sido eliminada ou esteja temporariamente indisponível. Clica aqui para
+                            
+
+                          
+
+{% endblock %}
+
+
+
+
+{% extends "price/layout/base.html" %}
+{% load static %}
+
+{% comment %}
+
+{% endcomment %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{# overide the tile of the page #}
+{% block title %}
+<title>Eskina - Editar Conta</title>
+{{ form.media }}
+{% endblock %}
+{% block styles %}
+{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+
+link(rel="stylesheet",   href="{% static 'stylesheet/dashboard/dashboard.css' %}")
+script(src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js", referrerpolicy="origin")
+link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous")
+
+
+script().
+    tinymce.init({selector: 'textarea'});
+
+{% endblock %}
+
+
+{% block scripts %}
+{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+{% endblock %}
+
+
+
+{% block content %}
+
+main
+                 
+    .container
+
+        .row.justify-content-center.align-items-center
+            .col-md-6
+                form(method="post")
+                    
+                    .card
+                        .card-body
+                            h1.text-center 404
+                            p.text-center Erro: Página não encontrada
+                            p.text-center A página que procura deve ter sido eliminada ou esteja temporariamente indisponível. Clica aqui para
+                                a(href="{% url 'index'  %}") Voltar
+
+
+                          
+
+{% endblock %}
+
+
+
+
+{% extends "price/layout/base.html" %}
+{% load static %}
+
+{% comment %}
+
+{% endcomment %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{# overide the tile of the page #}
+{% block title %}
+<title>Eskina - Editar Conta</title>
+{{ form.media }}
+{% endblock %}
+{% block styles %}
+{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+
+link(rel="stylesheet",   href="{% static 'stylesheet/dashboard/dashboard.css' %}")
+script(src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js", referrerpolicy="origin")
+link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous")
+
+
+script().
+    tinymce.init({selector: 'textarea'});
+
+{% endblock %}
+
+
+{% block scripts %}
+{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+{% endblock %}
+
+
+
+{% block content %}
+
+main
+                 
+    .container
+
+        .row.justify-content-center.align-items-center
+            .col-md-6
+                form(method="post")
+                    
+                    .card
+                        .card-body
+                            h1.text-center 500
+                            p.text-center Erro de servidor 500
+                            p.text-center Erro interno do servidor  Clica aqui para
+                            p.text-center 
+                                a(href="{% url 'index'  %}")    Voltar
+
+
+
+
+                          
+
+{% endblock %}
+
+

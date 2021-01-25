@@ -9,17 +9,18 @@
 
 {# overide the tile of the page #}
 {% block title %}
-<title>Price</title>
+<title>Eskina - Adicionar Producto</title>
+{{ form.media }}
 {% endblock %}
 {% block styles %}
 {#    only include css  files needed for thi page bootstap and other libs are add in base template #}
 
 
 link(rel="stylesheet",   href="{% static 'stylesheet/dashboard/dashboard.css' %}")
+script(src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js", referrerpolicy="origin")
 
-link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous")
-
-
+script().
+    tinymce.init({selector: 'textarea'});
 
 {% endblock %}
 
@@ -36,32 +37,37 @@ link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/a
 main
     .container-fluid
         .row
-            .col-md-2.aside
-                 {% include "dashboard/layout/aside.jade" %}
+            .col-md-12
+                 {% include "dashboard/layout/menu.jade" %}
+               
+            .col-md-12
+                .container
+                    .row.justify-content-center.align-items-center
+                        .col-md-12
+                            form(method="post")
+                                .card
+                                    .card-body
 
-            .col-md-10
-                {% include "dashboard/layout/menu.jade" %}
-                .col-md-12
-                    form(method="post")
-                        .row
+                                        h1 Adicionar novo produto digital
 
+                                        {% csrf_token %}
+                                        .row
+                                            .col-md-12
 
-                            .col-md-6
-                                .card.card-content
-                                    {% csrf_token %}
-                                    {{ form.image }}
-                                    {{ form.name|as_crispy_field }}
-                                    {{ form.description|as_crispy_field }}
+                                                {{ form.image|as_crispy_field }}
 
-                                    {{ form.file|as_crispy_field }}
+                                        .row
+                                            .col-md-9
+                                                {{ form.name|as_crispy_field }}
+                                            .col-md-3
+                                                {{ form.price|as_crispy_field }}
 
-                            .col-md-3
-                                .card.card-content
-                                    {{ form.price|as_crispy_field }}
+                                        {{ form.description|as_crispy_field }}
+                                        .row
+                                            .col-md-12
+                                                {{ form.file|as_crispy_field }}
 
-                            .col-md-12
-                                <button type="submit" class="btn btn-success">Create Product</button>
-
+                                        <button type="submit" class="btn btn-success">Adicionar</button>
 
 
 {% endblock %}

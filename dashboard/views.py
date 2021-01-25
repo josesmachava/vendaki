@@ -4,20 +4,34 @@ from django.contrib import messages
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect, HttpResponse
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView, FormView
 from django.views.static import serve
-
+from django.db.models.functions import Coalesce
+from django.db.models import Sum, Count
 from payment.forms import PaymentForm
 from payment.models import Payment
 from .forms import ProductForm
 from .models import Product, Order, OrderProduct
-
 # Create your views here.
 from account.models import User, Store
 
 
 def index(request):
-    return render(request, "dashboard/index.jade")
+    user = request.user
+    store = Store.objects.get(user=user)
+   
+    payments = Payment.objects.filter(store=store.id, status_code=201)
+    total_sum = 0
+    for i in payments:
+        total_sum += int(i.order.product.price)
+    
+    total_products = Product.objects.filter(store=store.id).count()
+    
+
+    
+    
+    return render(request, "dashboard/index.jade", {'total_products': total_products, 'total_sum':total_sum,
+                                                    'payments':payments})
 
 
 # @method_decorator(login_required, name='dispatch')
@@ -26,12 +40,14 @@ class ProductCreateView(CreateView):
 
     template_name = 'dashboard/product/create.jade'
     success_url = reverse_lazy('product-list')
-
+   
     def form_valid(self, form):
-        print(form)
-        form.instance.user = self.request.user
-        print(form.instance.user)
-        return super().form_valid(form)
+        user = self.request.user
+        store = Store.objects.get(user=user)
+        form.instance.store = store
+        
+
+        return super(ProductCreateView, self).form_valid(form)
 
 
 class ProductListView(ListView):
@@ -59,7 +75,7 @@ class ProductUpdateView(UpdateView):
     model = Product
     template_name = 'dashboard/product/update.jade'
     context_object_name = 'product'
-    fields = ('name', 'description', 'price', 'discount', 'categories', 'company')
+    fields = ('name', 'description', 'price', 'file', 'image')
 
     def get_success_url(self):
         return reverse_lazy('product-list')
@@ -67,18 +83,18 @@ class ProductUpdateView(UpdateView):
 
 class ProductDeleteView(DeleteView):
     model = Product
-    template_name = 'dashboard/product/delete.html'
+    template_name = 'dashboard/product/delete.pug'
     success_url = reverse_lazy('product-list')
 
 
-class OrdertListView(ListView):
-    model = Order
+class PaymentListView(ListView):
+    model = Payment
     template_name = 'dashboard/order/list.jade'
-    context_object_name = 'order'
+    context_object_name = 'payments'
     paginate_by = 11
 
     def get_context_data(self, **kwargs):
-        context = super(OrdertListView, self).get_context_data(**kwargs)
+        context = super(PaymentListView, self).get_context_data(**kwargs)
         orders = self.get_queryset()
         page = self.request.GET.get('page')
         paginator = Paginator(orders, self.paginate_by)

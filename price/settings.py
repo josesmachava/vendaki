@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'o8s*r3ikgpdfdfg5!_0hhn(3&mmxd1_o_htb+2%+u@&c-4-l9n#0c6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]']
 
@@ -61,7 +61,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'crispy_forms',
-    'tinymce',
     's3direct',
     'rest_framework',
     "corsheaders",
@@ -86,6 +85,8 @@ AUTH_USER_MODEL = 'account.User'
 SECURE_SSL_REDIRECT = True
 
 LOGOUT_REDIRECT_URL = '/'
+
+LOGIN_URL='signin'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -116,6 +117,7 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(BASE_DIR, 'price/templates')
         ],
+
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',

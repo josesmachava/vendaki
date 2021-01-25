@@ -1,0 +1,69 @@
+{% extends "price/layout/base.html" %}
+{% load static %}
+
+{% comment %}
+
+{% endcomment %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{# overide the tile of the page #}
+{% block title %}
+<title>Eslina - Conta</title>
+{{ form.media }}
+{% endblock %}
+{% block styles %}
+{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+
+link(rel="stylesheet",   href="{% static 'stylesheet/dashboard/dashboard.css' %}")
+script(src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js", referrerpolicy="origin")
+link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous")
+
+
+script().
+    tinymce.init({selector: 'textarea'});
+
+{% endblock %}
+
+
+{% block scripts %}
+{#    only include css  files needed for thi page bootstap and other libs are add in base template #}
+
+{% endblock %}
+
+
+
+{% block content %}
+
+main
+    .container-fluid
+        .row
+            .col-md-12
+                {% include "dashboard/layout/menu.jade" %}
+                 
+    .container
+
+        .row.justify-content-center.align-items-center
+            .col-md-12
+                 .card
+                    .card-body
+                        .row.justify-content-center.align-items-center
+                            .col-md-6
+                                .row
+                                    .col-md-6
+
+                                        h1 image
+                                    .col-m-6
+                                        ul 
+                                            li {{ request.user.first_name }} {{ request.user.last_name }}
+                                            li {{ request.user.email }}
+                                        button.btn.btn-light
+                                            a(href="{% url 'update-user' request.user.id  %}")  Editar
+                                        button.btn.btn-light
+                                            a(href="{% url 'logout'  %}")  Sair
+
+           
+{% endblock %}
+
+

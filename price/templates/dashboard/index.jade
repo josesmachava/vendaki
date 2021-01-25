@@ -1,23 +1,22 @@
 {% extends "price/layout/base.html" %}
-{% load staticfiles %}
+{% load static %}
 
 {% comment %}
 
 {% endcomment %}
-{% load staticfiles %}
+{% load static %}
+{% load crispy_forms_tags %}
+
 {# overide the tile of the page #}
 {% block title %}
-<title>Price</title>
+<title>Eskina - Dashboard</title>
+{{ form.media }}
 {% endblock %}
 {% block styles %}
 {#    only include css  files needed for thi page bootstap and other libs are add in base template #}
 
 
 link(rel="stylesheet",   href="{% static 'stylesheet/dashboard/dashboard.css' %}")
-
-link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous")
-
-
 
 {% endblock %}
 
@@ -34,26 +33,83 @@ link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/a
 main
     .container-fluid
         .row
-            .col-md-2.aside
-
-            .col-md-10
+            .col-md-12
                 {% include "dashboard/layout/menu.jade" %}
-                .row
+               
+            .col-md-12
+                .container
+                    .row.justify-content-center.align-items-center
                         .col-md-4
-                            .card-content.card
-                                .article
-                                    h1 Total de vendas
-                                    h2 500 MT
+                            .card
+
+                                .card-body
+                                    h1.text-center {{ total_sum }} MT
+
+                                    h2.text-center    total                     
+                        .col-md-4
+                            .card
+                                .card-body
+                                    h1.text-center {{ payments.count }}
+                                    h2.text-center vendas 
 
                         .col-md-4
+                            .card
+                                .card-body
+                                    h1.text-center {{ total_products }}
+                                    h2.text-center produtos
+                                 
+                        .col-md-12
+                            {% if not payments %}
+                            .card
+                                .card-body
+                                    h1.text-center Sem nenhuma venda no momento 
+                                    p.text-center Adicione seu primeiro produto e comenca a vender
+                                    span.product-icon
+                                        <i class="fas fa-box"></i>   
+                                    .d-flex.justify-content-center
+                                            
+                                        .btn.btn-primary.font-weight-bold
+                                            
+                                            a(href="{% url 'create-product' %}").text-decoration-none.add-product-link Adicionar produto
 
-                            .card-content.card
 
+                            {% else %}
+                            .card
+                                .card-body
 
+                                    h2 Vendas  recentes
 
-                        .col-md-4
-                            .card-content.card
+                                <table class="table table-borderless">
+                                <thead>
+                                <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Número de celular</th>
+                            
+                                <th scope="col">Produto</th>
+                                
+                                <th scope="col">Valor</th>
+                                <th scope="col">Data</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for payment in payments|slice:":10" %}
+                                <tr>
+                                <th scope="row">{{ payment.id }}</th>
+                                <td>{{ payment.name }}</td>
+                                <td>+258{{ payment.número_de_telefone }}</td>
+                                
+                                <td>{{ payment.order.product.name }}</td>
+                                <td>{{ payment.order.product.price }} MT</td>
+                                <td>{{ payment.created_date }}</td>
+                                </tr>
+                                {% endfor %}
 
-
+                               
+                                </tbody>
+                                </table>
+                            {% endif %}
 
 {% endblock %}
+
+

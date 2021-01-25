@@ -1,15 +1,14 @@
 from django.db import models
 
 # Create your models here.
-from account.models import User
+from account.models import User, Store
 from django.core.validators import RegexValidator
-
-
-from dashboard.models import Order
+from dashboard.models import OrderProduct
 
 
 class Payment(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    order = models.ForeignKey(OrderProduct, on_delete=models.CASCADE)
+    store = models.ForeignKey(Store, on_delete=models.CASCADE)
     name = models.CharField(max_length=255, null=False)
     status_code = models.CharField(max_length=255, null=False)
     phone_regex = RegexValidator(regex=r'^\+?84?\d{8,8}$',

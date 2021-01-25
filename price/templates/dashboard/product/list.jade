@@ -9,7 +9,7 @@
 
 {# overide the tile of the page #}
 {% block title %}
-<title>Price</title>
+<title>Eskina - Produtos</title>
 {% endblock %}
 {% block styles %}
 {#    only include css  files needed for thi page bootstap and other libs are add in base template #}
@@ -34,44 +34,76 @@ link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/a
 {% block content %}
 
 main
-    .container-fluid
+     .container-fluid
         .row
-            .col-md-2.aside
-                 {% include "dashboard/layout/aside.jade" %}
-
-            .col-md-10
-                {% include "dashboard/layout/menu.jade" %}
-                .col-md-12
-
-                {% for product in products %}
-                .card-content
-                    .row
-
-
-                        .col-md-11
-                            img(src="{{ product.image }}", class="product-list-image")
-                            {{ product.id }}
-                            {{ product.name }}
-                            {{ product.price }}
-
-
-                        .col-md-1
-                            a(href="{% url 'product-update' product.id   %}")
-                                i.fas.fa-edit
+            .col-md-12
+                 {% include "dashboard/layout/menu.jade" %}
+               
+            .col-md-12
+                .container
+                    .row.justify-content-center.align-items-center
+                        .col-md-12
+                            {% if not products %}
+                            .card
+                                .card-body
+                                    h1.text-center Adicione seu primeiro produto
+                                    span.product-icon
+                                        <i class="fas fa-tag"></i>   
+                                    .d-flex.justify-content-center
+                                            
+                                        .btn.btn-primary.font-weight-bold
+                                            
+                                            a(href="{% url 'create-product' %}").text-decoration-none.add-product-link Adicionar produto
 
 
-                            a(href="{% url 'product-delete' product.id   %}")
-                                i.far.fa-trash-alt
+                            {% else %}
+                            .row
+                                .col-md-10
+                                    h1 Produtos
+                                
+                                .col-md-2
+                                    .btn.btn-primary.font-weight-bold
+                                        a(href="{% url 'create-product' %}").text-decoration-none.add-product-link Adicionar produto
+
+                            .card
+                                .card-body
+                              
+                                    {% for product in products %}
+                                    .row
+
+                                        .col-md-11
+                                            .row
+                                                .col-md-2
+                                                    img(src="{{ product.image }}", class="product-list-image")
+                                                .col-m-10
+                                                    ul.list-inline 
+                                                        li.list-inline-item.font-weight-bold
+                                                             a(href="{% url 'product-update' product.id   %}")
+                                                                {{ product.name }}
+                                                        li.list-inline-item
+                                                            {{ product.price }} MT
+
+
+                                        .col-md-1
+                                            ul.list-inline
+                                              li.list-inline-item
+                                                    a(href="{% url 'product-update' product.id   %}")
+                                                        i.fas.fa-edit
+
+                                              li.list-inline-item 
+                                                    a(href="{% url 'product-delete' product.id   %}")
+                                                        i.far.fa-trash-alt
 
 
 
-                {% endfor %}
-                {% if is_paginated %}
-                {% include "price/layout/pagination.html" %}
-                {% endif %}
+                                    {% endfor %}
+                                    {% if is_paginated %}
+                                    {% include "price/layout/pagination.html" %}
+                                    {% endif %}
+                            {% endif %}
 
-        {% include "dashboard/layout/footer.jade" %}
 
+  
 
 
 {% endblock %}

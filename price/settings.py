@@ -62,8 +62,7 @@ INSTALLED_APPS = [
 
     'crispy_forms',
     's3direct',
-    "corsheaders",
-    "sass_processor",
+
 
     'about',
     'account',
@@ -97,7 +96,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
 

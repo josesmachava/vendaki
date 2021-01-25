@@ -53,14 +53,12 @@ class ProductCreateView(CreateView):
 class ProductListView(ListView):
     model = Product
     template_name = 'dashboard/product/list.jade'
+    context_object_name = 'products'
     paginate_by = 13
-   
+
     def get_context_data(self, **kwargs):
         context = super(ProductListView, self).get_context_data(**kwargs)
-        context['products'] = Product.objects.filter(store=self.request.user.store.id)
-        
-        products = Product.objects.filter(store=self.request.user.store.id)
-        #print(context)    
+        products = self.get_queryset()
         page = self.request.GET.get('page')
         paginator = Paginator(products, self.paginate_by)
         try:
@@ -69,6 +67,7 @@ class ProductListView(ListView):
             products = paginator.page(1)
         except EmptyPage:
             products = paginator.page(paginator.num_pages)
+        context['product'] = products
         return context
 
 
@@ -91,14 +90,12 @@ class ProductDeleteView(DeleteView):
 class PaymentListView(ListView):
     model = Payment
     template_name = 'dashboard/order/list.jade'
-    paginate_by = 13
+    context_object_name = 'payments'
+    paginate_by = 11
 
     def get_context_data(self, **kwargs):
         context = super(PaymentListView, self).get_context_data(**kwargs)
-        context['orders'] = Payment.objects.filter(store=self.request.user.store.id)
-        
-        orders = Payment.objects.filter(store=self.request.user.store.id)
-        #print(context)    
+        orders = self.get_queryset()
         page = self.request.GET.get('page')
         paginator = Paginator(orders, self.paginate_by)
         try:
@@ -107,6 +104,7 @@ class PaymentListView(ListView):
             orders = paginator.page(1)
         except EmptyPage:
             orders = paginator.page(paginator.num_pages)
+        context['order'] = orders
         return context
 
 

@@ -70,8 +70,8 @@ main
                               
                                     {% for product in products %}
                                     .row
-                                       
-                                        .col-md-8
+
+                                        .col-md-11
                                             .row
                                                 .col-md-2
                                                     img(src="{{ product.image }}", class="product-list-image")
@@ -82,15 +82,6 @@ main
                                                                 {{ product.name }}
                                                         li.list-inline-item
                                                             {{ product.price }} MT
-                                        .col-md-2
-                                            ul.list-inline
-                                              li.list-inline-item
-                                                    a(href="{% url 'product' request.user.store.name  product.slug %}")
-                                                        i.fas.fa-eye
-
-                                              li.list-inline-item 
-                                                    a(href="{% url 'product-delete' product.id   %}")
-                                                        i.fas.fa-share-alt
 
 
                                         .col-md-1

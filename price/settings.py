@@ -62,7 +62,6 @@ INSTALLED_APPS = [
 
     'crispy_forms',
     's3direct',
-    'rest_framework',
     "corsheaders",
     "sass_processor",
 

@@ -135,7 +135,7 @@ WSGI_APPLICATION = 'price.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 try:
-    from .settings_local import *
+    from settings_local import *
 except ImportError:
 
     ALLOWED_HOSTS = ['*']

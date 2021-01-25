@@ -17,7 +17,7 @@ def signin(request):
             login(request, user)
             return redirect('index')
 
-    return render(request, 'account/signin.html')
+    return render(request, 'account/signin.pug')
 
 
 def signup(request):

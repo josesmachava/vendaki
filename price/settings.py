@@ -123,7 +123,15 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
             # PyPugJS part:
-           
+            'loaders': [
+                ('pypugjs.ext.django.Loader', (
+                    'django.template.loaders.filesystem.Loader',
+                    'django.template.loaders.app_directories.Loader',
+                ))
+            ],
+            'builtins': [
+                'pypugjs.ext.django.templatetags',
+            ],
         },
     },
 ]
@@ -135,7 +143,7 @@ WSGI_APPLICATION = 'price.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 try:
-    from settings_local import *
+    from .settings_local import *
 except ImportError:
 
     ALLOWED_HOSTS = ['*']

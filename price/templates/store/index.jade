@@ -70,7 +70,7 @@ main
                 div.d-flex.justify-content-center
 
                     button.btn.btn-primary.text-center
-                        a(href="{% url 'product' store.name  product.slug %}") Comprar
+                        a(href="{% url 'product' store.slug  product.slug %}") Comprar
             {% endfor %}
 
 

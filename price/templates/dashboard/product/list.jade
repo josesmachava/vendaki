@@ -71,7 +71,7 @@ main
                                     {% for product in products %}
                                     .row
 
-                                        .col-md-11
+                                        .col-md-8
                                             .row
                                                 .col-md-2
                                                     img(src="{{ product.image }}", class="product-list-image")
@@ -84,6 +84,14 @@ main
                                                             {{ product.price }} MT
 
 
+                                    
+                                        .col-md-2
+                                            ul.list-inline
+                                                li.list-inline-item
+                                                    a(href="{% url 'product' request.user.store.name  product.slug %}")
+                                                        i.fas.fa-eye
+
+                                        
                                         .col-md-1
                                             ul.list-inline
                                               li.list-inline-item

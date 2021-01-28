@@ -145,7 +145,7 @@ WSGI_APPLICATION = 'price.wsgi.application'
 
 try:
     ALLOWED_HOSTS = ['*']
-    from  .settings_local import *
+    from  settings_local import *
 except ImportError:
 
     

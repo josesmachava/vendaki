@@ -142,20 +142,15 @@ WSGI_APPLICATION = 'price.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+
 try:
-    from settings_local import *
+    ALLOWED_HOSTS = ['*']
+    from  .settings_local import *
 except ImportError:
 
-    ALLOWED_HOSTS = ['*']
-
-    ADMINS = [('Guidione  Machava', 'geral.market.co.mz@gmail.com'),
-              ('Jose Machava', 'josesmachava@gmail.com'), ]
-    # Parse database configuration from $DATABASE_URL
+    
     DATABASES = {}
     DATABASES['default'] = dj_database_url.config(conn_max_age=600)
-    # Enable Persistent Connections
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators

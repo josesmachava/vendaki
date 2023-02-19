@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views
-from django.conf.urls import url
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
@@ -35,7 +34,7 @@ urlpatterns = [
          name='product-delete'),
    path('product/list', login_required(views.ProductListView.as_view()),
         name='product-list'),
-   url(r'^s3direct/', include('s3direct.urls')),
+   path('s3direct/', include('s3direct.urls')),
 
 
    

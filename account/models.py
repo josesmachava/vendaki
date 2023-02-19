@@ -2,7 +2,6 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.core.validators import RegexValidator
 from django.db import models
 from django.utils import timezone
-from django.utils.translation import ugettext_lazy as _
 from django.template.defaultfilters import slugify
 from price import settings
 from tinymce import models as tinymce_models
@@ -47,7 +46,7 @@ class User(AbstractUser):
     """User model."""
 
     username = None
-    email = models.EmailField(_('email address'), unique=True)
+    email = models.EmailField(('email address'), unique=True)
     phone_regex = RegexValidator(regex=r'^\+?258?\d{9,13}$',
                                  message="O número de telefone deve ser digitado no formato: '+258849293949'. São permitidos até 13 dígitos.")
     phone_number = models.CharField(validators=[phone_regex], max_length=13, blank=True)  # validators should be a list

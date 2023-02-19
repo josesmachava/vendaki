@@ -1,0 +1,162 @@
+:root {
+    --primaryColor: #222;
+    --baseColor: #fff;
+    --link-color:#068eef;
+    --fontBaseColor:#999;
+
+}
+
+a:hover{
+    text-decoration: none;
+}
+html, body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #f1f1f1;
+    margin: 0;
+    font-family: proxima-nova,Arial,Helvetica,sans-serif;
+    color: #444;
+
+}
+.card{
+    margin: 20px 0;
+}
+
+ul li {
+    padding: 0;
+    list-style: none;
+
+}
+.menu{
+    height: 70px;
+    background-color: white;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 50px;
+
+}
+.menu ul{
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu ul li{
+    font-size: 15px;
+    text-transform: capitalize;
+    display: inline;
+    color: #6a6d73;
+    
+}
+.menu-item{
+    text-align: center;
+    margin: 10px 70px 0 0;
+}
+nav ul li a{
+    display: block;
+    color: #797874;
+    font-weight: bold;
+    font-size: 15px;
+ 
+}
+nav ul li  span{
+
+    color: #797874;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+
+.add-product-link:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.add-product-link{
+    color: white;
+}
+
+.product-list-image{
+    width: 50px;
+    margin: 0px 20px 10px 0;
+}
+.product-icon {
+    font-size: 85px;
+    text-align: center;
+    display: block;
+
+}
+
+
+/*
+      ##Device = Desktops
+      ##Screen = 1281px to higher resolution desktops
+    */
+
+    @media (min-width: 1281px) {
+
+
+    }
+
+    /*
+      ##Device = Laptops, Desktops
+      ##Screen = B/w 1025px to 1280px
+    */
+
+    @media (min-width: 1025px) and (max-width: 1280px) {
+
+
+    }
+
+    /*
+      ##Device = Tablets, Ipads (portrait)
+      ##Screen = B/w 768px to 1024px
+    */
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+
+
+    }
+
+    /*
+      ##Device = Tablets, Ipads (landscape)
+      ##Screen = B/w 768px to 1024px
+    */
+
+    @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+
+
+    }
+
+    /*
+    Screen = B/w 481px to 767px
+    */
+
+    @media (min-width: 481px) and (max-width: 767px) {
+
+
+
+    }
+
+    /*
+      ##Device = Most of the Smartphones Mobiles (Portrait)
+      ##Screen = B/w 320px to 479px
+    */
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    .menu-item {
+        text-align: center;
+        margin: 10px 22px 0 0;
+
+    }
+    
+    nav ul li a {
+        display: block;
+        color: #797874;
+        font-weight: bold;
+        font-size: 12px;
+    }
+}

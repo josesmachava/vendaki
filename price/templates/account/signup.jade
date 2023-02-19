@@ -42,18 +42,18 @@ main
                                 <input type="hidden" name="next" value="{{ next }}">
                                 .row
                                     .col-6
-                                        {{ form.first_name|as_crispy_field }}
+                                        {{ form.first_name|as_crispy_field:"bootstrap5" } }}
                                     
                                     .col-6
-                                        {{ form.last_name|as_crispy_field }}
+                                        {{ form.last_name|as_crispy_field:"bootstrap5" }}
                                     
-                                {{ form.email|as_crispy_field }}
+                                {{ form.email|as_crispy_field:"bootstrap5" }}
                                 .row
                                     .col-6
-                                        {{ form.password1|as_crispy_field }}
+                                        {{ form.password1|as_crispy_field:"bootstrap5" }}
                                     
                                     .col-6
-                                        {{ form.password2|as_crispy_field }}
+                                        {{ form.password2|as_crispy_field:"bootstrap5"d }}
                                     
                                 
 

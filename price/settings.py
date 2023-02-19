@@ -17,7 +17,6 @@ from django.contrib.messages import constants as messages
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -29,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]']
 
-
 ROOT_URLCONF = 'price.urls'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'mail.preco.co.mz'
@@ -40,13 +38,12 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'conta@preco.co.mz'
 
 MESSAGE_TAGS = {
-        messages.DEBUG: 'alert-secondary',
-        messages.INFO: 'alert-info',
-        messages.SUCCESS: 'alert-success',
-        messages.WARNING: 'alert-warning',
-        messages.ERROR: 'alert-danger',
- }
-
+    messages.DEBUG: 'alert-secondary',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
 
 # Application definition
 
@@ -61,8 +58,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'crispy_forms',
+    'crispy_bootstrap5',
     's3direct',
-
+    'tinymce',
 
     'about',
     'account',
@@ -74,17 +72,13 @@ INSTALLED_APPS = [
 ]
 SITE_ID = 1
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
-
-
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 AUTH_USER_MODEL = 'account.User'
-
-
-SECURE_SSL_REDIRECT = True
 
 LOGOUT_REDIRECT_URL = '/'
 
-LOGIN_URL='signin'
+LOGIN_URL = 'signin'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -103,9 +97,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'price.urls'
 
-
 GRAPHENE = {
-    'SCHEMA': 'price.schema.schema' # Where your Graphene schema lives
+    'SCHEMA': 'price.schema.schema'  # Where your Graphene schema lives
 }
 
 TEMPLATES = [
@@ -138,17 +131,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'price.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 
 try:
     ALLOWED_HOSTS = ['*']
-    from  settings_local import *
+    from .settings_local import *
 except ImportError:
 
-    
     DATABASES = {}
     DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
@@ -188,7 +179,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'price', 'static'),
@@ -204,18 +194,9 @@ EMAIL_HOST_USER = 'conta@preco.co.mz'
 EMAIL_HOST_PASSWORD = '849394995Jose'
 EMAIL_USE_TLS = True
 
-
-
-
 AWS_ACCESS_KEY_ID = 'AKIA4Y4LY4AEPAH4TGNG'
 AWS_SECRET_ACCESS_KEY = 'AA7o9jSak7Jl9ee+jrZNk24oRJn/uOYDkuTsKsnx'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-
-
-
-
-
 
 # The endpoint of your bucket, more info:
 # http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
@@ -245,15 +226,15 @@ S3DIRECT_DESTINATIONS = {
 
         # "bucket" [optional] Bucket if different from AWS_STORAGE_BUCKET_NAME
         #          String: bucket name
-       # 'bucket': 'custom-bucket',
+        # 'bucket': 'custom-bucket',
 
         # "endpoint" [optional] Endpoint if different from AWS_S3_ENDPOINT_URL
         #            String: endpoint URL
-      #  'endpoint': 'custom-endpoint',
+        #  'endpoint': 'custom-endpoint',
 
         # "region" [optional] Region if different from AWS_S3_REGION_NAME
         #          String: region name
-       # 'region': 'custom-region', # Default is 'AWS_S3_REGION_NAME'
+        # 'region': 'custom-region', # Default is 'AWS_S3_REGION_NAME'
 
         # "acl" [optional] Custom ACL for object, default is 'public-read'
         #       String: ACL
@@ -280,7 +261,7 @@ S3DIRECT_DESTINATIONS = {
         #                                Boolean: True, False
         'allow_existence_optimization': False,
     },
-     'pdf': {
+    'pdf': {
         # "key" [required] The location to upload file
         #       1. String: folder path to upload to
         #       2. Function: generate folder path + filename using a function
@@ -296,15 +277,15 @@ S3DIRECT_DESTINATIONS = {
 
         # "bucket" [optional] Bucket if different from AWS_STORAGE_BUCKET_NAME
         #          String: bucket name
-       # 'bucket': 'custom-bucket',
+        # 'bucket': 'custom-bucket',
 
         # "endpoint" [optional] Endpoint if different from AWS_S3_ENDPOINT_URL
         #            String: endpoint URL
-      #  'endpoint': 'custom-endpoint',
+        #  'endpoint': 'custom-endpoint',
 
         # "region" [optional] Region if different from AWS_S3_REGION_NAME
         #          String: region name
-       # 'region': 'custom-region', # Default is 'AWS_S3_REGION_NAME'
+        # 'region': 'custom-region', # Default is 'AWS_S3_REGION_NAME'
 
         # "acl" [optional] Custom ACL for object, default is 'public-read'
         #       String: ACL
@@ -384,7 +365,7 @@ S3DIRECT_DESTINATIONS = {
     },
     'example_destination_two': {
         'key': lambda filename, args: args + '/' + filename,
-    	'key_args': 'uploads/images',
+        'key_args': 'uploads/images',
     }
 }
 

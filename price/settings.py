@@ -58,8 +58,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'crispy_forms',
-    'crispy_bootstrap5',
     's3direct',
+    'django-ninja',
     'tinymce',
 
     'about',

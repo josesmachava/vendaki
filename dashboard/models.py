@@ -7,6 +7,7 @@ from django.template.defaultfilters import slugify
 from django.core.validators import RegexValidator
 from tinymce import models as tinymce_models
 
+
 class SocialMedia(models.Model):
     name = models.CharField(max_length=30, blank=True)
     url = models.URLField()
@@ -22,13 +23,13 @@ class Product(models.Model):
     visible = models.BooleanField(default=False)
     file = S3DirectField(dest='pdf')
     slug = models.SlugField(unique=True)
+
     def __str__(self):
         return f'{self.name}'
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         super(Product, self).save(*args, **kwargs)
-
 
 
 class OrderProduct(models.Model):
@@ -41,6 +42,7 @@ class OrderProduct(models.Model):
                                  message="O número de telefone deve ser digitado no formato: '841234567'. São permitidos até 9 dígitos.")
     número_de_telefone = models.CharField(validators=[phone_regex], max_length=9, blank=True,
                                           unique=False)
+
     def __str__(self):
         return f"{self.quantity} of {self.product.name}"
 
@@ -61,6 +63,7 @@ class Order(models.Model):
                                  message="O número de telefone deve ser digitado no formato: '841234567'. São permitidos até 9 dígitos.")
     número_de_telefone = models.CharField(validators=[phone_regex], max_length=9, blank=True,
                                           unique=False)
+
     def __str__(self):
         return self.store.name
 
@@ -69,5 +72,3 @@ class Order(models.Model):
         for order_product in self.product.all():
             total += order_product.get_final_product_price()
         return total
-
-

@@ -1,37 +1,28 @@
-import os
-
-from django.contrib import messages
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView, FormView
-from django.views.static import serve
-from django.db.models.functions import Coalesce
-from django.db.models import Sum, Count
-from payment.forms import PaymentForm
-from payment.models import Payment
-from .forms import ProductForm
-from .models import Product, Order, OrderProduct
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+
 # Create your views here.
 from account.models import User, Store
+from payment.models import Payment
+from .forms import ProductForm
+from .models import Product
 
 
 def index(request):
     user = request.user
     store = Store.objects.get(user=user)
-   
+
     payments = Payment.objects.filter(store=store.id, status_code=201)
     total_sum = 0
     for i in payments:
         total_sum += int(i.order.product.price)
-    
-    total_products = Product.objects.filter(store=store.id).count()
-    
 
-    
-    
-    return render(request, "dashboard/index.jade", {'total_products': total_products, 'total_sum':total_sum,
-                                                    'payments':payments})
+    total_products = Product.objects.filter(store=store.id).count()
+
+    return render(request, "dashboard/index.jade", {'total_products': total_products, 'total_sum': total_sum,
+                                                    'payments': payments})
 
 
 # @method_decorator(login_required, name='dispatch')
@@ -40,12 +31,11 @@ class ProductCreateView(CreateView):
 
     template_name = 'dashboard/product/create.jade'
     success_url = reverse_lazy('product-list')
-   
+
     def form_valid(self, form):
         user = self.request.user
         store = Store.objects.get(user=user)
         form.instance.store = store
-        
 
         return super(ProductCreateView, self).form_valid(form)
 
@@ -143,5 +133,3 @@ class UserDeleteView(DeleteView):
     model = User
     template_name = 'dashboard/user/delete.html'
     success_url = reverse_lazy('user-list')
-
-

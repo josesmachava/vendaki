@@ -15,8 +15,9 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from django.conf.urls.static import static # new
-    
+from django.conf.urls.static import static  # new
+
+from api.router import api
 from price import settings
 from store.views import store, store_product
 from . import views
@@ -26,25 +27,20 @@ urlpatterns = [
     path('account/', include("account.urls")),
     path('about/', include("about.urls")),
     path('admin/', admin.site.urls),
+    path("api/", api.urls),
     path('s3direct/', include('s3direct.urls')),
     path('tinymce/', include('tinymce.urls')),
     path("", views.index, name="index"),
     path('<str:slug>/<str:slug_product>', store_product, name="product"),
     path('<str:slug>/', store, name="store"),
 
-
     path("dashboard/", include("dashboard.urls")),
     path("store/", include("store.urls")),
 
 ]
 
-
-
-
 handler404 = "price.views.handler404"
 handler500 = "price.views.handler500"
 
-
-
-if settings.DEBUG: # new
+if settings.DEBUG:  # new
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

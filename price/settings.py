@@ -300,7 +300,7 @@ S3DIRECT_DESTINATIONS = {
 
         # "content_length_range" [optional] Limit file size
         #                        Tuple: (from, to) in bytes
-        'content_length_range': (1000, 120000000),
+        'content_length_range': (1, 120000000),
 
         # "server_side_encryption" [optional] Use serverside encryption
         #                          String: encrytion standard

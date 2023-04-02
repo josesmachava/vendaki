@@ -8,6 +8,8 @@ from account.models import Store
 from dashboard.models import OrderProduct, Product, Order
 from payment.forms import PaymentForm
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView, FormView
+
+from payment.service import sandbox_create_mpesa_payment
 from .forms import StoreForm, StoreUpdateForm, StoreUpdateNameForm
 from django.urls import reverse_lazy
 
@@ -83,24 +85,15 @@ def store_product(request, slug, slug_product):
                 payment = form.save(commit=False)
                 payment.name = name
                 payment.número_de_telefone = número_de_telefone
-                payment.order = order
+                payment.order = order_product
 
-                API_ENDPOINT = "https://development-xindiri.herokuapp.com/v1/payments/"
-                data = {
+                response = sandbox_create_mpesa_payment(product.price, payment.número_de_telefone)
 
-                    'phone_number': payment.número_de_telefone,
-                    'amount': product.price,
-                    'api_key': 'a0a9fe0bf9178657835ab0ad4b033f9f',
 
-                }
+                status_code =   response["output_ResponseCode"]
+                print(status_code)
 
-                payment_data = requests.post(url=API_ENDPOINT, data=data)
-                print(payment_data)
-                response = json.loads(payment_data.text)
-
-                status_code = response["transaction_status_code"]
-
-                if status_code == 201 or status_code == 200:
+                if status_code == "INS-0":
 
                     order_product.ordered = True
                     order_product.name = name
@@ -111,21 +104,22 @@ def store_product(request, slug, slug_product):
                     order.ordered = True
                     order.save()
                     payment.status_code = status_code
-                    payment.save()
+                    # payment.store.id = store.id
+                    # payment.save()
                     return redirect('download', payment.número_de_telefone, product.id)
 
                 else:
-                    error_message = response['transaction_status']
+                    error_message = response["output_ResponseDesc"]
                     order_product.name = name
                     order_product.número_de_telefone = número_de_telefone
+                    order_product.store.id  = store.id
 
                     order_product.save()
-
                     order.name = name
                     order.número_de_telefone = número_de_telefone
                     order.save()
                     payment.status_code = status_code
-                    payment.save()
+                    # payment.save()
                     messages.error(request, error_message)
                     form = PaymentForm()
 
@@ -144,7 +138,8 @@ def store_product(request, slug, slug_product):
 
 
 def download(request, number, pk):
-    payment = OrderProduct.objects.get(número_de_telefone=number, product=pk, ordered=True)
+    payment =   Order.objects.get(número_de_telefone=number, product=pk, ordered=True)
+    print(payment)
     product = Product.objects.get(pk=payment.product.pk)
 
     return render(request, 'store/download.jade', {"product": product})

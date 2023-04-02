@@ -81,9 +81,8 @@ def create_mpesa_payment(amount, msisdn):
     print(make_payment.status_code)
     print(make_payment.json())
     out = make_payment.json()
-    print(out["output_ResponseCode"])
 
-    return make_payment
+    return out
 
 
 

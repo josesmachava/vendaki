@@ -140,7 +140,7 @@ DATABASES = {'default': dj_database_url.config()}
 
 try:
 
-    from settings_local import *
+    from .settings_local import *
 
 except Exception as e:
     pass

@@ -134,15 +134,16 @@ WSGI_APPLICATION = 'price.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+ALLOWED_HOSTS = ['*']
+
+DATABASES = {'default': dj_database_url.config()}
 
 try:
-    ALLOWED_HOSTS = ['*']
-    from .settings_local import *
-except ImportError:
 
-    DATABASES = {}
-    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+    from settings_local import *
 
+except Exception as e:
+    pass
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 

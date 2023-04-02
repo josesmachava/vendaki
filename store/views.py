@@ -9,7 +9,7 @@ from dashboard.models import OrderProduct, Product, Order
 from payment.forms import PaymentForm
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView, FormView
 
-from payment.service import sandbox_create_mpesa_payment
+from payment.service import sandbox_create_mpesa_payment, create_mpesa_payment
 from .forms import StoreForm, StoreUpdateForm, StoreUpdateNameForm
 from django.urls import reverse_lazy
 
@@ -87,7 +87,7 @@ def store_product(request, slug, slug_product):
                 payment.número_de_telefone = número_de_telefone
                 payment.order = order_product
 
-                response = sandbox_create_mpesa_payment(product.price, payment.número_de_telefone)
+                response = create_mpesa_payment(product.price, payment.número_de_telefone)
 
 
                 status_code =   response["output_ResponseCode"]
@@ -138,7 +138,7 @@ def store_product(request, slug, slug_product):
 
 
 def download(request, number, pk):
-    payment =   Order.objects.get(número_de_telefone=number, product=pk, ordered=True)
+    payment = OrderProduct.objects.get(número_de_telefone=number, product=pk, ordered=True)
     print(payment)
     product = Product.objects.get(pk=payment.product.pk)
 

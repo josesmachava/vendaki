@@ -35,14 +35,14 @@ main
     .container
         .row
            .col-md-7
-                img(src="{{ product.image }}", alt="{{ product.name }}", class="product-image")
+                img(src="{{ product.image }}", alt="{{ product.name }}", class="product-image", style="width: 200px;")
            .col-md-4
                 h1.product-name.text-center.text-capitalize {{ product.name }}
 
 
 
                 button.btn.btn-primary
-                    a(href="{{product.file }}") Download
+                    a(href="{{product.file }}", style="color: white;") Download
 
 
 

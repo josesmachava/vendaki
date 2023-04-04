@@ -42,12 +42,16 @@ nav ul li a{
 nav ul li a:hover{
     text-decoration: none;
 }
-
+.product{
+    margin-top: 100px;
+}
+.product-store-name{
+    font-size: 18px;
+}
 .product-image {
     display: block;
-    width: 400px;
-    margin: 0 auto;
-    margin-top: 20px;
+    width: 350px;
+    margin-top: 50px;
 }
 
 .product-name {

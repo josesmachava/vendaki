@@ -32,37 +32,32 @@ link(rel="stylesheet",   href="https://use.fontawesome.com/releases/v5.7.2/css/a
 {% block content %}
 
 main
-    .container-fluid
-        .row
-            .col-md-12
+
+
+
+
+    .container.h-100.product
+        .row.h-100.justify-content-center.align-items-center
+
+           .col-md-7
                 {% if store.logo %}
-                h1.text-center
+                h1.product-store-name
                     a(href="{% url 'store' store.name %}")
                         img(src="{{ store.logo }}", alt="{{ store.name }}", class="store-logo")
 
                 {% else %}
-                h1.text-center
+                h2.product-store-name
                     a(href="{% url 'store' store.name %}") {{ store.name }}
                 {% endif %}
-            .col-md-12
-                nav
-                    ul.text-center
-                        li
-                            a(href="{% url 'store' store.name %}")  página inicial
-                        li
-                            a(href="{% url 'store' store.name %}")  Produtos
 
+                h3.product-name.text-capitalize {{ product.name }}
+                h4.product-price.text-capitalize {{ product.price }} MT
 
-    .container
-        .row
-
-           .col-md-7
+                div
+                    {{ product.description|safe }}
                 img(src="{{ product.image }}", alt="{{ product.name }}", class="product-image")
            .col-md-4
-                h1.product-name.text-center.text-capitalize {{ product.name }}
-                div.text-center
-                    {{ product.description|safe }}
-                h2.product-price.text-center.text-capitalize {{ product.price }} MT
+
                 .card-content.card
                     .tip-message
 
@@ -82,15 +77,15 @@ main
                     form(method="POST")
                         {% csrf_token %}
                         {{ form.name|as_crispy_field }}
-                        <small id="emailHelp" class="form-text text-muted">Digite o seu número 84 para efectuar o pagamento.</small>
+                        <small id="emailHelp" class="form-text text-muted">Digite o seu número 84/85 para efectuar o pagamento.</small>
 
                         {{ form.número_de_telefone|as_crispy_field }}
                         div.d-flex.justify-content-center
                             button.btn.btn-primary Comprar
 
 
-        .col-md-12
-            {% include "store/layout/footer.jade" %}
+           .col-md-12
+                {% include "store/layout/footer.jade" %}
 
 
 script().

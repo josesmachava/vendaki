@@ -7,7 +7,7 @@
 {% load crispy_forms_tags %}
 {# overide the tile of the page #}
 {% block title %}
-<title>Eskina </title>
+<title>{{ store.name }} - {{ product.name }} </title>
 {% endblock %}
 {% block styles %}
 {#    only include css  files needed for thi page bootstap and other libs are add in base template #}

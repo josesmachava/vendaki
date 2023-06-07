@@ -138,12 +138,12 @@ ALLOWED_HOSTS = ['*']
 
 DATABASES = {'default': dj_database_url.config()}
 #
-# try:
-#
-#     from .settings_local import *
-#
-# except Exception as e:
-#     pass
+try:
+
+    from settings_local import *
+
+except Exception as e:
+    pass
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 

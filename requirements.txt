@@ -1,4 +1,4 @@
-crispy-bootstrap5==0.7
+crispy-boot strap5==0.7
 dj-database-url==1.2.0
 Django==4.1.7
 django-crispy-forms==2.0

@@ -14,7 +14,7 @@ def index(request):
     user = request.user
     store = Store.objects.get(user=user)
 
-    payments = Payment.objects.filter(store=store.id, status_code=201)
+    payments = Payment.objects.filter(store=store.id, status_code="INS-0")
     total_sum = 0
     for i in payments:
         total_sum += int(i.order.product.price)

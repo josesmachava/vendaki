@@ -87,7 +87,7 @@ def store_product(request, slug, slug_product):
                 payment.número_de_telefone = número_de_telefone
                 payment.order = order_product
 
-                response = create_mpesa_payment(product.price, payment.número_de_telefone)
+                response = sandbox_create_mpesa_payment(product.price, payment.número_de_telefone)
 
 
                 status_code =   response["output_ResponseCode"]
@@ -104,9 +104,9 @@ def store_product(request, slug, slug_product):
                     order.ordered = True
                     order.save()
                     payment.status_code = status_code
-                    # payment.store.id = store.id
-                    # payment.save()
-                    return redirect('download', payment.número_de_telefone, product.id)
+                    payment.store = store
+                    payment.save()
+                    return redirect('download', payment.número_de_telefone, product.id, order_product.id)
 
                 else:
                     error_message = response["output_ResponseDesc"]
@@ -137,9 +137,8 @@ def store_product(request, slug, slug_product):
 
 
 
-def download(request, number, pk):
-    payment = OrderProduct.objects.get(número_de_telefone=number, product=pk, ordered=True)
-    print(payment)
+def download(request, number, pk, order_id):
+    payment = OrderProduct.objects.get(id=order_id, número_de_telefone=number, product=pk, ordered=True)
     product = Product.objects.get(pk=payment.product.pk)
 
     return render(request, 'store/download.jade', {"product": product})

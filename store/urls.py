@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     
-    path('download/<int:number>/<int:pk>/', views.download   , name='download'),
+    path('download/<int:number>/<int:pk>/<int:order_id>/', views.download   , name='download'),
     path('create', login_required(views.StoreCreateView.as_view()),
         name='store-create'),
     path('update/<pk>', login_required(views.StoreUpdateView.as_view()), name="update-store"),

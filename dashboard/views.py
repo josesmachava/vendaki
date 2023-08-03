@@ -27,18 +27,20 @@ def index(request):
 
 # @method_decorator(login_required, name='dispatch')
 class ProductCreateView(CreateView):
+
+    model = Product
+    template_name = 'dashboard/product/create.jade'
     form_class = ProductForm
 
-    template_name = 'dashboard/product/create.jade'
-    success_url = reverse_lazy('product-list')
+    def get_success_url(self):
+        return reverse_lazy('product-list')
+
 
     def form_valid(self, form):
         user = self.request.user
         store = Store.objects.get(user=user)
         form.instance.store = store
-
-        return super(ProductCreateView, self).form_valid(form)
-
+        return super().form_valid(form)
 
 class ProductListView(ListView):
     model = Product

@@ -29,14 +29,10 @@ DEBUG = True
 ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]']
 
 ROOT_URLCONF = 'price.urls'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'mail.preco.co.mz'
-EMAIL_PORT = 26
-EMAIL_HOST_USER = 'conta@preco.co.mz'
-EMAIL_HOST_PASSWORD = '849394995Jose'
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'conta@preco.co.mz'
-
+EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
+SENDGRID_SANDBOX_MODE_IN_DEBUG=False
+SENDGRID_API_KEY = "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"
+# SENDGRID_API_KEY = os.environ["SENDGRID_API_KEY"]
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-secondary',
     messages.INFO: 'alert-info',

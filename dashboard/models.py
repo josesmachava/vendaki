@@ -7,7 +7,8 @@ from django.template.defaultfilters import slugify
 from django.core.validators import RegexValidator
 from tinymce import models as tinymce_models
 
-
+from django.db.models.signals import post_save, pre_delete
+from django.dispatch import receiver
 class SocialMedia(models.Model):
     name = models.CharField(max_length=30, blank=True)
     url = models.URLField()
@@ -29,7 +30,6 @@ class Product(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
-        print(self.slug)
 
         super(Product, self).save(*args, **kwargs)
 
@@ -53,6 +53,7 @@ class OrderProduct(models.Model):
 
     def get_final_product_price(self):
         return self.get_total_product_price()
+
 
 
 class Order(models.Model):

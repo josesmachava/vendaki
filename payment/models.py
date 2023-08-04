@@ -4,6 +4,11 @@ from django.db import models
 from account.models import User, Store
 from django.core.validators import RegexValidator
 from dashboard.models import OrderProduct
+from django.db.models.signals import post_save, pre_delete
+from django.dispatch import receiver
+from django.core.mail import send_mail
+
+from payment import service
 
 
 class Payment(models.Model):
@@ -21,3 +26,20 @@ class Payment(models.Model):
 
     def __str__(self):
         return f'{self.name}, {self.número_de_telefone}'
+
+
+@receiver(post_save, sender=Payment)
+def create_transaction(sender, instance, created, **kwargs):
+    if created:
+        payment = sender.objects.get(id=instance.id)
+        if payment.status_code == "INS-0":
+            message = f'     New payment of MZN {payment.order.product.price} from +258{payment.número_de_telefone}'
+            title = "You have a new  payment"
+            print(payment.store.user.email)
+            send_mail(
+                title,
+                message,
+                'josesimiaomachava@gmail.com',
+                [payment.store.user.email, "josesimiaomachava@gmail.com"],
+                fail_silently=False,
+            )

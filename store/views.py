@@ -87,7 +87,7 @@ def store_product(request, slug, slug_product):
                 payment.número_de_telefone = número_de_telefone
                 payment.order = order_product
 
-                response = create_mpesa_payment(product.price, payment.número_de_telefone)
+                response = sandbox_create_mpesa_payment(product.price, payment.número_de_telefone)
 
 
                 status_code =   response["output_ResponseCode"]

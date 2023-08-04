@@ -16,3 +16,5 @@ requests==2.28.2
 whitenoise==6.3.0
 pycryptodome==3.16.0
 sendgrid==6.10.0
+sendgrid-django==4.2.0
+

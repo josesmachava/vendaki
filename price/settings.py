@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['.localhost', '127.0.0.1', '[::1]']
 ROOT_URLCONF = 'price.urls'
 EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
 SENDGRID_SANDBOX_MODE_IN_DEBUG=False
-SENDGRID_API_KEY = os.environ["clea"]
+SENDGRID_API_KEY = os.environ["SENDGRID_API_KEY"]
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-secondary',
     messages.INFO: 'alert-info',
@@ -184,13 +184,10 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-EMAIL_HOST = 'mail.preco.co.mz'
-EMAIL_PORT = 26
-EMAIL_HOST_USER = 'conta@preco.co.mz'
-EMAIL_HOST_PASSWORD = '849394995Jose'
-EMAIL_USE_TLS = True
-AWS_ACCESS_KEY_ID = 'AKIAVTSRQIYM6MRTOM5S'
-AWS_SECRET_ACCESS_KEY = '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'
+
+AWS_ACCESS_KEY_ID = os.environ["AWS_ACCESS_KEY_ID"]
+AWS_SECRET_ACCESS_KEY = os.environ["AWS_SECRET_ACCESS_KEY"]
+
 
 # Bucket name
 AWS_STORAGE_BUCKET_NAME = 'kutivacontent'

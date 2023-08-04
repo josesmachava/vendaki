@@ -33,7 +33,7 @@ def create_transaction(sender, instance, created, **kwargs):
     if created:
         payment = sender.objects.get(id=instance.id)
         if payment.status_code == "INS-0":
-            message = f'     New payment of MZN {payment.order.product.price} from +258{payment.número_de_telefone}'
+            message = f'New payment of MZN {payment.order.product.price} from +258{payment.número_de_telefone}'
             title = "You have a new  payment"
             print(payment.store.user.email)
             send_mail(

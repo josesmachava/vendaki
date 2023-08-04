@@ -14,7 +14,6 @@ from .forms import StoreForm, StoreUpdateForm, StoreUpdateNameForm
 from django.urls import reverse_lazy
 
 
-
 def store(request, slug):
     try:
         store = Store.objects.get(slug=slug)
@@ -23,7 +22,7 @@ def store(request, slug):
 
 
     except Store.DoesNotExist:
-            raise Http404
+        raise Http404
 
 
 class StoreCreateView(CreateView):
@@ -33,34 +32,30 @@ class StoreCreateView(CreateView):
     success_url = reverse_lazy('product-list')
 
     def form_valid(self, form):
-        #form.instance.created_by = self.request.user
         return super(StoreCreateView, self).form_valid(form)
 
 
-
-class   StoreUpdateNameView(UpdateView):
-    # template_name_suffix = 'account/edit.html'
+class StoreUpdateNameView(UpdateView):
     template_name = "store/update-name.pug"
     form_class = StoreUpdateNameForm
     model = Store
 
     def get_success_url(self, **kwargs):
         store_id = self.request.user.store.id
-        return  reverse_lazy('update-store', kwargs={'pk': store_id} )
+        return reverse_lazy('update-store', kwargs={'pk': store_id})
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
 
 
-class   StoreUpdateView(UpdateView):
-    # template_name_suffix = 'account/edit.html'
+class StoreUpdateView(UpdateView):
     template_name = "store/update.pug"
     form_class = StoreUpdateForm
     model = Store
 
     def get_success_url(self, **kwargs):
-        return  reverse_lazy('dashboard')
+        return reverse_lazy('dashboard')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -89,10 +84,7 @@ def store_product(request, slug, slug_product):
 
                 response = sandbox_create_mpesa_payment(product.price, payment.número_de_telefone)
 
-
-                status_code =   response["output_ResponseCode"]
-                print(status_code)
-
+                status_code = response["output_ResponseCode"]
                 if status_code == "INS-0":
 
                     order_product.ordered = True
@@ -112,7 +104,7 @@ def store_product(request, slug, slug_product):
                     error_message = response["output_ResponseDesc"]
                     order_product.name = name
                     order_product.número_de_telefone = número_de_telefone
-                    order_product.store.id  = store.id
+                    order_product.store.id = store.id
 
                     order_product.save()
                     order.name = name
@@ -130,14 +122,11 @@ def store_product(request, slug, slug_product):
 
 
     except Product.DoesNotExist:
-            raise Http404
-
-    
+        raise Http404
 
 
-
-def download(request, number, pk, order_id):
-    payment = OrderProduct.objects.get(id=order_id, número_de_telefone=number, product=pk, ordered=True)
+def download(request, phone_number, product_id, order_id):
+    payment = OrderProduct.objects.get(id=order_id, número_de_telefone=phone_number, product=product_id, ordered=True)
     product = Product.objects.get(pk=payment.product.pk)
 
     return render(request, 'store/download.jade', {"product": product})
